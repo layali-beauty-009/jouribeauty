@@ -1,0 +1,9 @@
+.git
+.gitignore
+**/node_modules
+**/.next
+backend
+docker-compose.yml
+README.md
+*.md
+!frontend/**
