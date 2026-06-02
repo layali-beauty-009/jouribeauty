@@ -1,0 +1,26 @@
+import type { Product } from "@/lib/api";
+import { ProductShowcaseCard } from "./ProductShowcaseCard";
+
+type Props = {
+  label: string;
+  title: string;
+  subtitle: string;
+  products: Product[];
+};
+
+export function FeaturedProducts({ label, title, subtitle, products }: Props) {
+  return (
+    <section className="px-4 py-14 bg-cream" id="products">
+      <div className="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto text-center mb-10">
+        <p className="text-xs tracking-[0.35em] uppercase text-accent font-medium">{label}</p>
+        <h2 className="font-serif text-2xl md:text-3xl text-navy mt-3 leading-snug">{title}</h2>
+        <p className="mt-3 text-sm text-muted leading-relaxed">{subtitle}</p>
+      </div>
+      <div className="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto space-y-8">
+        {products.map((p) => (
+          <ProductShowcaseCard key={p.id} product={p} />
+        ))}
+      </div>
+    </section>
+  );
+}

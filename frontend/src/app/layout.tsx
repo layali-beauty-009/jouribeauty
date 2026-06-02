@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Outfit } from "next/font/google";
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+import { SiteHeader } from "@/components/home/SiteHeader";
+import { SiteFooter } from "@/components/home/SiteFooter";
 import { AnalyticsPixels } from "@/components/AnalyticsPixels";
 import "./globals.css";
 
@@ -13,7 +13,7 @@ const serif = Cormorant_Garamond({
 
 const sans = Outfit({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-sans",
 });
 
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Jouri Beauty",
   },
   description:
-    "Three targeted serums for eyes, anti-aging, and barrier repair. Jouri Beauty — luxury skincare for the UAE.",
+    "Three targeted serums for eyes, anti-aging, and barrier repair. Cash on delivery across the UAE.",
   openGraph: {
     siteName: "Jouri Beauty",
     locale: "en_AE",
@@ -41,11 +41,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
-      <body className="min-h-screen flex flex-col antialiased">
+      <body className="min-h-screen flex flex-col bg-cream text-ink antialiased">
         <AnalyticsPixels />
-        <Header />
+        <SiteHeader />
         <main className="flex-1">{children}</main>
-        <Footer />
+        <SiteFooter />
       </body>
     </html>
   );

@@ -3,6 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getProduct, getProducts, formatPrice } from "@/lib/api";
 import { getProductTheme } from "@/lib/productTheme";
+import { productsMarketing } from "@/config/productsMarketing";
+import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { business } from "@/config/business";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -27,99 +30,85 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
 
   const theme = getProductTheme(slug);
+  const meta = productsMarketing[slug];
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
-      <Link
-        href="/products"
-        className={`text-sm text-muted ${theme.hoverAccent} transition-colors`}
-      >
-        ← All serums
-      </Link>
-
-      <div className="mt-8 grid lg:grid-cols-2 gap-16">
-        <div
-          className={`aspect-square bg-gradient-to-br ${theme.gradient} border ${theme.border} flex flex-col items-center justify-center p-12 shadow-inner`}
+    <div className="max-w-lg md:max-w-2xl mx-auto px-4 py-6 pb-16">
+      {/* Price / back bar */}
+      <div className="flex items-center justify-between bg-ice/40 rounded-2xl px-4 py-3 mb-4 border border-mist">
+        <Link
+          href="/#products"
+          className="w-10 h-10 rounded-full bg-navy text-pearl flex items-center justify-center text-sm hover:bg-royal transition-colors"
+          aria-label="Back to products"
         >
-          <span className={`text-xs tracking-[0.3em] uppercase ${theme.accent} font-medium`}>
-            {product.category}
+          ←
+        </Link>
+        <div className="text-right">
+          <p className="text-[10px] uppercase tracking-wider text-muted">From</p>
+          <p className="font-semibold text-navy">{formatPrice(product.priceAed)}</p>
+        </div>
+      </div>
+
+      <article className="bg-white rounded-3xl border border-mist shadow-sm overflow-hidden">
+        <div className="p-3">
+          <span
+            className={`inline-block mb-2 text-[10px] font-medium px-3 py-1 rounded-full border ${theme.pill}`}
+          >
+            {meta?.badgeText} • {meta?.routineLabel}
           </span>
-          <h1 className="font-serif text-4xl md:text-5xl text-center mt-4 text-navy leading-tight">
-            {product.name}
-          </h1>
-          <p className="mt-3 text-muted">{product.volume}</p>
+          <ImagePlaceholder slug={slug} label={product.name} className="rounded-2xl" />
         </div>
 
-        <div>
-          <p className={`font-serif text-2xl ${theme.accent} italic`}>{product.tagline}</p>
-          <p className="mt-6 text-3xl font-medium text-navy">{formatPrice(product.priceAed)}</p>
-          <p className="mt-6 text-muted leading-relaxed">{product.description}</p>
+        <div className="p-5">
+          <h1 className="font-serif text-2xl text-navy leading-snug">{product.name}</h1>
+          <p className={`mt-2 font-serif italic ${theme.accent}`}>{product.tagline}</p>
+          <p className="mt-4 text-sm text-muted leading-relaxed">{product.description}</p>
 
-          <div className="mt-8">
-            <p className="text-xs tracking-[0.25em] uppercase text-muted mb-3">
-              Key ingredients
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {product.keyIngredients.map((ing) => (
-                <span
-                  key={ing}
-                  className={`text-xs border px-3 py-1.5 ${theme.pill}`}
-                >
-                  {ing}
-                </span>
-              ))}
+          {meta && (
+            <div className="mt-4 flex items-center gap-2">
+              <span className="text-accent text-sm">{"★".repeat(Math.round(meta.rating))}</span>
+              <span className="text-xs text-muted">({meta.reviewsCount} reviews)</span>
             </div>
-          </div>
+          )}
 
-          <div className="mt-8">
-            <p className="text-xs tracking-[0.25em] uppercase text-muted mb-3">Benefits</p>
-            <div className="flex flex-wrap gap-2">
-              {product.features.map((f) => (
-                <span key={f} className="text-xs bg-navy text-pearl px-3 py-1.5">
-                  {f}
-                </span>
-              ))}
-            </div>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {product.keyIngredients.map((ing) => (
+              <span key={ing} className={`text-xs border px-3 py-1.5 rounded-full ${theme.pill}`}>
+                {ing}
+              </span>
+            ))}
           </div>
 
           <button
             type="button"
-            className="mt-10 w-full md:w-auto bg-navy text-pearl px-10 py-4 text-sm tracking-[0.2em] uppercase hover:bg-royal transition-colors cursor-pointer"
+            className="mt-8 w-full bg-navy text-pearl rounded-full py-4 text-sm font-medium tracking-wide hover:bg-royal transition-colors"
           >
-            Add to bag — Coming soon
+            Order — {business.cod.label}
           </button>
+          <p className="text-center text-xs text-muted mt-2">{business.cod.note}</p>
         </div>
-      </div>
+      </article>
 
-      <section className="mt-24">
-        <h2 className="font-serif text-3xl text-navy mb-2">Problem → Solution</h2>
-        <p className="text-muted mb-10 max-w-xl">
-          What this serum treats and how it works for your skin.
-        </p>
-        <div className="space-y-6">
+      <section className="mt-10">
+        <h2 className="font-serif text-xl text-navy mb-4">Problem → Solution</h2>
+        <div className="space-y-3">
           {product.benefits.map((b, i) => (
             <div
               key={b.id}
-              className={`grid md:grid-cols-2 gap-6 border ${theme.border} p-6 md:p-8 bg-white/60`}
+              className={`bg-white rounded-2xl border ${theme.border} p-5`}
             >
-              <div>
-                <span className={`text-xs ${theme.accent} font-medium`}>
-                  Problem {i + 1}
-                </span>
-                <p className="mt-2 text-ink">{b.problem}</p>
-              </div>
-              <div>
-                <span className={`text-xs ${theme.accent} font-medium`}>Solution</span>
-                <p className="mt-2 text-muted">{b.solution}</p>
-              </div>
+              <p className={`text-xs font-medium ${theme.accent}`}>Problem {i + 1}</p>
+              <p className="mt-1 text-sm text-navy font-medium">{b.problem}</p>
+              <p className={`text-xs font-medium mt-3 ${theme.accent}`}>Solution</p>
+              <p className="mt-1 text-sm text-muted">{b.solution}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="mt-16 border-t border-mist pt-12">
-        <h3 className="font-serif text-2xl text-navy mb-4">How to use</h3>
-        <p className="text-muted leading-relaxed max-w-2xl">{product.usage}</p>
+      <section className="mt-10 bg-white rounded-2xl border border-mist p-5">
+        <h3 className="font-serif text-lg text-navy mb-2">How to use</h3>
+        <p className="text-sm text-muted leading-relaxed">{product.usage}</p>
       </section>
     </div>
   );

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getProducts } from "@/lib/api";
-import { ProductCard } from "@/components/ProductCard";
+import { fallbackProducts } from "@/lib/fallbackProducts";
+import { ProductShowcaseCard } from "@/components/home/ProductShowcaseCard";
 
 export const metadata: Metadata = {
   title: "Serums",
@@ -8,19 +10,21 @@ export const metadata: Metadata = {
 };
 
 export default async function ProductsPage() {
-  const products = await getProducts().catch(() => []);
+  const products = await getProducts().catch(() => fallbackProducts);
+  const list = products.length ? products : fallbackProducts;
 
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
-      <p className="text-xs tracking-[0.35em] uppercase text-royal mb-3 font-medium">Shop</p>
-      <h1 className="font-serif text-5xl text-navy mb-4">All Serums</h1>
-      <p className="text-muted max-w-2xl mb-14 leading-relaxed">
-        Each Jouri Beauty serum is built around a skin problem and a proven
-        solution. Choose the formula that matches your concern.
+    <div className="px-4 py-8 max-w-lg md:max-w-2xl mx-auto">
+      <Link href="/" className="text-sm text-muted hover:text-royal">
+        ← Home
+      </Link>
+      <h1 className="font-serif text-3xl text-navy mt-4">All serums</h1>
+      <p className="text-sm text-muted mt-2 mb-8">
+        Three formulas. Pick your concern.
       </p>
-      <div className="grid md:grid-cols-3 gap-8">
-        {products.map((p) => (
-          <ProductCard key={p.id} product={p} />
+      <div className="space-y-8">
+        {list.map((p) => (
+          <ProductShowcaseCard key={p.id} product={p} />
         ))}
       </div>
     </div>
