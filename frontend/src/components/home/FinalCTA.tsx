@@ -27,7 +27,7 @@ export function FinalCTA({
           <p className="mt-4 text-sm text-pearl/85 leading-relaxed">{subtitle}</p>
           <Link
             href="/products"
-            className="mt-8 inline-flex items-center justify-center gap-2 bg-accent text-navy font-semibold rounded-full py-3.5 px-10 text-sm hover:opacity-90 transition-opacity"
+            className="mt-8 inline-flex items-center justify-center gap-2 bg-electric text-teal-dark font-semibold rounded-full py-3.5 px-10 text-sm hover:opacity-90 transition-opacity"
           >
             {cta}
             <span aria-hidden>→</span>

@@ -163,7 +163,7 @@ export const products: ProductConfig[] = [
     insightStat: {
       value: "٧٨٪",
       text: "من عميلاتنا في الإمارات يذكرن انتفاخ العين صباحاً كأول همّ",
-      source: "استطلاع عملاء جوري بيوتي ٢٠٢٥",
+      source: "استطلاع عملاء جوري للجمال ٢٠٢٥",
     },
     problemAgitation: [
       {

@@ -1,49 +1,66 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { businessConfig } from "@/config/business";
 
 export const metadata: Metadata = {
-  title: "About",
-  description: "Jouri Beauty — premium skincare serums born for the UAE.",
+  title: "من نحن",
+  description: `${businessConfig.brand.nameLocal} — صيدلية السيرومات لبشرة الخليج.`,
 };
 
 export default function AboutPage() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-16">
-      <p className="text-xs tracking-[0.35em] uppercase text-royal mb-3 font-medium">Our Story</p>
-      <h1 className="font-brand text-4xl italic text-navy mb-8">Jouri Beauty</h1>
-      <div className="max-w-2xl space-y-6 text-muted leading-relaxed">
+    <div className="mx-auto max-w-2xl px-4 py-12 md:py-16">
+      <p className="text-[0.65rem] tracking-[0.35em] uppercase text-royal font-semibold mb-3">
+        من نحن
+      </p>
+      <h1 className="font-sans text-2xl md:text-3xl font-bold text-navy mb-2">
+        {businessConfig.brand.nameLocal}
+      </h1>
+      <p className="text-sm text-royal font-medium mb-8">{businessConfig.brand.tagline}</p>
+
+      <div className="space-y-6 text-muted leading-relaxed text-sm">
         <p>
-          <strong className="text-navy font-medium">Jouri</strong> (جوري) means
-          something precious — and that is how we think about your skin. Born in
-          the United Arab Emirates, Jouri Beauty offers three focused serums, each
-          designed to solve one category of concern with clarity and care.
+          <strong className="text-navy font-semibold">جوري</strong> تعني الشيء الثمين — وهكذا
+          نتعامل مع بشرتك. أنشأنا <strong className="text-navy">جوري للجمال</strong> لنكون
+          <strong className="text-navy"> صيدلية السيرومات</strong> في الخليج: ثلاث تركيبات فقط،
+          كل واحدة لهمّ محدد، بمكوّنات نشطة بتركيز واضح.
         </p>
         <p>
-          We believe skincare should be honest: every product tells you the
-          problem it addresses and the solution it delivers. No vague promises —
-          just caffeine for tired eyes, bakuchiol for gentle anti-aging, and
-          copper peptides for barrier repair.
+          لا نبيع عشرات المنتجات العشوائية. نملك ثلاثة سيرومات نفتخر بها — للعين، لمكافحة
+          التجاعيد والبهتان، ولإصلاح البشرة المرهقة — ونشرح لكل واحد:{" "}
+          <span className="text-navy font-medium">المشكلة، المكوّن، الحل، طريقة الاستخدام</span>.
         </p>
         <p>
-          Our formulas use proven actives — retinol, hyaluronic acid, vitamin C,
-          GHK-Cu, and more — in textures suited to life under the Gulf sun.
+          نتحدث بصدق عن جو الإمارات والخليج: المكيف، الشمس، السهر، والسفر. تركيباتنا للعناية
+          بالبشرة فقط — بدون ادعاءات علاجية — مع{" "}
+          {businessConfig.cod.paymentLabel.toLowerCase()} و{businessConfig.cod.returnGuarantee}.
         </p>
-        <div className="flex gap-4 pt-2">
-          <div className="flex-1 rounded-lg bg-gradient-to-br from-royal/20 to-electric/10 p-4 border border-royal/20">
-            <p className="text-xs uppercase tracking-wider text-royal font-medium">Eye</p>
-            <p className="text-sm mt-1 text-ink">Royal blue · 5% Caffeine</p>
+      </div>
+
+      <div className="mt-10 grid gap-3 sm:grid-cols-3">
+        {[
+          { label: "سيروم العين", sub: "كافيين ٥٪ + رولر", tone: "from-royal/20 to-electric/10" },
+          { label: "سيروم التجاعيد", sub: "باكوتشيول", tone: "from-lavender/40 to-lilac/30" },
+          { label: "سيروم الإصلاح", sub: "GHK-Cu", tone: "from-ice/50 to-pearl" },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className={`rounded-2xl border border-mist bg-gradient-to-br ${item.tone} p-4 text-center`}
+          >
+            <p className="text-xs font-bold text-navy">{item.label}</p>
+            <p className="text-[11px] text-muted mt-1">{item.sub}</p>
           </div>
-          <div className="flex-1 rounded-lg bg-gradient-to-br from-lavender to-lilac/50 p-4 border border-lilac">
-            <p className="text-xs uppercase tracking-wider text-lilac-dark font-medium">Face</p>
-            <p className="text-sm mt-1 text-ink">Lavender · Bakuchiol</p>
-          </div>
-          <div className="flex-1 rounded-lg bg-gradient-to-br from-ice to-pearl p-4 border border-ice-dark/40">
-            <p className="text-xs uppercase tracking-wider text-navy font-medium">Repair</p>
-            <p className="text-sm mt-1 text-ink">Ice blue · GHK-Cu</p>
-          </div>
-        </div>
-        <p className="text-navy pt-4">
-          Welcome to jouribeauty.store — your ritual starts here.
-        </p>
+        ))}
+      </div>
+
+      <div className="mt-10 rounded-2xl bg-navy text-pearl p-6 text-center">
+        <p className="text-sm font-semibold">جاهزة لتجربة روتين واضح؟</p>
+        <Link
+          href="/products"
+          className="inline-block mt-4 rounded-full bg-electric text-teal-dark px-8 py-3 text-sm font-semibold hover:opacity-90 transition-opacity"
+        >
+          تصفّحي السيرومات
+        </Link>
       </div>
     </div>
   );

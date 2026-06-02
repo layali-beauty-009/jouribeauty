@@ -21,7 +21,10 @@ export default async function ThankYouPage({ searchParams }: Props) {
           </>
         )}
       </p>
-      <p className="text-sm text-muted mt-4">{businessConfig.cod.paymentLabel}</p>
+      <p className="text-sm text-muted mt-4">
+        {businessConfig.cod.confirmationPromise}. {businessConfig.cod.deliveryPromise}.
+      </p>
+      <p className="text-xs text-royal mt-2">{businessConfig.cod.paymentLabel}</p>
       <Link
         href="/"
         className="inline-block mt-10 rounded-full bg-navy text-pearl px-8 py-3 text-sm font-medium"

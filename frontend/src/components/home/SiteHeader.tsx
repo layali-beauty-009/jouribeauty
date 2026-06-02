@@ -4,17 +4,51 @@ import Link from "next/link";
 import { businessConfig } from "@/config/business";
 import { useCart } from "@/context/CartContext";
 
+const nav = [
+  { href: "/", label: "الرئيسية" },
+  { href: "/products", label: "السيرومات" },
+  { href: "/about", label: "من نحن" },
+];
+
 export function SiteHeader() {
   const { openCart, lines } = useCart();
 
   return (
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-mist">
-      <div className="mx-auto max-w-lg md:max-w-2xl lg:max-w-4xl px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-4">
+      <div className="mx-auto max-w-lg md:max-w-2xl lg:max-w-4xl px-4 py-3 flex items-center justify-between gap-4">
+        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
+          <span
+            className="w-11 h-11 rounded-full bg-navy flex items-center justify-center text-pearl text-lg font-semibold shadow-sm"
+            aria-hidden
+          >
+            {businessConfig.brand.monogram}
+          </span>
+          <span className="text-right leading-tight">
+            <span className="block text-sm font-bold text-navy tracking-tight">
+              {businessConfig.brand.nameLocal}
+            </span>
+            <span className="block text-[0.65rem] font-medium tracking-[0.2em] text-royal uppercase">
+              {businessConfig.brand.nameEnglish}
+            </span>
+          </span>
+        </Link>
+
+        <div className="flex items-center gap-1 sm:gap-2">
+          <nav className="hidden sm:flex items-center gap-1 text-sm text-navy">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="px-3 py-2 rounded-full hover:bg-clinical transition-colors"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
           <button
             type="button"
-            className="p-2 text-navy"
-            aria-label="Menu"
+            className="p-2 text-navy sm:hidden"
+            aria-label="القائمة"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
@@ -23,7 +57,7 @@ export function SiteHeader() {
           <button
             type="button"
             className="p-2 text-navy relative"
-            aria-label="Cart"
+            aria-label="السلة"
             onClick={openCart}
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -35,25 +69,12 @@ export function SiteHeader() {
               />
             </svg>
             {lines.length > 0 && (
-              <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-royal text-[10px] text-pearl flex items-center justify-center">
+              <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-electric text-[10px] text-pearl flex items-center justify-center font-semibold">
                 {lines.length}
               </span>
             )}
           </button>
         </div>
-        <Link href="/" className="flex items-center gap-2">
-          <span className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-accent text-lg">
-            ج
-          </span>
-          <span className="text-right leading-none">
-            <span className="block font-brand text-2xl italic text-navy leading-none">
-              {businessConfig.brand.nameEnglish.split(" ")[0]}
-            </span>
-            <span className="block text-[0.62rem] font-bold tracking-[0.45em] text-accent uppercase mt-0.5">
-              {businessConfig.brand.nameEnglish.split(" ").slice(1).join(" ") || "BEAUTY"}
-            </span>
-          </span>
-        </Link>
       </div>
     </header>
   );

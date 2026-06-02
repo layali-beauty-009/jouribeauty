@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://jouribeauty.store",
   ),
   title: {
-    default: `${businessConfig.brand.nameLocal} | سيرومات فاخرة الإمارات`,
+    default: `${businessConfig.brand.nameLocal} | ${businessConfig.brand.tagline}`,
     template: `%s | ${businessConfig.brand.nameLocal}`,
   },
   description: businessConfig.brand.description,

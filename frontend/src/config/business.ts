@@ -1,12 +1,14 @@
 export const businessConfig = {
   brand: {
-    nameLocal: "جوري بيوتي",
+    nameLocal: "جوري للجمال",
     nameEnglish: "Jouri Beauty",
-    tagline: "سيرومات فاخرة للعناية بالبشرة في الإمارات",
+    tagline: "صيدلية السيرومات — تركيبات واضحة لبشرة الخليج",
     description:
-      "ثلاث سيرومات مستهدفة — للعين، لمكافحة التجاعيد، ولإصلاح حاجز البشرة. تركيبات واضحة: مشكل + حل.",
-    logoUrl: "",
-    iconUrl: "",
+      "ثلاث سيرومات متخصصة من جوري للجمال: للعين، لمكافحة التجاعيد والبهتان، ولإصلاح البشرة المرهقة. مكوّنات نشطة بتركيز واضح، شرح مشكل + حل، والدفع عند الاستلام في الإمارات.",
+    monogram: "ن",
+    email: "hello@jouribeauty.store",
+    positioningLine:
+      "صيدلية سيرومات لبشرة الخليج — ثقة الصيدلية، وضوح المكوّنات",
   },
   market: {
     countryName: "الإمارات العربية المتحدة",
@@ -22,18 +24,18 @@ export const businessConfig = {
     enabled: true,
     paymentLabel: "الدفع عند الاستلام",
     deliveryPromise: "توصيل خلال ٢–٥ أيام عمل لكل الإمارات",
-    confirmationPromise: "فريقنا يتصل لتأكيد الطلب خلال ساعات",
-    returnGuarantee: "ضمان استرجاع ٣٠ يوم — بدون مخاطرة",
+    confirmationPromise: "نتصل لتأكيد طلبك قبل الشحن",
+    returnGuarantee: "ضمان رضا ٣٠ يوماً",
   },
   design: {
-    primaryColor: "#1b365d",
-    primaryDarkColor: "#0f2340",
-    accentColor: "#c4a47c",
-    backgroundColor: "#f5f2e9",
+    primaryColor: "#0f4c5c",
+    primaryDarkColor: "#0a3540",
+    accentColor: "#4db6a6",
+    backgroundColor: "#f6faf9",
     cardColor: "#ffffff",
-    textColor: "#1a2332",
-    mutedTextColor: "#5a6578",
-    borderColor: "#dce4ef",
+    textColor: "#1a2e32",
+    mutedTextColor: "#5c7074",
+    borderColor: "#d4e8e4",
   },
 } as const;
 

@@ -6,7 +6,7 @@ import type { Product } from "@/lib/api";
 
 export const metadata: Metadata = {
   title: "السيرومات",
-  description: "تسوّقي كل سيرومات جوري بيوتي — عين، شباب، وإصلاح الحاجز.",
+  description: "تسوّقي سيرومات جوري للجمال — عين، تجاعيد وبهتان، وإصلاح الحاجز.",
 };
 
 function toApiProduct(p: (typeof products)[0]): Product {
@@ -34,7 +34,13 @@ export default function ProductsPage() {
       <Link href="/" className="text-sm text-muted hover:text-royal">
         ← الرئيسية
       </Link>
-      <h1 className="font-sans text-2xl font-bold text-navy mt-4">كل السيرومات</h1>
+      <p className="text-[0.65rem] tracking-[0.35em] uppercase text-royal font-semibold mt-4">
+        صيدلية السيرومات
+      </p>
+      <h1 className="font-sans text-2xl font-bold text-navy mt-2">سيرومات جوري للجمال</h1>
+      <p className="text-sm text-muted mt-2 max-w-md">
+        ثلاث تركيبات مركّزة — اختاري حسب همّ بشرتك. مكوّنات واضحة ودفع عند الاستلام.
+      </p>
       <p className="text-sm text-muted mt-2 mb-8">ثلاث تركيبات. اختاري همّك.</p>
       <div className="space-y-8">
         {list.map((p) => (
