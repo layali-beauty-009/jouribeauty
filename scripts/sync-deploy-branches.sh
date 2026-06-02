@@ -20,6 +20,7 @@ sync_frontend() {
     git checkout --orphan sync-frontend-tmp
   }
   git rm -rf . 2>/dev/null || true
+  find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
   cp -a "$dir"/. .
   git add -A
   git commit -m "deploy: sync frontend from main ($(date -u +%Y-%m-%d))"
@@ -42,6 +43,7 @@ sync_backend() {
     git checkout --orphan sync-backend-tmp
   }
   git rm -rf . 2>/dev/null || true
+  find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
   cp -a "$dir"/. .
   git add -A
   git commit -m "deploy: sync backend from main ($(date -u +%Y-%m-%d))"
