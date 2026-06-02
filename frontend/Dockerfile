@@ -23,6 +23,7 @@ RUN npm run build
 FROM node:22-alpine
 WORKDIR /app
 ENV NODE_ENV=production
+ENV HOSTNAME=0.0.0.0
 ARG PORT=3000
 ENV PORT=$PORT
 EXPOSE 3000
