@@ -1,4 +1,17 @@
-# Jouri Beauty — Deploy branches
+# Jouri Beauty — Deploy
+
+> **دليل سهل بالدارجة:** اقرأ [`EASYPANEL-DEPLOY.md`](./EASYPANEL-DEPLOY.md) أولاً.
+
+## الطريقة الأسهل — branch `main` (مو `frontend`)
+
+| Service | Branch | Build path | Dockerfile | Port |
+|---------|--------|------------|------------|------|
+| Storefront | `main` | *(empty)* | `Dockerfile` | 3000 |
+| API | `main` | `backend` | `Dockerfile` | 4000 |
+
+Branches `frontend` / `backend` = نفس الكود لكن ملفات فالجذر — **Build path لازم يكون فارغ**.
+
+---
 
 ## Site shows 502?
 
