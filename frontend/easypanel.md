@@ -1,54 +1,66 @@
-# Easypanel — Frontend deploy
+# Easypanel deployment — Jouri Beauty
 
-## Problem
+## Error: `Repository not found`
 
-If build fails with `Dockerfile: no such file or directory`, the Git repo is still the **empty** `frontend` repo (Initial commit only).
+This happens when Easypanel’s **GitHub account** cannot access the org `layali-beauty-009` (very common with organization repos).
 
-## Fix — Option A (recommended): use monorepo
+### Fix 1 — Use Public Git URL (recommended)
 
-In Easypanel → **jouribeauty / frontend** service:
+Do **not** pick the repo from the GitHub dropdown. Use **Custom Git** / **Public Repository URL**:
 
-| Setting | Value |
-|---------|--------|
-| Repository | `layali-beauty-009/jouribeauty` |
-| Branch | `main` (after merging PR #1) |
-| Root / Source directory | `frontend` |
-| Dockerfile | `Dockerfile` |
+| Field | Value |
+|-------|--------|
+| **Repository URL** | `https://github.com/layali-beauty-009/jouribeauty.git` |
+| **Branch** | `easypanel-frontend` |
+| **Dockerfile path** | `Dockerfile` |
+| **Root / Source directory** | *(empty)* |
 
-Build args (keep yours):
+Branch `easypanel-frontend` has the Next.js app and `Dockerfile` at the **root** (no `frontend/` subfolder).
+
+### Fix 2 — Grant GitHub org access
+
+1. Easypanel → **Settings** → **GitHub** → reconnect
+2. On GitHub: **Settings → Applications → Easypanel** (or installed GitHub App)
+3. **Grant access** to organization **`layali-beauty-009`**
+4. Retry selecting `layali-beauty-009/jouribeauty`
+
+### Fix 3 — Keep repo `frontend` (your current Easypanel service)
+
+Push this folder to `layali-beauty-009/frontend` from your PC (account **BAYLA09**):
+
+```bash
+git clone https://github.com/layali-beauty-009/jouribeauty.git
+cd jouribeauty
+git checkout easypanel-frontend
+# all files are at root — copy to your frontend clone or push this branch to frontend repo
+```
+
+---
+
+## Build arguments
 
 ```
 NEXT_PUBLIC_SITE_URL=https://jouribeauty.store
 NEXT_PUBLIC_API_URL=https://api.jouribeauty.store
 NEXT_PUBLIC_ENABLE_PIXELS=true
-NEXT_PUBLIC_META_PIXEL_ID=...
-NEXT_PUBLIC_TIKTOK_PIXEL_ID=...
-NEXT_PUBLIC_SNAP_PIXEL_ID=...
+NEXT_PUBLIC_META_PIXEL_ID=
+NEXT_PUBLIC_TIKTOK_PIXEL_ID=
+NEXT_PUBLIC_SNAP_PIXEL_ID=
 PORT=3000
 ```
 
-## Fix — Option B: push this folder to `frontend` repo
-
-From your machine:
-
-```bash
-git clone https://github.com/layali-beauty-009/frontend.git
-cd frontend
-# copy all files from jouribeauty/frontend/ into this folder
-git add -A
-git commit -m "Add Jouri Beauty storefront and Dockerfile"
-git push origin main
-```
-
-Then redeploy in Easypanel.
+---
 
 ## API service (backend)
 
-Use repo `layali-beauty-009/jouribeauty`, root directory `backend`, port `4000`.
+| Field | Value |
+|-------|--------|
+| Repository URL | `https://github.com/layali-beauty-009/jouribeauty.git` |
+| Branch | `main` |
+| Root directory | `backend` |
+| Port | `4000` |
 
-Environment:
-
-```
+```env
 DATABASE_URL=postgres://jouribeauty:jouribeauty@jouribeauty_database:5432/jouribeauty?sslmode=disable
 CORS_ORIGINS=https://jouribeauty.store,https://www.jouribeauty.store
 PORT=4000
