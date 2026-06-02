@@ -47,7 +47,7 @@ export const products: ProductConfig[] = [
     id: "jouri-eye-001",
     slug: "caffeine-under-eye-serum",
     sku: "JOURI-EYE-15",
-    name: "سيروم الكافيين ٥٪ لمنطقة العين",
+    name: "سيروم جوري للهالات السوداء وانتفاخات العين",
     shortName: "سيروم العين",
     routineNameLocal: "روتين العين",
     routineNameEnglish: "Eye Routine",
