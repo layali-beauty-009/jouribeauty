@@ -1,7 +1,12 @@
+"use client";
+
 import Link from "next/link";
-import { business } from "@/config/business";
+import { businessConfig } from "@/config/business";
+import { useCart } from "@/context/CartContext";
 
 export function SiteHeader() {
+  const { openCart, lines } = useCart();
+
   return (
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-mist">
       <div className="mx-auto max-w-lg md:max-w-2xl lg:max-w-4xl px-4 py-3 flex items-center justify-between">
@@ -15,7 +20,12 @@ export function SiteHeader() {
               <path strokeLinecap="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           </button>
-          <button type="button" className="p-2 text-navy" aria-label="Cart">
+          <button
+            type="button"
+            className="p-2 text-navy relative"
+            aria-label="Cart"
+            onClick={openCart}
+          >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path
                 strokeLinecap="round"
@@ -24,16 +34,21 @@ export function SiteHeader() {
                 d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
               />
             </svg>
+            {lines.length > 0 && (
+              <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-royal text-[10px] text-pearl flex items-center justify-center">
+                {lines.length}
+              </span>
+            )}
           </button>
         </div>
         <Link href="/" className="flex items-center gap-2">
           <span className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-accent font-serif text-lg">
-            J
+            ج
           </span>
           <span className="text-right leading-tight">
-            <span className="block text-sm font-medium text-navy">{business.brand.nameLocal}</span>
+            <span className="block text-sm font-medium text-navy">{businessConfig.brand.nameLocal}</span>
             <span className="block text-[10px] tracking-[0.2em] text-accent uppercase">
-              {business.brand.nameEnglish}
+              {businessConfig.brand.nameEnglish}
             </span>
           </span>
         </Link>

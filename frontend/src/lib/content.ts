@@ -1,4 +1,4 @@
-import { business } from "@/config/business";
+import { businessConfig } from "@/config/business";
 import type { Product } from "@/lib/api";
 import { productsMarketing } from "@/config/productsMarketing";
 
@@ -7,137 +7,133 @@ export function getHomeContent(products: Product[]) {
   const ingredients = products
     .map((p) => productsMarketing[p.slug]?.mainIngredient)
     .filter(Boolean)
-    .join(", ");
+    .join("، ");
 
   return {
-    announcement: `Free UAE delivery on orders over 200 ${business.market.currencySymbol} • ${business.cod.label}`,
+    announcement: `شحن مجاني للطلبات فوق ٢٠٠ د.إ • ${businessConfig.cod.paymentLabel}`,
     hero: {
-      label: "CLINICAL SERUMS",
-      title: `${count} serums. ${count} concerns. One trusted routine.`,
-      subtitle: `Clinic-inspired actives for life in the ${business.market.countryName} — ${ingredients || "caffeine, bakuchiol & copper peptides"}. Vegan, cruelty-free, problem → solution clarity.`,
-      cta: "Shop the collection",
-      ctaSecondary: "How it works",
+      label: "سيرومات سريرية",
+      title: `${count} سيرومات. ${count} مشاكل. روتين واحد واضح.`,
+      subtitle: `تركيبات مستوحاة من العيادة لحياة ${businessConfig.market.countryName} — ${ingredients || "كافيين، باكوتشيول، وببتيدات النحاس"}. فيجان، خالي من القسوة، ووضوح مشكل + حل.`,
+      cta: "تسوّقي المجموعة",
+      ctaSecondary: "كيف يعمل",
       proofCard: {
-        title: "UAE Ready",
-        subtitle: "Formulas for heat, sun & active lifestyles",
+        title: "مناسب للإمارات",
+        subtitle: "تركيبات للحرارة والشمس ونمط الحياة النشط",
       },
     },
     formulations: {
-      label: "OUR FORMULATIONS",
-      title: `${count} serums. ${count} problems. One clear solution each.`,
+      label: "تركيباتنا",
+      title: `${count} سيرومات. ${count} مشاكل. حل واضح لكل واحد.`,
       subtitle:
-        "Each Jouri serum tells you the skin concern it treats and how the formula solves it — no vague promises.",
+        "كل سيروم من جوري بيوتي يوضح المشكلة التي يعالجها وكيف تساعدك التركيبة — بدون وعود فارغة.",
     },
     whyBrand: {
-      label: "WHY JOURI BEAUTY",
-      title: "Skincare with science, not empty promises",
+      label: "ليش جوري بيوتي؟",
+      title: "عناية بالبشرة بعلم، مو بوعود",
       subtitle:
-        "Premium serums designed for the Gulf climate — transparent ingredients, honest benefits.",
+        "سيرومات فاخرة للمناخ الخليجي — مكوّنات شفافة وفوائد صادقة.",
       cards: [
         {
           icon: "shield",
-          title: "Problem → Solution",
-          text: "Every product page lists real concerns and how each active addresses them.",
+          title: "مشكل ← حل",
+          text: "كل صفحة منتج توضح الهمّ الحقيقي وكيف يعمل كل مكوّن نشط.",
         },
         {
           icon: "leaf",
-          title: "Clean & conscious",
-          text: "Vegan, cruelty-free formulas with proven actives — retinol, bakuchiol, GHK-Cu & more.",
+          title: "نظيف وواعي",
+          text: "تركيبات فيجان وخالية من القسوة — ريتينول، باكوتشيول، GHK-Cu وأكثر.",
         },
         {
           icon: "heart",
-          title: `${business.cod.label}`,
-          text: business.cod.note,
+          title: businessConfig.cod.paymentLabel,
+          text: "ادفعي عند استلام الطلب — بدون دفع أونلاين.",
         },
       ],
     },
     testimonials: {
-      label: "VERIFIED REVIEWS",
-      title: "Customers who read the ingredients before they ordered",
-      subtitle: "Real routines. Real concerns. Honest results.",
+      label: "تقييمات موثقة",
+      title: "عميلات قرأن المكوّنات قبل ما يطلبن",
+      subtitle: "روتين حقيقي. هموم حقيقية. نتائج نعتز فيها.",
       items: [
         {
-          name: "Sara Al M.",
-          meta: `32 • Dubai • Verified buyer`,
-          initial: "S",
-          text: "The caffeine eye serum actually helped my morning puffiness. I love that they explain what each ingredient does.",
+          name: "سارة المكتوم",
+          meta: "٣٢ • دبي • مشترية مؤكدة",
+          initial: "س",
+          text: "سيروم العين فعلاً ساعدني على الانتفاح الصباحي. أحب إنهم يشرحون كل مكوّن.",
           rating: 5,
         },
         {
-          name: "Noura K.",
-          meta: `38 • Abu Dhabi • Verified buyer`,
-          initial: "N",
-          text: "Bakuchiol is so much gentler than retinol for my sensitive skin. Skin looks brighter after two weeks.",
+          name: "نورة الكعبي",
+          meta: "٣٨ • أبوظبي • مشترية مؤكدة",
+          initial: "ن",
+          text: "الباكوتشيول أنعم على بشرتي الحساسة من الريتينول. إشراق واضح بعد أسبوعين.",
           rating: 5,
         },
         {
-          name: "Fatima R.",
-          meta: `41 • Sharjah • Verified buyer`,
-          initial: "F",
-          text: "GHK-Cu serum saved my skin after travel — less tightness, more hydration. Will reorder.",
+          name: "فاطمة الراشدي",
+          meta: "٤١ • الشارقة • مشترية مؤكدة",
+          initial: "ف",
+          text: "سيروم GHK-Cu أنقذ بشرتي بعد السفر — أقل جفاف وأكثر راحة.",
           rating: 5,
         },
       ],
     },
     howItWorks: {
-      label: "HOW IT WORKS",
-      title: `From order to your door in 3 steps`,
-      subtitle: `${business.cod.label}. No commitment. Risk-free try.`,
+      label: "كيف يعمل",
+      title: "من الطلب لباب بيتك في ٣ خطوات",
+      subtitle: `${businessConfig.cod.paymentLabel}. بدون التزام. تجربة بدون مخاطرة.`,
       steps: [
         {
           n: 1,
-          title: "Choose your serum",
-          text: "Pick the formula that matches your concern — eyes, anti-aging, or barrier repair.",
+          title: "اختاري سيرومك",
+          text: "اختاري التركيبة اللي تناسب همّك — عين، شباب، أو إصلاح الحاجز.",
         },
         {
           n: 2,
-          title: "Confirm (no online payment)",
-          text: "Enter your details. Pay only when the order arrives at your door.",
+          title: "أكدي الطلب (بدون دفع)",
+          text: "اسمك ورقمك فقط. الدفع عند الاستلام.",
         },
         {
           n: 3,
-          title: "Receive & enjoy",
-          text: `Delivery across the ${business.market.countryName} in 2–5 business days.`,
+          title: "استلمي وادفعي",
+          text: `توصيل لكل ${businessConfig.market.countryName} خلال ٢–٥ أيام عمل.`,
         },
       ],
     },
     finalCta: {
-      label: "BEGIN YOUR RITUAL",
-      title: "Your skin deserves clarity, not confusion",
-      subtitle: `${business.cod.label}, UAE shipping, and serums built for real concerns.`,
-      cta: "Shop serums now",
+      label: "ابدئي روتينك",
+      title: "بشرتك تستحق وضوح، مو لخبطة",
+      subtitle: `${businessConfig.cod.paymentLabel}، شحن الإمارات، وسيرومات لهموم حقيقية.`,
+      cta: "تسوّقي السيرومات",
     },
     faq: {
-      label: "FAQ",
-      title: "Questions before you order",
-      subtitle: business.cod.note,
+      label: "أسئلة شائعة",
+      title: "قبل ما تطلبين",
+      subtitle: "ادفعي عند الاستلام فقط.",
       items: [
         {
-          q: `Do you ship across the ${business.market.countryName}?`,
-          a: "Yes — we deliver to all emirates. Delivery typically takes 2–5 business days.",
+          q: "هل توصّلون لكل الإمارات؟",
+          a: "نعم — لكل الإمارات. التوصيل عادة ٢–٥ أيام عمل.",
         },
         {
-          q: "Is cash on delivery available?",
-          a: `Yes. ${business.cod.label} — pay when you receive your package.`,
+          q: "هل الدفع عند الاستلام متاح؟",
+          a: `نعم. ${businessConfig.cod.paymentLabel}.`,
         },
         {
-          q: "Are the serums suitable for sensitive skin?",
-          a: "Bakuchiol is ideal for retinol-sensitive skin. Patch test any new serum and use the eye formula on the under-eye area only.",
+          q: "هل تناسب البشرة الحساسة؟",
+          a: "الباكوتشيول لطيف على البشرة الحساسة. جرّبي على منطقة صغيرة أولاً.",
         },
         {
-          q: "When will I see results?",
-          a: "Many customers notice hydration and brightness within 2 weeks. Anti-aging and eye concerns may take 4–8 weeks of consistent use.",
-        },
-        {
-          q: "What is your return policy?",
-          a: "Contact us within 14 days if the product is sealed and unused. We're here to help at hello@jouribeauty.store.",
+          q: "متى ألاحظ النتيجة؟",
+          a: "٢–٤ أسابيع للاستمرار. النتائج تختلف من شخص لآخر.",
         },
       ],
     },
     trustStrip: [
-      { icon: "truck", title: "Fast UAE shipping", text: "2–5 business days" },
-      { icon: "cod", title: business.cod.label, text: "Pay on delivery" },
-      { icon: "vegan", title: "Vegan & cruelty-free", text: "Clean actives" },
+      { icon: "truck", title: "شحن سريع", text: "٢–٥ أيام عمل" },
+      { icon: "cod", title: businessConfig.cod.paymentLabel, text: "ادفعي عند الاستلام" },
+      { icon: "vegan", title: "فيجان", text: "خالي من القسوة" },
     ],
   };
 }

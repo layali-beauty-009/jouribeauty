@@ -1,27 +1,29 @@
-export const business = {
+export const businessConfig = {
   brand: {
     nameLocal: "جوري بيوتي",
     nameEnglish: "Jouri Beauty",
-    tagline: "Premium serums for the UAE",
+    tagline: "سيرومات فاخرة للعناية بالبشرة في الإمارات",
     description:
-      "Three targeted serums — eye care, anti-aging, and barrier repair. Problem-led formulas with clinic-inspired actives.",
+      "ثلاث سيرومات مستهدفة — للعين، لمكافحة التجاعيد، ولإصلاح حاجز البشرة. تركيبات واضحة: مشكل + حل.",
     logoUrl: "",
     iconUrl: "",
   },
   market: {
-    countryName: "United Arab Emirates",
+    countryName: "الإمارات العربية المتحدة",
     countryCode: "AE",
-    language: "en",
-    direction: "ltr" as const,
+    language: "ar",
+    direction: "rtl" as const,
     currency: "AED",
-    currencySymbol: "AED",
+    currencySymbol: "د.إ",
     phoneCountryCode: "+971",
     phoneExample: "50 123 4567",
   },
   cod: {
     enabled: true,
-    label: "Cash on delivery",
-    note: "Pay when your order arrives — no online payment required.",
+    paymentLabel: "الدفع عند الاستلام",
+    deliveryPromise: "توصيل خلال ٢–٥ أيام عمل لكل الإمارات",
+    confirmationPromise: "فريقنا يتصل لتأكيد الطلب خلال ساعات",
+    returnGuarantee: "ضمان استرجاع ٣٠ يوم — بدون مخاطرة",
   },
   design: {
     primaryColor: "#1b365d",
@@ -34,3 +36,6 @@ export const business = {
     borderColor: "#dce4ef",
   },
 } as const;
+
+/** @deprecated use businessConfig */
+export const business = businessConfig;

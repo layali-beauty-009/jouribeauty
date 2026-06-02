@@ -3,6 +3,9 @@ import { Cormorant_Garamond, Outfit } from "next/font/google";
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { AnalyticsPixels } from "@/components/AnalyticsPixels";
+import { CartProvider } from "@/context/CartContext";
+import { CartDrawer } from "@/components/cart/CartDrawer";
+import { businessConfig } from "@/config/business";
 import "./globals.css";
 
 const serif = Cormorant_Garamond({
@@ -22,16 +25,10 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL ?? "https://jouribeauty.store",
   ),
   title: {
-    default: "Jouri Beauty | Premium Serums UAE",
-    template: "%s | Jouri Beauty",
+    default: `${businessConfig.brand.nameLocal} | سيرومات فاخرة الإمارات`,
+    template: `%s | ${businessConfig.brand.nameLocal}`,
   },
-  description:
-    "Three targeted serums for eyes, anti-aging, and barrier repair. Cash on delivery across the UAE.",
-  openGraph: {
-    siteName: "Jouri Beauty",
-    locale: "en_AE",
-    type: "website",
-  },
+  description: businessConfig.brand.description,
 };
 
 export default function RootLayout({
@@ -40,12 +37,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    <html
+      lang={businessConfig.market.language}
+      dir={businessConfig.market.direction}
+      className={`${serif.variable} ${sans.variable}`}
+    >
       <body className="min-h-screen flex flex-col bg-cream text-ink antialiased">
-        <AnalyticsPixels />
-        <SiteHeader />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
+        <CartProvider>
+          <AnalyticsPixels />
+          <SiteHeader />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );

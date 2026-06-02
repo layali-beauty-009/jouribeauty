@@ -1,4 +1,4 @@
-import { business } from "@/config/business";
+import { businessConfig } from "@/config/business";
 
 export function AnnouncementBar({ text }: { text: string }) {
   return (
@@ -12,7 +12,7 @@ export function TrustBadgeRow() {
   const badges = [
     { label: "UAE", sub: "Ships nationwide" },
     { label: "Vegan", sub: "Cruelty-free" },
-    { label: "COD", sub: business.cod.label },
+    { label: "COD", sub: businessConfig.cod.paymentLabel },
     { label: "30 Days", sub: "Easy returns" },
   ];
   return (

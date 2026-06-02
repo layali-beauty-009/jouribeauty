@@ -1,8 +1,9 @@
 import Link from "next/link";
 import type { Product } from "@/lib/api";
-import { formatPrice } from "@/lib/api";
+import { formatPrice } from "@/lib/format";
+import { getProductBySlug } from "@/config/products";
 import { productsMarketing } from "@/config/productsMarketing";
-import { ImagePlaceholder } from "@/components/ui/ImagePlaceholder";
+import { PremiumImagePlaceholder } from "@/components/ui/PremiumImagePlaceholder";
 import { getProductTheme } from "@/lib/productTheme";
 
 function Stars({ rating }: { rating: number }) {
@@ -15,8 +16,10 @@ function Stars({ rating }: { rating: number }) {
 }
 
 export function ProductShowcaseCard({ product }: { product: Product }) {
+  const config = getProductBySlug(product.slug);
   const meta = productsMarketing[product.slug];
   const theme = getProductTheme(product.slug);
+  const priceFrom = config?.offers[0]?.price ?? product.priceAed;
 
   return (
     <article className="bg-white rounded-3xl border border-mist shadow-sm overflow-hidden">
@@ -27,16 +30,20 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
           >
             {meta?.badgeText ?? product.category} • {meta?.routineLabel}
           </span>
-          <ImagePlaceholder
-            slug={product.slug}
-            label={product.name}
-            className="rounded-2xl"
-          />
+          {config ? (
+            <PremiumImagePlaceholder
+              label={config.shortName}
+              theme={config.theme}
+              variant="square"
+            />
+          ) : (
+            <div className="aspect-square rounded-2xl bg-mist/30" />
+          )}
         </div>
       </div>
       <div className="p-5 pt-4">
         <h3 className="font-serif text-xl text-navy leading-snug">
-          {meta?.cardHeadline ?? product.name}
+          {config?.cardHeadline ?? meta?.cardHeadline ?? product.name}
         </h3>
         <p className="mt-2 text-sm text-muted leading-relaxed line-clamp-3">
           {meta?.cardSubheadline ?? product.description}
@@ -44,13 +51,13 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
         <div className="mt-4 flex items-center gap-2">
           {meta && <Stars rating={meta.rating} />}
           {meta && (
-            <span className="text-xs text-muted">({meta.reviewsCount} reviews)</span>
+            <span className="text-xs text-muted">({meta.reviewsCount} تقييم)</span>
           )}
         </div>
         <div className="mt-5 flex items-center justify-between gap-4">
           <div>
-            <p className="text-[10px] uppercase tracking-wider text-muted">From</p>
-            <p className="text-xl font-semibold text-navy">{formatPrice(product.priceAed)}</p>
+            <p className="text-[10px] uppercase tracking-wider text-muted">يبدأ من</p>
+            <p className="text-xl font-semibold text-navy">{formatPrice(priceFrom)}</p>
           </div>
           <Link
             href={`/products/${product.slug}`}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { business } from "@/config/business";
+import { businessConfig } from "@/config/business";
 
 export function SiteFooter() {
   return (
@@ -9,10 +9,10 @@ export function SiteFooter() {
           <span className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-accent font-serif text-lg">
             J
           </span>
-          <span className="text-navy font-medium">{business.brand.nameEnglish}</span>
+          <span className="text-navy font-medium">{businessConfig.brand.nameEnglish}</span>
         </div>
         <p className="text-sm text-muted leading-relaxed max-w-sm mx-auto">
-          {business.brand.description}
+          {businessConfig.brand.description}
         </p>
         <div className="flex flex-wrap justify-center gap-2 mt-6">
           {["Vegan", "Cruelty-free", "UAE"].map((chip) => (
@@ -36,7 +36,7 @@ export function SiteFooter() {
           </Link>
         </nav>
         <p className="mt-8 text-xs text-muted">
-          © {new Date().getFullYear()} {business.brand.nameEnglish}. All rights reserved.
+          © {new Date().getFullYear()} {businessConfig.brand.nameEnglish}. جميع الحقوق محفوظة.
         </p>
         <a
           href="mailto:hello@jouribeauty.store"
