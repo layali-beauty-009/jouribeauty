@@ -48,7 +48,7 @@ export default function RoutinePage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
       <p className="text-xs tracking-[0.35em] uppercase text-royal mb-3 font-medium">Guide</p>
-      <h1 className="font-serif text-5xl text-navy mb-4">Your Jouri Routine</h1>
+      <h1 className="font-sans text-2xl font-bold text-navy mb-4">Your Jouri Routine</h1>
       <p className="text-muted max-w-2xl mb-14 leading-relaxed">
         Three serums, one brand. Use them together for eyes, face, and barrier
         — without overloading your skin.
@@ -60,7 +60,7 @@ export default function RoutinePage() {
             key={block.time}
             className={`border ${block.border} p-8 bg-white/60 shadow-sm`}
           >
-            <h2 className={`font-serif text-3xl ${block.heading} mb-6`}>{block.time}</h2>
+            <h2 className={`font-sans text-xl font-bold ${block.heading} mb-6`}>{block.time}</h2>
             <ol className="space-y-8">
               {block.items.map((item, i) => {
                 const theme = getProductTheme(item.slug);

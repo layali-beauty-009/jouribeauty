@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
       <p className="text-xs tracking-[0.35em] uppercase text-royal mb-3 font-medium">Our Story</p>
-      <h1 className="font-serif text-5xl text-navy mb-8">Jouri Beauty</h1>
+      <h1 className="font-brand text-4xl italic text-navy mb-8">Jouri Beauty</h1>
       <div className="max-w-2xl space-y-6 text-muted leading-relaxed">
         <p>
           <strong className="text-navy font-medium">Jouri</strong> (جوري) means

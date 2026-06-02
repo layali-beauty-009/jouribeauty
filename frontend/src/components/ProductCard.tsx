@@ -17,7 +17,7 @@ export function ProductCard({ product }: { product: Product }) {
         <span className={`text-[10px] tracking-[0.3em] uppercase ${theme.accent} mb-3 font-medium`}>
           {product.category}
         </span>
-        <span className="font-serif text-3xl text-center text-ink leading-tight max-w-[12rem]">
+        <span className="font-sans text-sm font-semibold text-center text-ink leading-snug max-w-[12rem]">
           {product.name.split(" ").slice(0, 3).join(" ")}
         </span>
         <span className="mt-2 text-sm text-muted">{product.volume}</span>

@@ -34,7 +34,7 @@ export default function ProductsPage() {
       <Link href="/" className="text-sm text-muted hover:text-royal">
         ← الرئيسية
       </Link>
-      <h1 className="font-serif text-3xl text-navy mt-4">كل السيرومات</h1>
+      <h1 className="font-sans text-2xl font-bold text-navy mt-4">كل السيرومات</h1>
       <p className="text-sm text-muted mt-2 mb-8">ثلاث تركيبات. اختاري همّك.</p>
       <div className="space-y-8">
         {list.map((p) => (

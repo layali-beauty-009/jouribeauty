@@ -42,13 +42,15 @@ export function SiteHeader() {
           </button>
         </div>
         <Link href="/" className="flex items-center gap-2">
-          <span className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-accent font-serif text-lg">
+          <span className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-accent text-lg">
             ج
           </span>
-          <span className="text-right leading-tight">
-            <span className="block text-sm font-medium text-navy">{businessConfig.brand.nameLocal}</span>
-            <span className="block text-[10px] tracking-[0.2em] text-accent uppercase">
-              {businessConfig.brand.nameEnglish}
+          <span className="text-right leading-none">
+            <span className="block font-brand text-2xl italic text-navy leading-none">
+              {businessConfig.brand.nameEnglish.split(" ")[0]}
+            </span>
+            <span className="block text-[0.62rem] font-bold tracking-[0.45em] text-accent uppercase mt-0.5">
+              {businessConfig.brand.nameEnglish.split(" ").slice(1).join(" ") || "BEAUTY"}
             </span>
           </span>
         </Link>

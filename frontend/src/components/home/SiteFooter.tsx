@@ -5,11 +5,13 @@ export function SiteFooter() {
   return (
     <footer className="bg-[#f9f6f0] border-t border-mist px-4 py-12">
       <div className="max-w-lg md:max-w-2xl mx-auto text-center">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <span className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-accent font-serif text-lg">
-            J
+        <div className="flex flex-col items-center justify-center mb-4 leading-none">
+          <span className="font-brand text-3xl italic text-navy">
+            {businessConfig.brand.nameEnglish.split(" ")[0]}
           </span>
-          <span className="text-navy font-medium">{businessConfig.brand.nameEnglish}</span>
+          <span className="text-[0.62rem] font-bold tracking-[0.45em] text-accent uppercase mt-1">
+            {businessConfig.brand.nameEnglish.split(" ").slice(1).join(" ") || "BEAUTY"}
+          </span>
         </div>
         <p className="text-sm text-muted leading-relaxed max-w-sm mx-auto">
           {businessConfig.brand.description}

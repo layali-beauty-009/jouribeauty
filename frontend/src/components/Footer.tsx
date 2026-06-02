@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t border-navy/20 bg-navy text-pearl mt-24">
       <div className="mx-auto max-w-6xl px-6 py-16 grid md:grid-cols-3 gap-12">
         <div>
-          <p className="font-serif text-2xl tracking-[0.15em] uppercase">Jouri Beauty</p>
+          <p className="font-brand text-2xl italic">Jouri Beauty</p>
           <p className="mt-4 text-sm text-ice/90 leading-relaxed max-w-xs">
             Premium serums crafted for the UAE climate. Science-backed actives,
             elegant rituals.

@@ -22,7 +22,7 @@ export function UpsellModal({ product, onAccept, onSkip }: Props) {
     <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-black/50">
       <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-xl">
         <p className="text-xs text-accent font-medium tracking-widest uppercase">عرض خاص</p>
-        <h3 className="font-serif text-xl text-navy mt-2">{product.upsell.label}</h3>
+        <h3 className="font-sans text-base font-bold text-navy mt-2">{product.upsell.label}</h3>
         <p className="text-sm text-muted mt-2">{product.upsell.subtitle}</p>
         <p className="text-2xl font-bold text-navy mt-4">{formatPrice(product.upsell.price)}</p>
         <button

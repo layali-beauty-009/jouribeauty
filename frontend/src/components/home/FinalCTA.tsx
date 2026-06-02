@@ -23,7 +23,7 @@ export function FinalCTA({
         />
         <div className="relative">
           <p className="text-xs tracking-[0.35em] uppercase text-accent font-medium">{label}</p>
-          <h2 className="font-serif text-2xl md:text-3xl mt-4 leading-snug">{title}</h2>
+          <h2 className="font-sans text-xl md:text-2xl font-bold mt-4 leading-snug">{title}</h2>
           <p className="mt-4 text-sm text-pearl/85 leading-relaxed">{subtitle}</p>
           <Link
             href="/products"

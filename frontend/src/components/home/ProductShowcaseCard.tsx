@@ -42,7 +42,7 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
         </div>
       </div>
       <div className="p-5 pt-4">
-        <h3 className="font-serif text-xl text-navy leading-snug">
+        <h3 className="font-sans text-base font-bold text-navy leading-snug">
           {config?.cardHeadline ?? meta?.cardHeadline ?? product.name}
         </h3>
         <p className="mt-2 text-sm text-muted leading-relaxed line-clamp-3">

@@ -11,7 +11,7 @@ export default async function ThankYouPage({ searchParams }: Props) {
       <div className="w-16 h-16 rounded-full bg-navy text-pearl text-3xl flex items-center justify-center mx-auto">
         ✓
       </div>
-      <h1 className="font-serif text-3xl text-navy mt-6">شكراً لطلبك!</h1>
+      <h1 className="font-sans text-2xl font-bold text-navy mt-6">شكراً لطلبك!</h1>
       <p className="text-muted mt-4 leading-relaxed">
         استلمنا طلبك. فريق {businessConfig.brand.nameLocal} سيتواصل معك قريباً لتأكيد العنوان.
         {total && (

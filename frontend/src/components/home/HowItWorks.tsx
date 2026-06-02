@@ -15,7 +15,7 @@ export function HowItWorks({
     <section className="px-4 py-14" id="how-it-works">
       <div className="max-w-lg md:max-w-2xl mx-auto text-center mb-10">
         <p className="text-xs tracking-[0.35em] uppercase text-accent font-medium">{label}</p>
-        <h2 className="font-serif text-2xl md:text-3xl text-navy mt-3">{title}</h2>
+        <h2 className="font-sans text-xl md:text-2xl font-bold text-navy mt-3">{title}</h2>
         <p className="mt-3 text-sm text-muted">{subtitle}</p>
       </div>
       <div className="max-w-lg md:max-w-2xl mx-auto space-y-6">

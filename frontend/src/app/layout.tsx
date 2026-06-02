@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import {
+  Dancing_Script,
+  IBM_Plex_Sans_Arabic,
+  Inter,
+} from "next/font/google";
 import { SiteHeader } from "@/components/home/SiteHeader";
 import { SiteFooter } from "@/components/home/SiteFooter";
 import { AnalyticsPixels } from "@/components/AnalyticsPixels";
@@ -8,16 +12,22 @@ import { CartDrawer } from "@/components/cart/CartDrawer";
 import { businessConfig } from "@/config/business";
 import "./globals.css";
 
-const serif = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-serif",
+const arabic = IBM_Plex_Sans_Arabic({
+  subsets: ["arabic", "latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-arabic",
 });
 
-const sans = Outfit({
+const latin = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
-  variable: "--font-sans",
+  variable: "--font-latin",
+});
+
+const display = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-display",
 });
 
 export const metadata: Metadata = {
@@ -40,9 +50,9 @@ export default function RootLayout({
     <html
       lang={businessConfig.market.language}
       dir={businessConfig.market.direction}
-      className={`${serif.variable} ${sans.variable}`}
+      className={`${arabic.variable} ${latin.variable} ${display.variable} scroll-smooth`}
     >
-      <body className="min-h-screen flex flex-col bg-cream text-ink antialiased">
+      <body className="min-h-screen flex flex-col bg-cream text-ink antialiased font-sans">
         <CartProvider>
           <AnalyticsPixels />
           <SiteHeader />

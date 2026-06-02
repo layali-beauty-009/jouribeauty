@@ -22,13 +22,13 @@ export function HomeHero({ content }: { content: HeroContent }) {
         aria-hidden
       />
       <div className="relative max-w-lg md:max-w-2xl mx-auto text-center">
-        <p className="text-xs tracking-[0.35em] uppercase text-accent font-medium mb-4">
+        <p className="text-[0.65rem] tracking-[0.35em] uppercase text-accent font-semibold mb-4">
           {content.label}
         </p>
-        <h1 className="font-serif text-3xl md:text-4xl text-navy leading-tight">
+        <h1 className="font-sans text-2xl md:text-3xl font-bold text-navy leading-snug">
           {content.title}
         </h1>
-        <p className="mt-4 text-muted text-sm md:text-base leading-relaxed max-w-md mx-auto">
+        <p className="mt-4 text-muted text-sm leading-7 max-w-md mx-auto font-light">
           {content.subtitle}
         </p>
         <TrustBadgeRow />

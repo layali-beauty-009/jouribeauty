@@ -94,7 +94,7 @@ export function ProductLandingPage({ product, related }: Props) {
 
       {/* Pain headline */}
       <section className="px-4 pt-8 text-center">
-        <h1 className="font-serif text-2xl leading-snug font-bold" style={{ color: t.primaryDark }}>
+        <h1 className="font-sans text-xl font-bold leading-snug" style={{ color: t.primaryDark }}>
           {product.heroHeadline}
         </h1>
         <p className="mt-4 text-sm text-muted leading-relaxed">{product.heroSubheadline}</p>
@@ -189,7 +189,7 @@ export function ProductLandingPage({ product, related }: Props) {
 
       {/* Problem agitation */}
       <section className="px-4 mt-10">
-        <h2 className="text-center font-serif text-xl font-bold text-navy mb-2">هل تعانين من هذه؟</h2>
+        <h2 className="text-center font-sans text-base font-bold text-navy mb-2">هل تعانين من هذه؟</h2>
         <p className="text-center text-sm text-muted mb-6">مشاكل تعرفينها — وحل من التركيبة</p>
         <div className="space-y-4">
           {(product.problemAgitation ?? []).map((item, i) => (
@@ -209,7 +209,7 @@ export function ProductLandingPage({ product, related }: Props) {
 
       {/* Failure alternatives */}
       <section className="px-4 mt-10">
-        <h2 className="font-serif text-xl font-bold text-navy mb-4">ليش البدائل العادية تفشل؟</h2>
+        <h2 className="font-sans text-base font-bold text-navy mb-4">ليش البدائل العادية تفشل؟</h2>
         {(product.failureAlternatives ?? []).map((alt) => (
           <div key={alt.name} className="bg-white rounded-2xl border border-mist p-4 mb-3">
             <p className="font-semibold text-navy flex items-center gap-2">
@@ -230,7 +230,7 @@ export function ProductLandingPage({ product, related }: Props) {
       {/* Mechanism */}
       <section className="px-4 mt-10 text-center">
         <p className="text-xs tracking-widest uppercase font-medium" style={{ color: t.primary }}>آلية العمل</p>
-        <h2 className="font-serif text-xl font-bold text-navy mt-2">كيف يساعد {product.mainIngredient}؟</h2>
+        <h2 className="font-sans text-base font-bold text-navy mt-2">كيف يساعد {product.mainIngredient}؟</h2>
         <p className="text-sm text-muted mt-3 leading-relaxed">{product.mechanism}</p>
       </section>
 
@@ -250,7 +250,7 @@ export function ProductLandingPage({ product, related }: Props) {
 
       {/* Ingredients */}
       <section className="px-4 mt-10">
-        <h2 className="font-serif text-xl font-bold text-navy mb-4">المكوّنات الرئيسية</h2>
+        <h2 className="font-sans text-base font-bold text-navy mb-4">المكوّنات الرئيسية</h2>
         <div className="space-y-3">
           {product.ingredientStack.map((ing, i) => {
             const item = typeof ing === "string" ? { name: ing, benefit: "", proof: "" } : ing;
@@ -302,7 +302,7 @@ export function ProductLandingPage({ product, related }: Props) {
       {/* Timeline */}
       <section className="px-4 mt-10">
         <p className="text-xs text-center tracking-widest uppercase" style={{ color: t.primary }}>النتيجة المتوقعة</p>
-        <h2 className="text-center font-serif text-xl font-bold text-navy mt-2 mb-6">ماذا قد تلاحظين؟</h2>
+        <h2 className="text-center font-sans text-base font-bold text-navy mt-2 mb-6">ماذا قد تلاحظين؟</h2>
         {(product.timeline ?? []).map((step, i) => (
           <div key={step.label} className="bg-white rounded-2xl border border-mist p-6 mb-4 text-center">
             <span className="inline-flex w-10 h-10 rounded-full text-pearl items-center justify-center font-bold" style={{ backgroundColor: t.primary }}>
@@ -317,7 +317,7 @@ export function ProductLandingPage({ product, related }: Props) {
       {/* Testimonials */}
       <section className="px-4 mt-10">
         <p className="text-xs text-center tracking-widest text-accent uppercase">تقييمات موثقة</p>
-        <h2 className="text-center font-serif text-xl font-bold text-navy mt-2 mb-6">تجارب حقيقية</h2>
+        <h2 className="text-center font-sans text-base font-bold text-navy mt-2 mb-6">تجارب حقيقية</h2>
         {testimonials.map((tm) => (
           <div key={tm.name} className="bg-[#f9f6f0] rounded-2xl p-5 mb-3">
             <Stars n={tm.rating} />
@@ -327,7 +327,7 @@ export function ProductLandingPage({ product, related }: Props) {
                 <p className="font-semibold text-sm text-navy">{tm.name}</p>
                 <p className="text-xs text-muted">{tm.meta}</p>
               </div>
-              <span className="w-10 h-10 rounded-full text-pearl flex items-center justify-center font-serif" style={{ backgroundColor: t.primary }}>
+              <span className="w-10 h-10 rounded-full text-pearl flex items-center justify-center font-sans font-bold" style={{ backgroundColor: t.primary }}>
                 {tm.initial}
               </span>
             </div>
@@ -338,7 +338,7 @@ export function ProductLandingPage({ product, related }: Props) {
       {/* Comparison */}
       {product.comparisonRows && (
         <section className="px-4 mt-10">
-          <h2 className="font-serif text-xl font-bold text-navy mb-4 text-center">قارني وقرّري</h2>
+          <h2 className="font-sans text-base font-bold text-navy mb-4 text-center">قارني وقرّري</h2>
           <div className="bg-white rounded-2xl border border-mist overflow-hidden text-sm">
             {product.comparisonRows.map((row) => (
               <div key={row.label} className="grid grid-cols-3 border-b border-mist last:border-0">
@@ -353,7 +353,7 @@ export function ProductLandingPage({ product, related }: Props) {
 
       {/* Offer recap */}
       <section className="mx-4 mt-10 rounded-3xl p-6 text-pearl" style={{ backgroundColor: t.primaryDark }}>
-        <h2 className="font-serif text-xl">{product.shortName}</h2>
+        <h2 className="font-sans text-base font-bold">{product.shortName}</h2>
         <p className="text-2xl font-bold mt-2">{formatPrice(selected.price)}</p>
         <p className="text-sm opacity-90 mt-2">{selected.label}</p>
         <ul className="text-xs mt-4 space-y-1 opacity-90">
@@ -368,7 +368,7 @@ export function ProductLandingPage({ product, related }: Props) {
 
       {/* Guarantee */}
       <section className="px-4 mt-10 bg-white rounded-2xl border border-mist p-6 text-center">
-        <h2 className="font-serif text-xl text-navy">{businessConfig.cod.returnGuarantee}</h2>
+        <h2 className="font-sans text-base font-bold text-navy">{businessConfig.cod.returnGuarantee}</h2>
         <p className="text-sm text-muted mt-3">تواصلي معنا خلال ٣٠ يوماً إذا لم تكوني راضية — نساعدك في الاسترجاع.</p>
       </section>
 
@@ -376,7 +376,7 @@ export function ProductLandingPage({ product, related }: Props) {
       {product.usage && (
         <section className="px-4 mt-10">
           <p className="text-xs tracking-widest text-center uppercase" style={{ color: t.primary }}>طريقة الاستخدام</p>
-          <h2 className="text-center font-serif text-xl font-bold text-navy mt-2">{product.usage.headline}</h2>
+          <h2 className="text-center font-sans text-base font-bold text-navy mt-2">{product.usage.headline}</h2>
           {product.usage.steps.map((step, i) => (
             <div key={step} className="bg-white rounded-2xl border border-mist p-5 mt-4 flex gap-4">
               <span className="w-10 h-10 rounded-full flex items-center justify-center text-pearl font-bold flex-shrink-0" style={{ backgroundColor: t.primary }}>
@@ -391,7 +391,7 @@ export function ProductLandingPage({ product, related }: Props) {
       {/* COD delivery */}
       <section className="px-4 mt-10">
         <p className="text-xs tracking-widest uppercase" style={{ color: t.primary }}>التوصيل والدفع</p>
-        <h2 className="font-serif text-xl font-bold text-navy mt-2">كيف يوصلك طلبك؟</h2>
+        <h2 className="font-sans text-base font-bold text-navy mt-2">كيف يوصلك طلبك؟</h2>
         <p className="text-sm text-muted mt-2">{businessConfig.cod.confirmationPromise}</p>
         {[
           { t: "اطلبي الآن", d: "اختاري العرض وأدخلي اسمك ورقمك — بدون دفع أونلاين." },
@@ -422,7 +422,7 @@ export function ProductLandingPage({ product, related }: Props) {
 
       {/* FAQ */}
       <section className="px-4 mt-10 pb-4">
-        <h2 className="font-serif text-xl font-bold text-navy text-center mb-6">أسئلة قبل الطلب</h2>
+        <h2 className="font-sans text-base font-bold text-navy text-center mb-6">أسئلة قبل الطلب</h2>
         <div className="divide-y divide-mist border border-mist rounded-2xl bg-white overflow-hidden">
           {faq.map((item, i) => (
             <div key={item.q}>
@@ -445,7 +445,7 @@ export function ProductLandingPage({ product, related }: Props) {
       {/* Related */}
       {related.length > 0 && (
         <section className="px-4 mt-10">
-          <h2 className="font-serif text-lg text-navy mb-4">قد يعجبك أيضاً</h2>
+          <h2 className="font-sans text-sm font-bold text-navy mb-4">قد يعجبك أيضاً</h2>
           <div className="space-y-3">
             {related.map((r) => (
               <Link

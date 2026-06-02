@@ -11,7 +11,7 @@ export function Header() {
     <header className="border-b border-mist/80 bg-pearl/90 backdrop-blur-sm sticky top-0 z-50">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link href="/" className="group">
-          <span className="font-serif text-2xl tracking-[0.2em] uppercase text-navy group-hover:text-royal transition-colors">
+          <span className="font-brand text-2xl italic text-navy group-hover:text-royal transition-colors">
             Jouri
           </span>
           <span className="block text-[10px] tracking-[0.35em] uppercase text-muted -mt-0.5">
