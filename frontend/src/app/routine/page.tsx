@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 const steps = [
   {
     time: "Morning",
-    border: "border-lavender",
-    heading: "text-lilac-dark",
+    border: "border-mist",
+    heading: "text-royal",
     items: [
       {
         product: "Bakuchiol Anti-Aging Serum",
@@ -27,7 +27,7 @@ const steps = [
   },
   {
     time: "Evening",
-    border: "border-ice",
+    border: "border-mist",
     heading: "text-navy",
     items: [
       {

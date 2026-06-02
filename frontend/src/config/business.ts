@@ -28,14 +28,14 @@ export const businessConfig = {
     returnGuarantee: "ضمان رضا ٣٠ يوماً",
   },
   design: {
-    primaryColor: "#0f4c5c",
-    primaryDarkColor: "#0a3540",
-    accentColor: "#4db6a6",
-    backgroundColor: "#f6faf9",
+    primaryColor: "#0f5661",
+    primaryDarkColor: "#0a3d45",
+    accentColor: "#5ba89e",
+    backgroundColor: "#f4f9f8",
     cardColor: "#ffffff",
-    textColor: "#1a2e32",
-    mutedTextColor: "#5c7074",
-    borderColor: "#d4e8e4",
+    textColor: "#14282c",
+    mutedTextColor: "#5a7176",
+    borderColor: "#d2e6e2",
   },
 } as const;
 

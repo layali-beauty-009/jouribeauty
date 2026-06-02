@@ -1,28 +1,30 @@
 @import "tailwindcss";
 
+/*
+ * Jouri — unified clinical-luxury palette (single teal family)
+ * Product pages use tonal shifts only — no purple/royal-blue clash.
+ */
 @theme {
-  /* Brand — pharmacy teal + clinic white */
-  --color-cream: #f6faf9;
-  --color-pearl: #f0f7f5;
-  --color-mist: #d4e8e4;
-  --color-ink: #1a2e32;
-  --color-muted: #5c7074;
+  --color-cream: #f4f9f8;
+  --color-pearl: #eef6f4;
+  --color-mist: #d2e6e2;
+  --color-ink: #14282c;
+  --color-muted: #5a7176;
 
-  --color-navy: #0f4c5c;
-  --color-royal: #2a7a8c;
-  --color-electric: #4db6a6;
+  /* Brand core */
+  --color-navy: #0f5661;
+  --color-royal: #2a7a85;
+  --color-electric: #5ba89e;
+  --color-accent: #5ba89e;
+  --color-clinical: #e6f2f0;
+  --color-teal-dark: #0a3d45;
 
-  /* Product LP accents (unchanged per serum) */
-  --color-lavender: #dcd0ff;
-  --color-lilac: #e8e0f5;
-  --color-lilac-dark: #6b5b8a;
-
-  --color-ice: #b9e2f5;
-  --color-ice-dark: #7eb8d4;
-
-  --color-accent: #4db6a6;
-  --color-clinical: #e8f4f1;
-  --color-teal-dark: #0a3540;
+  /* Harmonized “product tint” tokens (sage-teal, not purple/blue) */
+  --color-lavender: #dcebe8;
+  --color-lilac: #e4efed;
+  --color-lilac-dark: #3d6e72;
+  --color-ice: #cfe8e4;
+  --color-ice-dark: #5ba89e;
 
   --font-sans: var(--font-arabic), var(--font-latin), system-ui, sans-serif;
   --font-serif: var(--font-display), cursive;

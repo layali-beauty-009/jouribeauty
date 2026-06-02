@@ -8,9 +8,9 @@ import { getProductTheme } from "@/lib/productTheme";
 
 function Stars({ rating }: { rating: number }) {
   return (
-    <span className="text-accent text-sm" aria-label={`${rating} out of 5 stars`}>
+    <span className="text-electric text-sm" aria-label={`${rating} out of 5 stars`}>
       {"★".repeat(Math.round(rating))}
-      <span className="text-mist">{"★".repeat(5 - Math.round(rating))}</span>
+      <span className="text-mist/80">{"★".repeat(5 - Math.round(rating))}</span>
     </span>
   );
 }

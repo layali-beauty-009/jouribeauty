@@ -16,7 +16,7 @@ function defaultOfferId(product: ProductConfig) {
 }
 
 function Stars({ n }: { n: number }) {
-  return <span className="text-accent">{"★".repeat(Math.round(n))}</span>;
+  return <span className="text-electric">{"★".repeat(Math.round(n))}</span>;
 }
 
 type Props = {
@@ -281,7 +281,7 @@ export function ProductLandingPage({ product, related }: Props) {
             ))}
           </div>
           <div className="rounded-2xl p-6 text-pearl" style={{ backgroundColor: t.primaryDark }}>
-            <p className="text-xs text-accent mb-2">{product.authority.expertTitle}</p>
+            <p className="text-xs text-royal mb-2">{product.authority.expertTitle}</p>
             <p className="text-sm leading-relaxed italic">&ldquo;{product.authority.expertQuote}&rdquo;</p>
           </div>
         </section>
@@ -316,10 +316,10 @@ export function ProductLandingPage({ product, related }: Props) {
 
       {/* Testimonials */}
       <section className="px-4 mt-10">
-        <p className="text-xs text-center tracking-widest text-accent uppercase">تقييمات موثقة</p>
+        <p className="text-xs text-center tracking-widest text-royal uppercase font-semibold">تقييمات موثقة</p>
         <h2 className="text-center font-sans text-base font-bold text-navy mt-2 mb-6">تجارب حقيقية</h2>
         {testimonials.map((tm) => (
-          <div key={tm.name} className="bg-[#f9f6f0] rounded-2xl p-5 mb-3">
+          <div key={tm.name} className="bg-pearl rounded-2xl border border-mist p-5 mb-3">
             <Stars n={tm.rating} />
             <p className="text-sm text-navy mt-2 leading-relaxed">{tm.text}</p>
             <div className="flex justify-between items-center mt-3">

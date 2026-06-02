@@ -38,7 +38,7 @@ export function Footer() {
             <br />
             <a
               href="mailto:hello@jouribeauty.store"
-              className="text-lavender hover:underline mt-2 inline-block"
+              className="text-electric hover:underline mt-2 inline-block"
             >
               hello@jouribeauty.store
             </a>

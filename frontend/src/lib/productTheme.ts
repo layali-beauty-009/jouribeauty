@@ -1,4 +1,4 @@
-/** Colors matched to each serum’s packaging */
+/** Product cards — tonal variation within brand teal (no rainbow accents) */
 
 export type ProductTheme = {
   gradient: string;
@@ -12,42 +12,42 @@ export type ProductTheme = {
 
 export const productThemes: Record<string, ProductTheme> = {
   "caffeine-under-eye-serum": {
-    gradient: "from-royal/25 via-electric/20 to-pearl",
-    border: "border-royal/25",
+    gradient: "from-royal/20 via-clinical to-pearl",
+    border: "border-royal/30",
     hoverBorder: "hover:border-royal",
     accent: "text-royal",
-    hoverAccent: "hover:text-royal",
+    hoverAccent: "hover:text-navy",
     accentLight: "text-electric",
-    pill: "bg-royal/10 text-royal border-royal/20",
+    pill: "bg-clinical text-navy border-mist",
   },
   "bakuchiol-anti-aging-serum": {
-    gradient: "from-lavender via-lilac/80 to-pearl",
-    border: "border-lavender",
-    hoverBorder: "hover:border-lilac",
+    gradient: "from-mist/80 via-clinical to-pearl",
+    border: "border-mist",
+    hoverBorder: "hover:border-royal",
     accent: "text-lilac-dark",
-    hoverAccent: "hover:text-lilac-dark",
-    accentLight: "text-lilac-dark",
-    pill: "bg-lavender/60 text-ink border-lilac",
+    hoverAccent: "hover:text-navy",
+    accentLight: "text-royal",
+    pill: "bg-pearl text-navy border-mist",
   },
   "ghk-cu-barrier-repair-serum": {
-    gradient: "from-ice via-ice/40 to-pearl",
+    gradient: "from-clinical via-pearl to-ice/40",
     border: "border-ice",
-    hoverBorder: "hover:border-navy/40",
+    hoverBorder: "hover:border-electric",
     accent: "text-navy",
-    hoverAccent: "hover:text-navy",
-    accentLight: "text-ice-dark",
-    pill: "bg-ice/50 text-navy border-ice-dark/30",
+    hoverAccent: "hover:text-royal",
+    accentLight: "text-electric",
+    pill: "bg-clinical text-navy border-mist",
   },
 };
 
 export const defaultTheme: ProductTheme = {
-  gradient: "from-mist/50 to-pearl",
+  gradient: "from-clinical to-pearl",
   border: "border-mist",
-  hoverBorder: "hover:border-navy/30",
+  hoverBorder: "hover:border-royal",
   accent: "text-navy",
   hoverAccent: "hover:text-royal",
-  accentLight: "text-royal",
-  pill: "bg-mist/50 text-ink",
+  accentLight: "text-electric",
+  pill: "bg-clinical text-navy border-mist",
 };
 
 export function getProductTheme(slug: string): ProductTheme {

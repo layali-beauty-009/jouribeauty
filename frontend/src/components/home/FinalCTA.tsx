@@ -22,12 +22,12 @@ export function FinalCTA({
           aria-hidden
         />
         <div className="relative">
-          <p className="text-xs tracking-[0.35em] uppercase text-accent font-medium">{label}</p>
+          <p className="text-xs tracking-[0.35em] uppercase text-electric/90 font-semibold">{label}</p>
           <h2 className="font-sans text-xl md:text-2xl font-bold mt-4 leading-snug">{title}</h2>
           <p className="mt-4 text-sm text-pearl/85 leading-relaxed">{subtitle}</p>
           <Link
             href="/products"
-            className="mt-8 inline-flex items-center justify-center gap-2 bg-electric text-teal-dark font-semibold rounded-full py-3.5 px-10 text-sm hover:opacity-90 transition-opacity"
+            className="mt-8 inline-flex items-center justify-center gap-2 bg-white text-navy font-semibold rounded-full py-3.5 px-10 text-sm hover:bg-pearl transition-colors"
           >
             {cta}
             <span aria-hidden>→</span>

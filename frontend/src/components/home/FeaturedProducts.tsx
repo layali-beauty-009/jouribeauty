@@ -10,7 +10,7 @@ type Props = {
 
 export function FeaturedProducts({ label, title, subtitle, products }: Props) {
   return (
-    <section className="px-4 py-14 bg-clinical/40 border-y border-mist/60" id="products">
+    <section className="px-4 py-14 bg-white border-y border-mist" id="products">
       <div className="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto text-center mb-10">
         <p className="text-[0.65rem] tracking-[0.35em] uppercase text-royal font-semibold">{label}</p>
         <h2 className="font-sans text-xl md:text-2xl font-bold text-navy mt-3 leading-snug">{title}</h2>

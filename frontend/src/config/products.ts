@@ -117,10 +117,10 @@ export const products: ProductConfig[] = [
       comparisonImage: "مقارنة البدائل",
     },
     theme: {
-      primary: "#0047ab",
-      primaryDark: "#003380",
-      accent: "#007bff",
-      softBg: "#e8f0fc",
+      primary: "#2a7a85",
+      primaryDark: "#0f5661",
+      accent: "#5ba89e",
+      softBg: "#e6f2f0",
     },
     exclusions: ["بدون بارابين", "بدون عطور قوية", "للعين فقط — مو للوجه كامل"],
     authority: {
@@ -287,10 +287,10 @@ export const products: ProductConfig[] = [
       comparisonImage: "مقارنة",
     },
     theme: {
-      primary: "#6b5b8a",
-      primaryDark: "#52466b",
-      accent: "#dcd0ff",
-      softBg: "#f0ebfa",
+      primary: "#3d6e72",
+      primaryDark: "#0f5661",
+      accent: "#5ba89e",
+      softBg: "#edf3f2",
     },
     exclusions: [
       "بدون بارابين",
@@ -453,10 +453,10 @@ export const products: ProductConfig[] = [
       comparisonImage: "مقارنة",
     },
     theme: {
-      primary: "#1b365d",
-      primaryDark: "#0f2340",
-      accent: "#b9e2f5",
-      softBg: "#e8f4fa",
+      primary: "#0f5661",
+      primaryDark: "#0a3d45",
+      accent: "#5ba89e",
+      softBg: "#e8f0ee",
     },
     exclusions: ["بدون كحول قاسٍ", "بدون عطور مهيّجة", "مناسب للاستخدام اليومي"],
     authority: {

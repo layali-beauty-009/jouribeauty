@@ -39,9 +39,9 @@ export default function AboutPage() {
 
       <div className="mt-10 grid gap-3 sm:grid-cols-3">
         {[
-          { label: "سيروم العين", sub: "كافيين ٥٪ + رولر", tone: "from-royal/20 to-electric/10" },
-          { label: "سيروم التجاعيد", sub: "باكوتشيول", tone: "from-lavender/40 to-lilac/30" },
-          { label: "سيروم الإصلاح", sub: "GHK-Cu", tone: "from-ice/50 to-pearl" },
+          { label: "سيروم العين", sub: "كافيين ٥٪ + رولر", tone: "from-royal/15 to-clinical" },
+          { label: "سيروم التجاعيد", sub: "باكوتشيول", tone: "from-mist/60 to-pearl" },
+          { label: "سيروم الإصلاح", sub: "GHK-Cu", tone: "from-clinical to-pearl" },
         ].map((item) => (
           <div
             key={item.label}

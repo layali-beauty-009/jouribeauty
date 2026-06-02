@@ -39,20 +39,16 @@ Between a **pharmacy derm shelf** (trust) and **premium Gulf DTC** (desire). We 
 
 ---
 
-## Brand color
+## Brand color (unified — one family)
 
-**Primary — Pharmacy Teal** `#0F4C5C`  
-Calm, medical, premium. Used for header, CTAs, trust bars.
-
-**Supporting palette**
+**Primary — Clinical Teal** `#0F5661`  
+All UI chrome, CTAs, footer, trust. Product cards use **tonal shifts** in the same sage-teal family (no purple / royal blue).
 
 | Token | Hex | Use |
 |-------|-----|-----|
-| Teal dark | `#0A3540` | footer, depth |
-| Clinical mint | `#4DB6A6` | links, highlights, icons |
-| Soft mint | `#E8F4F1` | section backgrounds |
-| Clinic white | `#F6FAF9` | page background |
-| Ink | `#1A2E32` | body text |
-| Muted | `#5C7074` | secondary text |
-
-Product accent colors (lavender / blue / ice) stay on **product pages only** — brand chrome stays **teal + white**.
+| Teal dark | `#0A3D45` | footer depth |
+| Teal mid | `#2A7A85` | links, labels |
+| Sage highlight | `#5BA89E` | stars, icons, accents |
+| Clinical soft | `#E6F2F0` | sections, FAQ toggles |
+| Page bg | `#F4F9F8` | body |
+| Ink | `#14282C` | text |
