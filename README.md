@@ -1,6 +1,15 @@
-# Jouri Beauty
+# Jouri Beauty / Nama Beauty
 
-Premium skincare brand for the UAE — three targeted serums under **jouribeauty.store**.
+Premium Gulf DTC serums — **جوري للجمال** · three COD products for KSA paid social.
+
+> **Full build spec for AI coder:** see **[`docs/README.md`](./docs/README.md)** (architecture, CRO, FastAPI, pixels, sheets).
+
+| Service | URL (target) |
+|---------|----------------|
+| Store | https://namabeauty.shop |
+| API | https://api.namabeauty.shop |
+
+Legacy deploy may still reference jouribeauty.store — migrate per `docs/15-deploy-easypanel.md`.
 
 | Service | URL |
 |---------|-----|
