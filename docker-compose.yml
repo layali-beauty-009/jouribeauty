@@ -1,0 +1,51 @@
+services:
+  jouribeauty_database:
+    image: postgres:16-alpine
+    container_name: jouribeauty_database
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: jouribeauty
+      POSTGRES_PASSWORD: jouribeauty
+      POSTGRES_DB: jouribeauty
+    volumes:
+      - jouribeauty_pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jouribeauty -d jouribeauty"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build: ./backend
+    container_name: jouribeauty_api
+    restart: unless-stopped
+    depends_on:
+      jouribeauty_database:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://jouribeauty:jouribeauty@jouribeauty_database:5432/jouribeauty?sslmode=disable
+      PORT: "4000"
+      CORS_ORIGINS: https://jouribeauty.store,https://www.jouribeauty.store,http://localhost:3000
+    ports:
+      - "4000:4000"
+
+  web:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://localhost:4000
+        NEXT_PUBLIC_SITE_URL: http://localhost:3000
+    container_name: jouribeauty_web
+    restart: unless-stopped
+    depends_on:
+      - api
+    environment:
+      NEXT_PUBLIC_API_URL: http://api:4000
+      NEXT_PUBLIC_SITE_URL: https://jouribeauty.store
+    ports:
+      - "3000:3000"
+
+volumes:
+  jouribeauty_pgdata:
