@@ -7,15 +7,19 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-sand">
-        <div className="mx-auto max-w-6xl px-6 py-24 md:py-32">
-          <p className="text-xs tracking-[0.4em] uppercase text-gold-dark mb-6">
+      <section className="relative overflow-hidden border-b border-mist">
+        <div
+          className="absolute inset-0 bg-gradient-to-br from-royal/10 via-lavender/20 to-ice/25 pointer-events-none"
+          aria-hidden
+        />
+        <div className="relative mx-auto max-w-6xl px-6 py-24 md:py-32">
+          <p className="text-xs tracking-[0.4em] uppercase text-royal mb-6 font-medium">
             United Arab Emirates
           </p>
-          <h1 className="font-serif text-5xl md:text-7xl text-charcoal leading-[1.1] max-w-3xl">
+          <h1 className="font-serif text-5xl md:text-7xl text-navy leading-[1.1] max-w-3xl">
             Three serums.
             <br />
-            <span className="text-gold-dark italic">Every concern.</span>
+            <span className="text-royal italic">Every concern.</span>
           </h1>
           <p className="mt-8 text-lg text-muted max-w-xl leading-relaxed">
             Jouri Beauty brings clinic-inspired actives to your daily ritual —
@@ -25,16 +29,21 @@ export default async function HomePage() {
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
               href="/products"
-              className="inline-block bg-charcoal text-cream px-8 py-3.5 text-sm tracking-[0.2em] uppercase hover:bg-gold-dark transition-colors"
+              className="inline-block bg-navy text-pearl px-8 py-3.5 text-sm tracking-[0.2em] uppercase hover:bg-royal transition-colors"
             >
               Shop Serums
             </Link>
             <Link
               href="/routine"
-              className="inline-block border border-charcoal px-8 py-3.5 text-sm tracking-[0.2em] uppercase hover:border-gold-dark hover:text-gold-dark transition-colors"
+              className="inline-block border border-navy text-navy px-8 py-3.5 text-sm tracking-[0.2em] uppercase hover:border-royal hover:text-royal transition-colors bg-white/50"
             >
               Build Your Routine
             </Link>
+          </div>
+          <div className="mt-14 flex flex-wrap gap-3">
+            <span className="h-3 w-12 rounded-full bg-royal" title="Caffeine Eye Serum" />
+            <span className="h-3 w-12 rounded-full bg-lavender border border-lilac-dark/20" title="Bakuchiol Serum" />
+            <span className="h-3 w-12 rounded-full bg-ice border border-navy/10" title="GHK-Cu Serum" />
           </div>
         </div>
       </section>
@@ -45,11 +54,11 @@ export default async function HomePage() {
             <p className="text-xs tracking-[0.3em] uppercase text-muted mb-2">
               The Collection
             </p>
-            <h2 className="font-serif text-4xl text-charcoal">Our 3 Serums</h2>
+            <h2 className="font-serif text-4xl text-navy">Our 3 Serums</h2>
           </div>
           <Link
             href="/products"
-            className="hidden md:inline text-sm tracking-wide text-gold-dark hover:underline"
+            className="hidden md:inline text-sm tracking-wide text-royal hover:underline"
           >
             View all →
           </Link>
@@ -67,25 +76,29 @@ export default async function HomePage() {
         )}
       </section>
 
-      <section className="bg-charcoal text-cream">
+      <section className="bg-navy text-pearl">
         <div className="mx-auto max-w-6xl px-6 py-20 grid md:grid-cols-3 gap-12 text-center md:text-left">
           {[
             {
               title: "Problem-led",
               text: "Every serum lists the skin concern it addresses — no guesswork.",
+              dot: "bg-royal",
             },
             {
               title: "UAE-ready",
               text: "Formulas suited to heat, sun, and active lifestyles in the Emirates.",
+              dot: "bg-lavender",
             },
             {
               title: "Clean luxury",
               text: "Vegan, cruelty-free actives in elegant, purposeful packaging.",
+              dot: "bg-ice",
             },
           ].map((item) => (
             <div key={item.title}>
-              <h3 className="font-serif text-2xl text-gold mb-3">{item.title}</h3>
-              <p className="text-sm text-sand/80 leading-relaxed">{item.text}</p>
+              <span className={`inline-block h-1.5 w-8 rounded-full ${item.dot} mb-4`} />
+              <h3 className="font-serif text-2xl text-ice mb-3">{item.title}</h3>
+              <p className="text-sm text-pearl/80 leading-relaxed">{item.text}</p>
             </div>
           ))}
         </div>

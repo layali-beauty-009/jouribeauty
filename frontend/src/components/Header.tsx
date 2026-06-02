@@ -8,10 +8,10 @@ const links = [
 
 export function Header() {
   return (
-    <header className="border-b border-sand/80 bg-cream/95 backdrop-blur-sm sticky top-0 z-50">
+    <header className="border-b border-mist/80 bg-pearl/90 backdrop-blur-sm sticky top-0 z-50">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <Link href="/" className="group">
-          <span className="font-serif text-2xl tracking-[0.2em] uppercase text-charcoal group-hover:text-gold-dark transition-colors">
+          <span className="font-serif text-2xl tracking-[0.2em] uppercase text-navy group-hover:text-royal transition-colors">
             Jouri
           </span>
           <span className="block text-[10px] tracking-[0.35em] uppercase text-muted -mt-0.5">
@@ -23,7 +23,7 @@ export function Header() {
             <Link
               key={l.href}
               href={l.href}
-              className="hover:text-gold-dark transition-colors"
+              className="hover:text-royal transition-colors"
             >
               {l.label}
             </Link>
@@ -31,7 +31,7 @@ export function Header() {
         </nav>
         <Link
           href="/products"
-          className="text-xs tracking-[0.2em] uppercase bg-charcoal text-cream px-5 py-2.5 hover:bg-gold-dark transition-colors"
+          className="text-xs tracking-[0.2em] uppercase bg-navy text-pearl px-5 py-2.5 hover:bg-royal transition-colors"
         >
           Shop
         </Link>

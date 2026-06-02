@@ -4,18 +4,20 @@
 
 This happens when Easypanel’s **GitHub account** cannot access the org `layali-beauty-009` (very common with organization repos).
 
-### Fix 1 — Use Public Git URL (recommended)
-
-Do **not** pick the repo from the GitHub dropdown. Use **Custom Git** / **Public Repository URL**:
+### Fix 1 — Use repo `jouribeauty` branch `main` (current setup)
 
 | Field | Value |
 |-------|--------|
 | **Repository URL** | `https://github.com/layali-beauty-009/jouribeauty.git` |
-| **Branch** | `easypanel-frontend` |
+| **Branch** | `main` |
 | **Dockerfile path** | `Dockerfile` |
 | **Root / Source directory** | *(empty)* |
 
-Branch `easypanel-frontend` has the Next.js app and `Dockerfile` at the **root** (no `frontend/` subfolder).
+Root `Dockerfile` on `main` builds the app from the `frontend/` folder.
+
+### Alternative branch `easypanel-frontend`
+
+Same repo, branch `easypanel-frontend` — frontend files at repo root (no subfolder).
 
 ### Fix 2 — Grant GitHub org access
 

@@ -12,8 +12,8 @@ export default async function ProductsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
-      <p className="text-xs tracking-[0.35em] uppercase text-gold-dark mb-3">Shop</p>
-      <h1 className="font-serif text-5xl text-charcoal mb-4">All Serums</h1>
+      <p className="text-xs tracking-[0.35em] uppercase text-royal mb-3 font-medium">Shop</p>
+      <h1 className="font-serif text-5xl text-navy mb-4">All Serums</h1>
       <p className="text-muted max-w-2xl mb-14 leading-relaxed">
         Each Jouri Beauty serum is built around a skin problem and a proven
         solution. Choose the formula that matches your concern.

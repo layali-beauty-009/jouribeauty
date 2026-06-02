@@ -1,12 +1,28 @@
 @import "tailwindcss";
 
+/*
+  Jouri Beauty palette — from our 3 serums:
+  • Caffeine Eye: royal + electric blue
+  • Bakuchiol: lavender + lilac
+  • GHK-Cu: navy + ice blue
+*/
 @theme {
-  --color-cream: #faf7f2;
-  --color-sand: #e8dfd0;
-  --color-gold: #b8956a;
-  --color-gold-dark: #8f7049;
-  --color-charcoal: #1c1a18;
-  --color-muted: #6b6560;
+  --color-pearl: #f7f9fc;
+  --color-mist: #dce4ef;
+  --color-ink: #1a2332;
+  --color-muted: #5a6578;
+
+  --color-navy: #1b365d;
+  --color-royal: #0047ab;
+  --color-electric: #007bff;
+
+  --color-lavender: #dcd0ff;
+  --color-lilac: #e8e0f5;
+  --color-lilac-dark: #6b5b8a;
+
+  --color-ice: #b9e2f5;
+  --color-ice-dark: #7eb8d4;
+
   --font-serif: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Outfit", system-ui, sans-serif;
 }
@@ -17,6 +33,13 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-cream);
-  color: var(--color-charcoal);
+  background-color: var(--color-pearl);
+  color: var(--color-ink);
+  background-image: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--color-lavender) 12%, transparent) 0%,
+    var(--color-pearl) 35%,
+    color-mix(in srgb, var(--color-ice) 15%, transparent) 100%
+  );
+  background-attachment: fixed;
 }
