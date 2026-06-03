@@ -1,8 +1,12 @@
-حطّي هنا التصاور الأصلية ديالك — بلا تعديل، بلا AI
+استبدلي التصاور هنا (نفس الملفات = نفس الرابط):
 
-الأسماء بالضبط (PNG أو JPG):
+  hero-eye-serum.webp          → سيروم العين
+  hero-anti-aging.webp         → سيروم التجاعيد
+  hero-barrier-repair.webp     → سيروم الإصلاح
+
+أو بالاسم ديال الـ slug:
   caffeine-under-eye-serum.png
   bakuchiol-anti-aging-serum.png
   ghk-cu-barrier-repair-serum.png
 
-من GitHub: frontend/public/home/ → Upload files → Redeploy
+بعد الرفع → Commit → Redeploy Easypanel

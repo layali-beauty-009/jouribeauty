@@ -6,7 +6,7 @@ import type { Product } from "@/lib/api";
 import { formatPrice } from "@/lib/format";
 import { getProductBySlug } from "@/config/products";
 import { productsMarketing } from "@/config/productsMarketing";
-import { getHomeProductImageBase } from "@/config/homeImages";
+import { getHomeProductImage } from "@/config/homeImages";
 import { HomeProductPhoto } from "./HomeProductPhoto";
 import { PremiumImagePlaceholder } from "@/components/ui/PremiumImagePlaceholder";
 import { getProductTheme } from "@/lib/productTheme";
@@ -25,7 +25,7 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
   const meta = productsMarketing[product.slug];
   const theme = getProductTheme(product.slug);
   const priceFrom = config?.offers[0]?.price ?? product.priceAed;
-  const hasHomeImageSlot = Boolean(getHomeProductImageBase(product.slug));
+  const hasHomeImageSlot = Boolean(getHomeProductImage(product.slug));
   const [usePlaceholder, setUsePlaceholder] = useState(!hasHomeImageSlot);
 
   return (
