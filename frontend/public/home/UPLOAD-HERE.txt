@@ -1,0 +1,8 @@
+حطّي هنا التصاور الأصلية ديالك — بلا تعديل، بلا AI
+
+الأسماء بالضبط (PNG أو JPG):
+  caffeine-under-eye-serum.png
+  bakuchiol-anti-aging-serum.png
+  ghk-cu-barrier-repair-serum.png
+
+من GitHub: frontend/public/home/ → Upload files → Redeploy
