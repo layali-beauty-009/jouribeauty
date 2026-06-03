@@ -1,9 +1,11 @@
-حطّي تصاورك الأصلية هنا (بلا تعديل):
+صور الهوم (أصلية — بلا تعديل):
 
-  hero-eye-serum.webp              → العين
-  hero-barrier-repair.webp         → الإصلاح
-  bakuchiol-anti-aging-serum.png   → التجاعيد (PNG ديالك بالضبط — MELAO)
+1) أول ما يدخل الزائر (3 منتجات مجمّعين):
+   home-collection-hero.png
 
-ما تستعملش hero-anti-aging.webp (محذوف — كان غلط).
+2) بطاقات المنتجات (واحد بواحد):
+   hero-eye-serum.webp
+   bakuchiol-anti-aging-serum.png
+   hero-barrier-repair.webp
 
-بعد الرفع → Commit → Redeploy
+Commit → Redeploy Easypanel

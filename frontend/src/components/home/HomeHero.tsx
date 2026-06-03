@@ -10,60 +10,43 @@ type HeroContent = {
   proofCard: { title: string; subtitle: string };
 };
 
+/** Text + trust + CTA under collection banner (namabeauty.shop flow). */
 export function HomeHero({ content }: { content: HeroContent }) {
   return (
-    <section className="relative px-4 pt-8 pb-12 overflow-hidden">
+    <section className="relative px-4 pt-10 pb-12 bg-gradient-to-b from-pearl to-white overflow-hidden">
       <div
         className="absolute top-0 right-0 w-64 h-64 rounded-full bg-electric/10 blur-3xl pointer-events-none"
         aria-hidden
       />
-      <div
-        className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-clinical blur-3xl pointer-events-none"
-        aria-hidden
-      />
-      <div className="relative max-w-lg md:max-w-2xl mx-auto text-center">
-        <p className="text-[0.65rem] tracking-[0.12em] text-royal font-semibold mb-4 leading-relaxed">
+      <div className="relative max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto text-center">
+        <p className="text-[0.65rem] tracking-[0.35em] uppercase text-royal font-semibold mb-4">
           {content.label}
         </p>
-        <h1 className="font-sans text-2xl md:text-3xl font-bold text-navy leading-snug">
+        <h1 className="font-sans text-2xl md:text-3xl lg:text-4xl font-bold text-navy leading-snug">
           {content.title}
         </h1>
-        <p className="mt-4 text-muted text-sm leading-7 max-w-md mx-auto">
+        <p className="mt-4 text-muted text-sm md:text-base leading-7 max-w-xl mx-auto">
           {content.subtitle}
         </p>
         <TrustBadgeRow />
         <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
           <Link
-            href="/products"
+            href="#products"
             className="inline-flex items-center justify-center gap-2 bg-navy text-pearl rounded-full py-3.5 px-8 text-sm font-semibold tracking-wide hover:bg-royal transition-colors"
           >
             {content.cta}
             <span aria-hidden>←</span>
           </Link>
           <Link
-            href="#how-it-works"
+            href="#why-jouri"
             className="inline-flex items-center justify-center rounded-full py-3.5 px-8 text-sm font-medium text-navy border border-mist bg-white hover:border-electric transition-colors"
           >
             {content.ctaSecondary}
           </Link>
         </div>
-      </div>
-      <div className="max-w-lg md:max-w-2xl mx-auto mt-10 relative">
-        <div className="rounded-3xl overflow-hidden border border-mist shadow-lg bg-white p-2">
-          <div className="relative rounded-2xl overflow-hidden min-h-[220px] bg-gradient-to-br from-clinical via-pearl to-electric/20 flex items-end justify-center pb-6">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <p className="text-sm text-navy/40 tracking-wide">صورة العلامة — قريباً</p>
-            </div>
-            <div className="relative bg-white rounded-xl shadow-md px-4 py-3 flex items-center gap-3 mx-4 mb-2 border border-mist">
-              <span className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-pearl text-sm font-bold">
-                ✓
-              </span>
-              <div className="text-right">
-                <p className="text-sm font-semibold text-navy">{content.proofCard.title}</p>
-                <p className="text-xs text-muted">{content.proofCard.subtitle}</p>
-              </div>
-            </div>
-          </div>
+        <div className="mt-8 mx-auto max-w-md rounded-2xl border border-mist bg-white px-4 py-3 shadow-sm text-right">
+          <p className="text-sm font-semibold text-navy">{content.proofCard.title}</p>
+          <p className="text-xs text-muted mt-1">{content.proofCard.subtitle}</p>
         </div>
       </div>
     </section>

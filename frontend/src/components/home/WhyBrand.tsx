@@ -32,7 +32,7 @@ export function WhyBrand({
   cards: Card[];
 }) {
   return (
-    <section className="px-4 py-14">
+    <section className="px-4 py-14" id="why-jouri">
       <div className="max-w-lg md:max-w-2xl mx-auto text-center mb-10">
         <p className="text-[0.65rem] tracking-[0.35em] uppercase text-royal font-semibold">{label}</p>
         <h2 className="font-sans text-xl md:text-2xl font-bold text-navy mt-3">{title}</h2>

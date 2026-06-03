@@ -1,7 +1,8 @@
 /**
- * Homepage product card photos — served from /public/home/ unchanged.
- * Replace files on disk; optional slug-named copies also work (see HomeProductPhoto).
+ * Homepage images — merchant files in /public/home/, served unchanged.
  */
+export const HOME_COLLECTION_HERO_BASE = "/home/home-collection-hero";
+
 export const homeProductImages: Record<
   string,
   { src: string; alt: string }

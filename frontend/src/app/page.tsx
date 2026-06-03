@@ -2,6 +2,7 @@ import { getProducts } from "@/lib/api";
 import { fallbackProducts } from "@/lib/fallbackProducts";
 import { getHomeContent } from "@/lib/content";
 import { AnnouncementBar } from "@/components/home/AnnouncementBar";
+import { HomeCollectionHero } from "@/components/home/HomeCollectionHero";
 import { HomeHero } from "@/components/home/HomeHero";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { WhyBrand } from "@/components/home/WhyBrand";
@@ -19,6 +20,7 @@ export default async function HomePage() {
   return (
     <>
       <AnnouncementBar text={content.announcement} />
+      <HomeCollectionHero />
       <HomeHero content={content.hero} />
       <FeaturedProducts
         label={content.formulations.label}
