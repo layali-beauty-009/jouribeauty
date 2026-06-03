@@ -1,12 +1,9 @@
-استبدلي التصاور هنا (نفس الملفات = نفس الرابط):
+حطّي تصاورك الأصلية هنا (بلا تعديل):
 
-  hero-eye-serum.webp          → سيروم العين
-  hero-anti-aging.webp         → سيروم التجاعيد
-  hero-barrier-repair.webp     → سيروم الإصلاح
+  hero-eye-serum.webp              → العين
+  hero-barrier-repair.webp         → الإصلاح
+  bakuchiol-anti-aging-serum.png   → التجاعيد (PNG ديالك بالضبط — MELAO)
 
-أو بالاسم ديال الـ slug:
-  caffeine-under-eye-serum.png
-  bakuchiol-anti-aging-serum.png
-  ghk-cu-barrier-repair-serum.png
+ما تستعملش hero-anti-aging.webp (محذوف — كان غلط).
 
-بعد الرفع → Commit → Redeploy Easypanel
+بعد الرفع → Commit → Redeploy

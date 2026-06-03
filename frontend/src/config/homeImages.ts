@@ -11,7 +11,7 @@ export const homeProductImages: Record<
     alt: "سيروم جوري للهالات السوداء وانتفاخات العين",
   },
   "bakuchiol-anti-aging-serum": {
-    src: "/home/hero-anti-aging.webp",
+    src: "/home/bakuchiol-anti-aging-serum.png",
     alt: "سيروم جوري لمكافحة التجاعيد — باكوتشيول",
   },
   "ghk-cu-barrier-repair-serum": {
