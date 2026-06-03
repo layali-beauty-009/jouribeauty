@@ -38,10 +38,10 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
             {meta?.badgeText ?? product.category} • {meta?.routineLabel}
           </span>
           {hasHomeImageSlot && !usePlaceholder ? (
-            <div className="aspect-square rounded-2xl overflow-hidden bg-white border border-mist/60">
+            <div className="relative aspect-square rounded-2xl overflow-hidden bg-white border border-mist/60">
               <HomeProductPhoto
                 slug={product.slug}
-                className="w-full h-full object-contain object-center"
+                className="absolute inset-0 h-full w-full object-cover object-center"
                 onMissing={() => setUsePlaceholder(true)}
               />
             </div>
