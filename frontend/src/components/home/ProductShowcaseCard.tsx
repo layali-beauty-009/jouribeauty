@@ -1,8 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Product } from "@/lib/api";
 import { formatPrice } from "@/lib/format";
 import { getProductBySlug } from "@/config/products";
 import { productsMarketing } from "@/config/productsMarketing";
+import { getHomeProductImage } from "@/config/homeImages";
 import { PremiumImagePlaceholder } from "@/components/ui/PremiumImagePlaceholder";
 import { getProductTheme } from "@/lib/productTheme";
 
@@ -20,6 +22,7 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
   const meta = productsMarketing[product.slug];
   const theme = getProductTheme(product.slug);
   const priceFrom = config?.offers[0]?.price ?? product.priceAed;
+  const homeImage = getHomeProductImage(product.slug);
 
   return (
     <article className="bg-white rounded-3xl border border-mist shadow-sm overflow-hidden">
@@ -30,7 +33,18 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
           >
             {meta?.badgeText ?? product.category} • {meta?.routineLabel}
           </span>
-          {config ? (
+          {homeImage ? (
+            <div className="aspect-square rounded-2xl overflow-hidden bg-white border border-mist/60">
+              <Image
+                src={homeImage.src}
+                alt={homeImage.alt}
+                width={800}
+                height={800}
+                className="w-full h-full object-contain object-center p-1"
+                sizes="(max-width: 768px) 100vw, 512px"
+              />
+            </div>
+          ) : config ? (
             <PremiumImagePlaceholder
               label={config.shortName}
               theme={config.theme}

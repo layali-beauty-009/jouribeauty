@@ -1,9 +1,4 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { homeImages } from "@/config/homeImages";
 import { TrustBadgeRow } from "./AnnouncementBar";
 
 type HeroContent = {
@@ -16,19 +11,6 @@ type HeroContent = {
 };
 
 export function HomeHero({ content }: { content: HeroContent }) {
-  const slides = homeImages.hero;
-  const [active, setActive] = useState(0);
-
-  useEffect(() => {
-    if (slides.length < 2) return;
-    const id = window.setInterval(() => {
-      setActive((i) => (i + 1) % slides.length);
-    }, 5000);
-    return () => window.clearInterval(id);
-  }, [slides.length]);
-
-  const current = slides[active] ?? slides[0];
-
   return (
     <section className="relative px-4 pt-8 pb-12 overflow-hidden">
       <div
@@ -66,64 +48,21 @@ export function HomeHero({ content }: { content: HeroContent }) {
           </Link>
         </div>
       </div>
-
       <div className="max-w-lg md:max-w-2xl mx-auto mt-10 relative">
-        <div className="rounded-3xl overflow-hidden border border-mist shadow-lg bg-white">
-          <div className="relative aspect-[4/5] sm:aspect-[5/4] bg-white">
-            {slides.map((slide, index) => (
-              <div
-                key={slide.src}
-                className={`absolute inset-0 transition-opacity duration-700 ${
-                  index === active ? "opacity-100" : "opacity-0 pointer-events-none"
-                }`}
-                aria-hidden={index !== active}
-              >
-                <Image
-                  src={slide.src}
-                  alt={slide.alt}
-                  fill
-                  className="object-contain object-center p-2 sm:p-4"
-                  sizes="(max-width: 768px) 100vw, 672px"
-                  priority={index === 0}
-                />
+        <div className="rounded-3xl overflow-hidden border border-mist shadow-lg bg-white p-2">
+          <div className="relative rounded-2xl overflow-hidden min-h-[220px] bg-gradient-to-br from-clinical via-pearl to-electric/20 flex items-end justify-center pb-6">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-sm text-navy/40 tracking-wide">صورة العلامة — قريباً</p>
+            </div>
+            <div className="relative bg-white rounded-xl shadow-md px-4 py-3 flex items-center gap-3 mx-4 mb-2 border border-mist">
+              <span className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-pearl text-sm font-bold">
+                ✓
+              </span>
+              <div className="text-right">
+                <p className="text-sm font-semibold text-navy">{content.proofCard.title}</p>
+                <p className="text-xs text-muted">{content.proofCard.subtitle}</p>
               </div>
-            ))}
-          </div>
-          {slides.length > 1 && (
-            <div className="flex justify-center gap-2 py-3 border-t border-mist bg-pearl/50">
-              {slides.map((slide, index) => (
-                <button
-                  key={slide.src}
-                  type="button"
-                  onClick={() => setActive(index)}
-                  className={`h-2 rounded-full transition-all ${
-                    index === active ? "w-6 bg-navy" : "w-2 bg-mist"
-                  }`}
-                  aria-label={`صورة ${index + 1}`}
-                  aria-current={index === active}
-                />
-              ))}
             </div>
-          )}
-          {current && (
-            <div className="px-4 pb-3 text-center">
-              <Link
-                href={`/products/${current.slug}`}
-                className="text-xs font-medium text-royal hover:text-navy transition-colors"
-              >
-                اكتشفي التفاصيل ←
-              </Link>
-            </div>
-          )}
-        </div>
-
-        <div className="relative bg-white rounded-xl shadow-md px-4 py-3 flex items-center gap-3 mx-2 -mt-6 border border-mist z-10">
-          <span className="w-10 h-10 rounded-full bg-navy flex items-center justify-center text-pearl text-sm font-bold shrink-0">
-            ✓
-          </span>
-          <div className="text-right min-w-0">
-            <p className="text-sm font-semibold text-navy">{content.proofCard.title}</p>
-            <p className="text-xs text-muted">{content.proofCard.subtitle}</p>
           </div>
         </div>
       </div>
