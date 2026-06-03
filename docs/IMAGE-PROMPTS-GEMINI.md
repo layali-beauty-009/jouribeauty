@@ -1,121 +1,154 @@
-# Gemini Image Prompts — Jouri Beauty Collection (3 serums)
+# Gemini Image Prompts — Jouri Beauty (نفس الـ packaging لكل المنتجات)
 
-Use for **collection page** product cards. Aspect ratio: **4:5** or **1:1**. Export high resolution (min 2000px).
+## المهم — قبل ما تبدا
 
-**Global negative prompt** (append to every image):
+عندك **تصويرة واحدة ديال الـ packaging الحقيقي** اللي كتبيع؟
 
-```
-No OEM look, no generic white-label bottle, no Alibaba drop-ship packaging, no blurry label, no cheap plastic shine, no cluttered background, no text errors, no extra logos, no hands, no people, no watermark, no cartoon, no illustration style.
-```
+1. فـ Gemini: **Upload** → صورة الـ packing ديالك  
+2. فعّل **Use image as reference** / Image-to-image  
+3. **انسخ "MASTER PACKAGING"** + **prompt المنتج** (المواد فقط كيتبدلو)
 
-**Brand bottle direction** (all 3):
-
-- Minimal luxury dermocosmetic bottle, soft matte glass or frosted glass
-- Label: clean Arabic-inspired luxury brand **"Jouri"** / **جوري** in refined sans-serif, subtle **clinical teal** `#0F5661` accent line (not gold, not purple)
-- Looks like **Sephora / Paula's Choice / SkinCeuticals** tier — NOT factory OEM
+> **ما تخلّي Gemini يخترع bottle جديد** — غير يحافظ على **نفس العلبة** و يبدّل المكوّنات حولها.
 
 ---
 
-## 1. Eye serum — سيروم جوري للهالات السوداء وانتفاخات العين
-
-**Slug:** `caffeine-under-eye-serum` · **15ml** · roller applicator
-
-**Active ingredients to show:** Caffeine 5%, retinol, hyaluronic acid, niacinamide
-
-### Main prompt
+## MASTER PACKAGING (نفس النص — لصق فكل prompt)
 
 ```
-Ultra-premium skincare product photography for a luxury Gulf beauty brand. Pure seamless white background (#FFFFFF), soft studio lighting with gentle shadows, 8K photorealistic.
+CRITICAL — PACKAGING (must match reference upload exactly):
+Use the uploaded reference photo as the ONLY packaging design. Reproduce the SAME bottle shape, SAME label layout, SAME cap color, SAME glass finish, SAME print positions, SAME brand colors. Do NOT redesign the bottle. Do NOT create a different label. Do NOT use generic OEM serum bottles.
 
-Hero product: elegant slim skincare bottle 15ml with a metal cooling roller-ball applicator for under-eye serum. Frosted glass body, minimal label "Jouri" in refined typography, subtle teal accent — high-end clinical aesthetic, absolutely NOT generic OEM or white-label factory packaging.
+If no reference: Jouri Beauty unified line — one family only:
+- Frosted sage-tinted glass bottle (matte, not cheap glossy plastic)
+- Label: white band, clinical teal #0F5661 horizontal stripe, "Jouri Beauty" + "جوري للجمال" in clean sans-serif, small product line under stripe (change only this one line of text per SKU)
+- Matte white cap — identical cap style on ALL products in the collection
+- Premium pharmacy-luxury print quality, embossed or flat matte label — high AED price positioning
 
-Arranged beside the bottle (styled, not messy): a small cluster of roasted arabica coffee beans (for caffeine), 2–3 fresh green coffee beans, one clear hyaluronic acid gel droplet on glass surface, a few niacinamide-evoking soft white powder grains (minimal), and a tiny botanical retinol reference (one small green leaf, subtle — do not show pills). Ingredients feel fresh, scientific, and expensive.
+Allowed differences between SKUs ONLY:
+- Eye product: 15ml slimmer bottle + metal roller-ball tip (same label template, same cap family)
+- Face serums (2 products): 30ml same height bottle + glass dropper pipette (identical bottle body and label to each other, only product name text changes)
 
-Composition: product centered slightly right, ingredients artfully grouped left, plenty of white negative space. Soft reflection under bottle. Macro detail on roller tip. Mood: bright, awake, de-puffing, trustworthy pharmacy-luxury. Color palette only white, soft sage-teal accents, natural browns/greens from props — no purple, no loud blue.
-
-Shot like Vogue Beauty / Sephora campaign still life. Sharp focus, commercial catalog ready for 199–349 AED premium serum.
-```
-
-### Short variant (if character limit)
-
-```
-Premium 15ml eye serum bottle with roller applicator, matte glass, minimal "Jouri" label, teal accent, pure white background. Coffee beans, hyaluronic gel drop, subtle green leaf. Luxury clinical still life, not OEM. 4:5, photorealistic, soft shadows.
+Forbidden: inventing new packaging per image, different bottle shapes per product, different label colors per product, Alibaba-style white label.
 ```
 
 ---
 
-## 2. Anti-aging serum — سيروم جوري لمكافحة التجاعيد والبشرة الباهتة
-
-**Slug:** `bakuchiol-anti-aging-serum` · **30ml** · dropper
-
-**Active ingredients:** Bakuchiol 1.3%, vitamin C, glutathione, centella (cica)
-
-### Main prompt
+## Negative prompt (لصق مع كل صورة)
 
 ```
-Ultra-premium skincare product photography, pure white seamless background (#FFFFFF), soft diffused studio light, photorealistic 8K.
-
-Hero product: tall 30ml glass dropper serum bottle, frosted or clear glass with matte white cap, luxury minimal label "Jouri" with subtle clinical teal line — looks like a €80+ dermocosmetic brand, custom designed bottle, NOT OEM generic serum from factory catalogs.
-
-Ingredient still life beside bottle: babchi plant seeds and soft purple-tan bakuchiol plant pods (Psoralea corylifolia reference), half a fresh orange slice and 2–3 golden vitamin C crystals or orange zest curls, a few gotu kola / centella asiatica leaves (fresh green), and a whisper of luminous pearl powder suggesting glutathione glow (very subtle, not glitter). Arrangement organic but controlled — high-end apothecary style.
-
-Composition: bottle upright center-left, ingredients fanning on right, generous white space top and bottom for e-commerce crop. Soft ground shadow. Palette: white, sage-teal label accent, natural greens, warm orange — harmonious, no clash with lavender or electric blue.
-
-Mood: radiant, firming, gentle anti-aging, science-backed. Collection page hero for premium Arabic beauty brand. Sharp commercial photography.
-```
-
-### Short variant
-
-```
-30ml dropper serum bottle, minimal Jouri label, teal accent, white background. Bakuchiol seeds, orange slice, centella leaves, subtle glow powder. Luxury anti-aging still life, non-OEM, 4:5 photorealistic.
+No new packaging design, no different bottle from reference, no OEM generic bottle, no factory white-label, no blurry label, no wrong brand name, no cluttered background, no hands, no people, no watermark, no cartoon, no illustration. Photorealistic product photography only. Pure white background #FFFFFF.
 ```
 
 ---
 
-## 3. Barrier repair serum — سيروم جوري لإصلاح البشرة المرهقة والضعيفة
-
-**Slug:** `ghk-cu-barrier-repair-serum` · **30ml** · dropper
-
-**Active ingredients:** GHK-Cu copper peptide, ectoin, hyaluronic acid, panthenol
-
-### Main prompt
-
-```
-Ultra-premium skincare product photography on pure seamless white background (#FFFFFF), clean clinical studio lighting, photorealistic 8K.
-
-Hero product: 30ml glass dropper serum bottle, elegant minimal design, label "Jouri" with refined typography and subtle teal `#0F5661` accent — premium barrier-repair positioning, custom luxury packaging, zero OEM / white-label factory appearance.
-
-Ingredient styling: delicate copper-toned water droplets or a single small copper mesh texture disc (hinting copper peptide GHK-Cu, very subtle and scientific), 2–3 clear hyaluronic acid gel beads, fresh aloe vera cut slice or succulent leaf (hydration + panthenol feel), and a small cluster of ectoin-evoking crystalline salt structures or desert rose crystal on white (minimal, scientific). Optional: one soft blue-green water splash frozen in motion — very subtle.
-
-Composition: bottle center, ingredients balanced around base, lots of white negative space, soft reflection. Mood: hydrating, barrier repair, calming, post-sun recovery, pharmacy authority. Colors: white, teal accents, soft copper highlights, fresh green — cohesive with clinical teal brand, no icy neon blue.
-
-High-end catalog shot for collection grid, sells at premium AED price point.
-```
-
-### Short variant
-
-```
-30ml GHK-Cu peptide serum dropper bottle, Jouri minimal label, white background. Hyaluronic gel beads, aloe slice, subtle copper droplet, crystal salt hint. Luxury barrier repair still life, non-OEM, 4:5.
-```
-
----
-
-## Gemini settings (recommended)
+## إعدادات Gemini
 
 | Setting | Value |
 |---------|--------|
-| Aspect ratio | **4:5** (collection card) or **1:1** |
-| Style | Photorealistic / product photography |
-| Background | White only |
-| Quality | Highest available |
+| Reference image | **صورة packing ديالك** (إجباري) |
+| Aspect ratio | **4:5** أو **1:1** |
+| Background | أبيض فقط |
+| Style | Photorealistic / product photo |
 
-## After generation
+---
 
-1. Remove background if needed — should already be white  
-2. Compress to WebP for web (`products/jouri-eye.webp` etc.)  
-3. Drop in `frontend/public/products/`  
-4. Update `products.ts` → `images.heroProduct` paths  
+## 1. سيروم العين — كافيين / هالات / انتفاخ
 
-## Optional: add Arabic label on bottle in post
+**Slug:** `caffeine-under-eye-serum`  
+**على اللابل (صغير):** Eye Serum · 5% Caffeine · 15ml  
+**المكوّنات للتصوير:** كافيين، ريتينول، هيالورونيك، نياسيناميد
 
-Gemini sometimes misspells Arabic. Safer: English **"Jouri Beauty"** on bottle in prompt, add Arabic in Figma after.
+### Prompt
+
+```
+[Paste MASTER PACKAGING block above]
+
+Ultra-premium e-commerce product photo, seamless pure white background #FFFFFF, soft studio light, subtle shadow, 8K photorealistic.
+
+The product is the SAME Jouri packaging family as reference — 15ml under-eye format with roller applicator tip only (slimmer bottle, SAME label design as other Jouri serums).
+
+Small label text change only: "Eye Serum" / "سيروم العين" under the teal stripe.
+
+Ingredients arranged cleanly beside the bottle (not covering label):
+- roasted coffee beans + 2 green coffee beans (caffeine)
+- one clear hyaluronic gel droplet
+- one small fresh green leaf (subtle)
+- minimal white powder grains (niacinamide hint)
+
+Composition: bottle hero center-right, ingredients left, large white negative space. Luxury Gulf pharmacy brand, collection page, 199–349 AED tier. Same packaging identity as entire Jouri line.
+```
+
+---
+
+## 2. سيروم التجاعيد — باكوتشيول / بهتان
+
+**Slug:** `bakuchiol-anti-aging-serum`  
+**على اللابل (صغير):** Anti-Aging Serum · Bakuchiol · 30ml  
+**المكوّنات:** باكوتشيول 1.3%، فيتامين C، جلوتاثيون، سنتيلا
+
+### Prompt
+
+```
+[Paste MASTER PACKAGING block above]
+
+Ultra-premium product photography, pure white background #FFFFFF, soft diffused light, 8K photorealistic.
+
+EXACT same 30ml dropper bottle and label template as reference Jouri packaging — identical to the other face serum in the line, ONLY change small product name text to "Anti-Aging Serum" / "سيروم التجاعيد".
+
+Ingredients beside bottle (styled, premium):
+- bakuchiol / babchi seeds and soft tan plant pods
+- half orange slice + small zest curl (vitamin C)
+- 2–3 centella asiatica leaves
+- very subtle pearl powder pinch (glutathione, not glitter)
+
+Bottle upright center-left, ingredients right, white space for crop. Same packing as all Jouri products — do not invent new bottle.
+```
+
+---
+
+## 3. سيروم الإصلاح — GHK-Cu / حاجز البشرة
+
+**Slug:** `ghk-cu-barrier-repair-serum`  
+**على اللابل (صغير):** Barrier Repair · GHK-Cu · 30ml  
+**المكوّنات:** ببتيد نحاس GHK-Cu، إكتوين، هيالورونيك، بانثينول
+
+### Prompt
+
+```
+[Paste MASTER PACKAGING block above]
+
+Ultra-premium product photography, pure white #FFFFFF background, clinical studio lighting, 8K photorealistic.
+
+SAME 30ml dropper bottle as reference — identical packaging to anti-aging serum (same glass, same label layout, same cap). Only change small line text to "Barrier Repair" / "سيروم الإصلاح".
+
+Ingredients around bottle:
+- 2–3 hyaluronic acid gel beads
+- fresh aloe vera slice (hydration / panthenol)
+- one subtle copper-toned droplet on glass (GHK-Cu hint, minimal)
+- tiny crystalline salt/mineral cluster (ectoin, scientific)
+
+Centered composition, soft reflection, premium collection card. Packaging must match reference image exactly — same Jouri line, not a new design.
+```
+
+---
+
+## Workflow مختصر (Darija)
+
+1. صوّر **packing حقيقي** ديالك — ضوء ناعم، خلفية بيضاء أو رمادية فاتحة  
+2. Gemini → حمّلها كـ **Reference**  
+3. لكل منتج: MASTER PACKAGING + prompt المكوّنات  
+4. إذا بدّل الشكل → زيد: `Match reference packaging 100%, pixel-perfect label`  
+5. حفظ: `jouri-eye.png`, `jouri-aging.png`, `jouri-repair.png` → `frontend/public/products/`
+
+---
+
+## نفس الـ packing فالموقع
+
+بعد ما عندك 3 صور بنفس العلبة:
+
+```ts
+// frontend/src/config/products.ts → images.heroProduct
+caffeine-under-eye-serum: "/products/jouri-eye.webp"
+bakuchiol-anti-aging-serum: "/products/jouri-aging.webp"
+ghk-cu-barrier-repair-serum: "/products/jouri-repair.webp"
+```
