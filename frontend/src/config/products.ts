@@ -97,9 +97,12 @@ export const products: ProductConfig[] = [
       subtitle: "عرض لمرة واحدة بعد الطلب — علبة إضافية ١٩٩ د.إ",
     },
     images: {
-      heroBeforeAfter: "",
-      heroProduct: "",
-      problemImage: "",
+      heroBeforeAfter:
+        "/products/caffeine-under-eye-serum/ChatGPT Image Jun 4, 2026, 12_03_41 AM.png",
+      problemImage:
+        "/products/caffeine-under-eye-serum/f93fd1f5-b834-46c5-a223-0eacc424b7c0.jpg",
+      heroProduct:
+        "/products/caffeine-under-eye-serum/ChatGPT Image Jun 4, 2026, 12_22_36 AM.png",
       ingredientImage: "",
       authorityImage: "",
       lifestyleImage: "",
