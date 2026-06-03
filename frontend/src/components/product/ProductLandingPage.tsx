@@ -7,7 +7,8 @@ import { businessConfig } from "@/config/business";
 import { useCart } from "@/context/CartContext";
 import { formatPrice } from "@/lib/format";
 import { trackEvent } from "@/lib/tracking";
-import { PremiumImagePlaceholder } from "@/components/ui/PremiumImagePlaceholder";
+import { ProductSectionImage } from "@/components/product/ProductSectionImage";
+import { getProductImages } from "@/lib/getProductImages";
 
 function defaultOfferId(product: ProductConfig) {
   const def = product.offers.find((o) => o.defaultSelected);
@@ -47,6 +48,7 @@ export function ProductLandingPage({ product, related }: Props) {
 
   const onCta = () => addOffer(product, offerId);
 
+  const lpImages = getProductImages(product);
   const faq = product.faq ?? [];
   const testimonials =
     product.testimonials ??
@@ -74,14 +76,15 @@ export function ProductLandingPage({ product, related }: Props) {
         {businessConfig.cod.paymentLabel} • {businessConfig.cod.deliveryPromise}
       </div>
 
-      {/* Hero */}
+      {/* Image 1 — قبل / المنتج / بعد (namabeauty-style hero) */}
       <section className="px-4 pt-4">
-        <PremiumImagePlaceholder
-          label={product.shortName}
-          sublabel={product.imageAlts.heroProduct}
+        <ProductSectionImage
+          src={lpImages.heroBeforeAfter}
+          alt={product.imageAlts.heroBeforeAfter}
           theme={t}
-          variant="hero"
-          showBeforeAfter
+          variant="heroBeforeAfter"
+          label={product.shortName}
+          sublabel={product.imageAlts.heroBeforeAfter}
         />
         <div className="grid grid-cols-2 gap-2 mt-3">
           {product.badges.slice(0, 4).map((b) => (
@@ -178,8 +181,7 @@ export function ProductLandingPage({ product, related }: Props) {
       {/* Insight */}
       {product.insightStat && (
         <section className="px-4 mt-8">
-          <PremiumImagePlaceholder label={product.shortName} theme={t} variant="wide" />
-          <div className="mt-3 rounded-xl p-4 text-pearl" style={{ backgroundColor: t.primary }}>
+          <div className="rounded-xl p-4 text-pearl" style={{ backgroundColor: t.primary }}>
             <span className="text-3xl font-bold">{product.insightStat.value}</span>
             <p className="text-sm mt-2 opacity-95">{product.insightStat.text}</p>
             {product.insightStat.source && <p className="text-[10px] mt-1 opacity-70">{product.insightStat.source}</p>}
@@ -187,8 +189,20 @@ export function ProductLandingPage({ product, related }: Props) {
         </section>
       )}
 
-      {/* Problem agitation */}
+      {/* Image 2 — المشكلة (واقعية، بدون مبالغة) */}
       <section className="px-4 mt-10">
+        <ProductSectionImage
+          src={lpImages.problemImage}
+          alt={product.imageAlts.problemImage}
+          theme={t}
+          variant="problem"
+          label="المشكلة"
+          sublabel={product.imageAlts.problemImage}
+        />
+      </section>
+
+      {/* Problem agitation */}
+      <section className="px-4 mt-8">
         <h2 className="text-center font-sans text-base font-bold text-navy mb-2">هل تعانين من هذه؟</h2>
         <p className="text-center text-sm text-muted mb-6">مشاكل تعرفينها — وحل من التركيبة</p>
         <div className="space-y-4">
@@ -225,6 +239,24 @@ export function ProductLandingPage({ product, related }: Props) {
             </ul>
           </div>
         ))}
+      </section>
+
+      {/* Image 3 — المنتج (تصوير بريميوم) */}
+      <section className="px-4 mt-10">
+        <p className="text-[0.65rem] tracking-[0.35em] uppercase text-center text-royal font-semibold mb-3">
+          التركيبة
+        </p>
+        <ProductSectionImage
+          src={lpImages.heroProduct}
+          alt={product.imageAlts.heroProduct}
+          theme={t}
+          variant="productHero"
+          label={product.shortName}
+          sublabel={product.imageAlts.heroProduct}
+        />
+        <p className="text-center text-xs text-muted mt-3 leading-relaxed">
+          {product.mainIngredient} · {product.format} · {businessConfig.brand.nameLocal}
+        </p>
       </section>
 
       {/* Mechanism */}

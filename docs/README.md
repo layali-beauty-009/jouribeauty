@@ -33,6 +33,8 @@ This folder is the **single source of truth** for the AI coder rebuilding the st
 | 16 | [16-env-reference.md](./16-env-reference.md) | All env vars |
 | 17 | [17-ai-coder-checklist.md](./17-ai-coder-checklist.md) | Definition of done |
 | 18 | [18-AI-CODER-PROMPT.md](./18-AI-CODER-PROMPT.md) | Copy-paste prompt to start |
+| — | [IMAGE-PROMPTS-GEMINI.md](./IMAGE-PROMPTS-GEMINI.md) | Homepage / collection images |
+| — | [PRODUCT-PAGE-IMAGE-PROMPTS-NANO-BANANA.md](./PRODUCT-PAGE-IMAGE-PROMPTS-NANO-BANANA.md) | **3 LP images × 3 products** (Nano Banana Pro) |
 
 ---
 
