@@ -30,20 +30,13 @@ export function ProductSectionImage({ src, alt, theme, variant, label, sublabel 
     );
   }
 
-  const aspect =
-    variant === "heroBeforeAfter"
-      ? "aspect-[4/5] sm:aspect-[16/10]"
-      : variant === "problem"
-        ? "aspect-[4/3]"
-        : "aspect-square";
-
   return (
-    <div className={`relative w-full overflow-hidden rounded-2xl border border-mist bg-white ${aspect}`}>
+    <div className="w-full overflow-hidden rounded-2xl border border-mist bg-white">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={src}
         alt={alt}
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="block h-auto w-full max-w-full"
         loading={variant === "heroBeforeAfter" ? "eager" : "lazy"}
         decoding="async"
         onError={() => setFailed(true)}
