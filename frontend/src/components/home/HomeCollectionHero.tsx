@@ -2,28 +2,31 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { HOME_COLLECTION_HERO_BASE } from "@/config/homeImages";
+import { HOME_COLLECTION_HERO_BASE, HOME_COLLECTION_HERO_SRC } from "@/config/homeImages";
+import { encodePublicPath } from "@/lib/getProductImages";
 
 const EXTENSIONS = [".png", ".jpg", ".jpeg", ".webp"] as const;
 
 /** Full-width trio product visual — first thing on homepage (namabeauty-style). */
 export function HomeCollectionHero() {
-  const [extIndex, setExtIndex] = useState(0);
+  const [fallbackIndex, setFallbackIndex] = useState(-1);
   const [missing, setMissing] = useState(false);
+
+  const src =
+    fallbackIndex < 0
+      ? encodePublicPath(HOME_COLLECTION_HERO_SRC)
+      : encodePublicPath(`${HOME_COLLECTION_HERO_BASE}${EXTENSIONS[fallbackIndex]}`);
 
   if (missing) {
     return (
       <section className="bg-gradient-to-b from-clinical to-pearl px-4 py-16 text-center">
         <p className="text-sm text-muted">
-          صورة المجموعة — أضيفي{" "}
-          <code className="text-navy text-xs">home-collection-hero.png</code> فـ{" "}
+          صورة المجموعة — أضيفي ملفك فـ{" "}
           <code className="text-navy text-xs">frontend/public/home/</code>
         </p>
       </section>
     );
   }
-
-  const src = `${HOME_COLLECTION_HERO_BASE}${EXTENSIONS[extIndex]}`;
 
   return (
     <section className="bg-white w-full">
@@ -37,8 +40,8 @@ export function HomeCollectionHero() {
           decoding="async"
           fetchPriority="high"
           onError={() => {
-            if (extIndex < EXTENSIONS.length - 1) {
-              setExtIndex((i) => i + 1);
+            if (fallbackIndex < EXTENSIONS.length - 1) {
+              setFallbackIndex((i) => i + 1);
               return;
             }
             setMissing(true);

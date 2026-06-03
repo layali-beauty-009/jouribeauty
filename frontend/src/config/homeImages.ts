@@ -1,6 +1,11 @@
 /**
  * Homepage images — merchant files in /public/home/, served unchanged.
  */
+/** Top banner — 3 products grouped (uploaded filename on GitHub). */
+export const HOME_COLLECTION_HERO_SRC =
+  "/home/ChatGPT Image Jun 3, 2026, 10_42_42 PM.png";
+
+/** Legacy basename if you rename the file later. */
 export const HOME_COLLECTION_HERO_BASE = "/home/home-collection-hero";
 
 export const homeProductImages: Record<
