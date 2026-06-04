@@ -14,6 +14,7 @@ import { LpHeroStats } from "@/components/product/lp/LpHeroStats";
 import { LpTrustGrid } from "@/components/product/lp/LpTrustGrid";
 import { LpOfferSelector } from "@/components/product/lp/LpOfferSelector";
 import { LpRelatedProducts } from "@/components/product/lp/LpRelatedProducts";
+import { LpInsightBand } from "@/components/product/lp/LpInsightBand";
 
 function defaultOfferId(product: ProductConfig) {
   const def = product.offers.find((o) => o.defaultSelected);
@@ -147,27 +148,25 @@ export function ProductLandingPage({ product, related }: Props) {
 
       <LpTrustGrid />
 
-      {product.insightStat && (
-        <section className="px-4 mt-8 max-w-lg mx-auto">
-          <div className="rounded-2xl p-5 text-pearl text-center border border-white/10 bg-navy">
-            <span className="text-4xl font-bold block text-gold">{displayText(product.insightStat.value)}</span>
-            <p className="text-sm mt-2 leading-relaxed opacity-95">{displayText(product.insightStat.text)}</p>
-            {product.insightStat.source && (
-              <p className="text-[10px] mt-2 opacity-70">{displayText(product.insightStat.source)}</p>
-            )}
-          </div>
-        </section>
-      )}
-
       <section className="px-4 mt-10 max-w-lg mx-auto">
-        <ProductSectionImage
-          src={lpImages.problemImage}
-          alt={product.imageAlts.problemImage}
-          theme={t}
-          variant="problem"
-          label="المشكلة"
-          sublabel={product.imageAlts.problemImage}
-        />
+        <div className="overflow-hidden rounded-2xl border border-mist bg-white shadow-md">
+          <ProductSectionImage
+            src={lpImages.problemImage}
+            alt={product.imageAlts.problemImage}
+            theme={t}
+            variant="problem"
+            label="المشكلة"
+            sublabel={product.imageAlts.problemImage}
+            embedded
+          />
+          {product.insightStat && (
+            <LpInsightBand
+              value={product.insightStat.value}
+              text={product.insightStat.text}
+              source={product.insightStat.source}
+            />
+          )}
+        </div>
       </section>
 
       <section className="px-4 mt-10 max-w-lg mx-auto">

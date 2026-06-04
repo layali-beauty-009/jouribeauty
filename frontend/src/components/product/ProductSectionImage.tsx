@@ -13,9 +13,19 @@ type Props = {
   variant: Variant;
   label: string;
   sublabel?: string;
+  /** داخل كارت موحّد مع شريط تحت الصورة */
+  embedded?: boolean;
 };
 
-export function ProductSectionImage({ src, alt, theme, variant, label, sublabel }: Props) {
+export function ProductSectionImage({
+  src,
+  alt,
+  theme,
+  variant,
+  label,
+  sublabel,
+  embedded = false,
+}: Props) {
   const [failed, setFailed] = useState(!src);
 
   if (failed || !src) {
@@ -30,17 +40,23 @@ export function ProductSectionImage({ src, alt, theme, variant, label, sublabel 
     );
   }
 
+  const img = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={alt}
+      className="block h-auto w-full max-w-full"
+      loading={variant === "heroBeforeAfter" ? "eager" : "lazy"}
+      decoding="async"
+      onError={() => setFailed(true)}
+    />
+  );
+
+  if (embedded) {
+    return <div className="w-full overflow-hidden bg-white">{img}</div>;
+  }
+
   return (
-    <div className="w-full overflow-hidden rounded-2xl border border-mist bg-white">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt={alt}
-        className="block h-auto w-full max-w-full"
-        loading={variant === "heroBeforeAfter" ? "eager" : "lazy"}
-        decoding="async"
-        onError={() => setFailed(true)}
-      />
-    </div>
+    <div className="w-full overflow-hidden rounded-2xl border border-mist bg-white">{img}</div>
   );
 }

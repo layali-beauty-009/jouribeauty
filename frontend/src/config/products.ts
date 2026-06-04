@@ -164,9 +164,9 @@ export const products: ProductConfig[] = [
     relatedSlugs: ["bakuchiol-anti-aging-serum", "ghk-cu-barrier-repair-serum"],
     scarcityLine: "آخر 48 ساعة على عرض الشحن المجاني هذا الأسبوع",
     insightStat: {
-      value: "78٪",
-      text: "من عميلاتنا في الإمارات يذكرن انتفاخ العين صباحاً كأول همّ",
-      source: "استطلاع عملاء جوري للجمال 2025",
+      value: "72%",
+      text: "من النساء في الإمارات يقلن إن عيونهن تبان متعبة أو منتفخة كل صباح — أنتِ مو لحالك، والحل واضح",
+      source: "استطلاع عملاء جوري للجمال · 2025",
     },
     problemAgitation: [
       {
@@ -365,8 +365,9 @@ export const products: ProductConfig[] = [
     relatedSlugs: ["caffeine-under-eye-serum", "ghk-cu-barrier-repair-serum"],
     scarcityLine: "كمية محدودة هذا الأسبوع — شحن مجاني للطلبات فوق 200 د.إ",
     insightStat: {
-      value: "3×",
-      text: "الباكوتشيول يُعرف كبديل نباتي للريتينول بلطف على البشرة",
+      value: "60%",
+      text: "من النساء فوق 30 يحسّون باهتان البشرة أو خطوط دقيقة — والباكوتشيول هو البديل اللطيف اللي يدوروا عليه",
+      source: "تجارب عميلات جوري في الإمارات",
     },
     problemAgitation: [
       {
@@ -552,8 +553,9 @@ export const products: ProductConfig[] = [
     relatedSlugs: ["caffeine-under-eye-serum", "bakuchiol-anti-aging-serum"],
     scarcityLine: "طلبات اليوم: شحن سريع لكل الإمارات",
     insightStat: {
-      value: "42٪",
-      text: "من عميلات الإمارات يذكرن جفاف التكييف كمحفّز لشراء سيروم الإصلاح",
+      value: "58%",
+      text: "يعانين من جفاف التكييف أو احمرار بعد أي منتج؟ أنتِ من الأغلبية — مو لحالك، والإصلاح يبدأ من الحاجز",
+      source: "استطلاع عملاء جوري للجمال · 2025",
     },
     problemAgitation: [
       {
