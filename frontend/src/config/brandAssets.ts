@@ -1,7 +1,13 @@
-/** Brand logo — SVG شفاف في /public/brand/ (الموقع يستخدم BrandLogoMark مضمّن). */
+import { encodePublicPath } from "@/lib/getProductImages";
+
+/** Brand logo — PNG شفاف في /public/brand/ */
 export const brandLogo = {
   default: "/brand/jouri-logo.svg",
   onDark: "/brand/jouri-logo-on-dark.svg",
-  /** اختياري: PNG شفاف فقط — ما نستعملوه افتراضياً */
-  png: "/brand/jouri-logo.png",
+  /** شعار جوري الرسمي (شفاف) */
+  png: "/brand/ChatGPT Image Jun 4, 2026, 03_07_05 AM.png",
 } as const;
+
+export function getBrandLogoUrl(): string {
+  return encodePublicPath(brandLogo.png);
+}

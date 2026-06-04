@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { BrandLogoMark } from "@/components/brand/BrandLogoMark";
-import { brandLogo } from "@/config/brandAssets";
+import { getBrandLogoUrl } from "@/config/brandAssets";
 import { businessConfig } from "@/config/business";
 
 type Props = {
@@ -33,7 +33,7 @@ export function BrandLogo({
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={brandLogo.png}
+      src={getBrandLogoUrl()}
       alt={`${businessConfig.brand.nameLocal} — ${businessConfig.brand.nameEnglish}`}
       className={`shrink-0 object-contain object-center ${iconClassName} ${className} ${
         isDark ? "brightness-0 invert" : ""
