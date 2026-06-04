@@ -1,27 +1,22 @@
-type Item = { icon: string; title: string; text: string };
+import { BrandIcon, type BrandIconName } from "@/components/ui/BrandIcons";
 
-const iconMap: Record<string, string> = {
-  truck: "🚚",
-  cod: "📦",
-  vegan: "🌿",
-  shield: "🛡️",
-};
+type Item = { icon: string; title: string; text: string };
 
 export function TrustStrip({ items }: { items: Item[] }) {
   return (
-    <section className="px-4 pb-12 bg-clinical/50">
-      <div className="max-w-lg md:max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <section className="px-4 pb-14 bg-gradient-to-b from-clinical/40 to-cream">
+      <div className="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {items.map((item) => (
           <div
             key={item.title}
-            className="bg-white rounded-2xl border border-mist p-4 flex items-center gap-3 shadow-sm"
+            className="bg-white rounded-2xl border border-mist/80 p-4 flex items-center gap-3 shadow-sm hover:border-electric/30 transition-colors"
           >
-            <span className="w-10 h-10 rounded-full bg-navy/10 flex items-center justify-center text-lg">
-              {iconMap[item.icon] ?? "✦"}
+            <span className="w-11 h-11 rounded-xl bg-navy flex items-center justify-center text-electric flex-shrink-0">
+              <BrandIcon name={(item.icon as BrandIconName) || "shield"} className="w-5 h-5" />
             </span>
-            <div>
+            <div className="text-right min-w-0">
               <p className="text-sm font-semibold text-navy">{item.title}</p>
-              <p className="text-xs text-muted">{item.text}</p>
+              <p className="text-xs text-muted mt-0.5">{item.text}</p>
             </div>
           </div>
         ))}

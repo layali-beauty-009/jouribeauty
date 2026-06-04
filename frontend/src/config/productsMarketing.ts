@@ -1,4 +1,4 @@
-/** Extra marketing fields per serum (images added later) */
+/** Arabic marketing fields for homepage product cards */
 export const productsMarketing: Record<
   string,
   {
@@ -13,36 +13,36 @@ export const productsMarketing: Record<
   }
 > = {
   "caffeine-under-eye-serum": {
-    routineLabel: "Eye Routine",
-    badgeText: "Jouri Eye",
-    cardHeadline: "Depuff, brighten & smooth the under-eye area",
+    routineLabel: "روتين العين",
+    badgeText: "جوري للعين",
+    cardHeadline: "سيروم الكافيين — هالات، انتفاخ، وخطوط دقيقة",
     cardSubheadline:
-      "5% caffeine + retinol + hyaluronic acid for dark circles, puffiness & crow's feet.",
+      "٥٪ كافيين + ريتينول + هيالورونيك — يستهدف مظهر التعب تحت العين من حرارة الخليج والسهر.",
     rating: 4.9,
     reviewsCount: 284,
-    problem: "Puffy eyes, dark circles & fine lines",
-    mainIngredient: "5% Caffeine",
+    problem: "هالات، انتفاخ، وخطوط تحت العين",
+    mainIngredient: "٥٪ كافيين",
   },
   "bakuchiol-anti-aging-serum": {
-    routineLabel: "Youth Routine",
-    badgeText: "Jouri Glow",
-    cardHeadline: "Gentle anti-aging without harsh retinol",
+    routineLabel: "روتين الشباب",
+    badgeText: "جوري للإشراق",
+    cardHeadline: "سيروم الباكوتشيول — تجاعيد بلطف بلا حرقان",
     cardSubheadline:
-      "1.3% bakuchiol peptides + vitamin C + glutathione for firmness & radiance.",
+      "باكوتشيول ١.٣٪ + فيتامين سي + جلوتاثيون — إشراقة وتماسك لبشرة باهتة من الشمس والمكيف.",
     rating: 4.8,
     reviewsCount: 312,
-    problem: "Wrinkles, dull skin & loss of firmness",
-    mainIngredient: "Bakuchiol",
+    problem: "تجاعيد، بهتان، وفقدان تماسك",
+    mainIngredient: "باكوتشيول ١.٣٪",
   },
   "ghk-cu-barrier-repair-serum": {
-    routineLabel: "Repair Routine",
-    badgeText: "Jouri Repair",
-    cardHeadline: "Rebuild your skin barrier overnight",
+    routineLabel: "روتين الإصلاح",
+    badgeText: "جوري للإصلاح",
+    cardHeadline: "سيروم GHK-Cu — أصلحي حاجز بشرتك",
     cardSubheadline:
-      "GHK-Cu copper peptide + ectoin + HA for hydration, soothing & fine lines.",
+      "ببتيد النحاس + إكتوين + هيالورونيك — رطوبة عميقة وبشرة أهدأ بعد الشمس والتكييف.",
     rating: 4.9,
     reviewsCount: 196,
-    problem: "Weak barrier, dehydration & fine lines",
+    problem: "حاجز ضعيف، جفاف، وخطوط دقيقة",
     mainIngredient: "GHK-Cu",
   },
 };

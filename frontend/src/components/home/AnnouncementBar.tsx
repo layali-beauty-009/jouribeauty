@@ -2,7 +2,7 @@ import { businessConfig } from "@/config/business";
 
 export function AnnouncementBar({ text }: { text: string }) {
   return (
-    <div className="bg-navy text-pearl text-center text-xs md:text-sm py-2.5 px-4 tracking-wide font-medium">
+    <div className="bg-gradient-to-l from-teal-dark via-navy to-teal-dark text-pearl text-center text-xs md:text-sm py-2.5 px-4 tracking-wide font-medium border-b border-electric/20">
       {text}
     </div>
   );

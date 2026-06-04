@@ -48,3 +48,16 @@ body {
 .font-brand {
   font-family: var(--font-display);
 }
+
+/* Subtle premium surface utilities */
+.surface-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f4f9f8 100%);
+  border: 1px solid var(--color-mist);
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--color-navy), var(--color-royal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}

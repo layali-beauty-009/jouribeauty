@@ -111,7 +111,7 @@ export function ProductLandingPage({ product, related }: Props) {
           يبدأ من {formatPrice(product.offers[0]?.price ?? 199)}
         </p>
         {product.scarcityLine && (
-          <p className="mt-2 text-xs bg-red-50 text-red-700 rounded-lg py-2 px-3 inline-block">
+          <p className="mt-2 text-xs bg-clinical text-navy border border-electric/40 rounded-lg py-2 px-3 inline-block font-medium">
             {product.scarcityLine}
           </p>
         )}
@@ -209,7 +209,7 @@ export function ProductLandingPage({ product, related }: Props) {
           {(product.problemAgitation ?? []).map((item, i) => (
             <div key={i} className="rounded-2xl overflow-hidden border border-mist">
               <div className="bg-white p-4 flex gap-3">
-                <span className="text-red-500 text-lg">✕</span>
+                <span className="text-lilac-dark text-lg font-bold" aria-hidden>✕</span>
                 <p className="text-sm text-navy">{item.pain}</p>
               </div>
               <div className="p-4 flex gap-3" style={{ backgroundColor: t.softBg }}>
@@ -227,13 +227,13 @@ export function ProductLandingPage({ product, related }: Props) {
         {(product.failureAlternatives ?? []).map((alt) => (
           <div key={alt.name} className="bg-white rounded-2xl border border-mist p-4 mb-3">
             <p className="font-semibold text-navy flex items-center gap-2">
-              <span className="text-red-500">⚠</span> {alt.name}
+              <span className="text-lilac-dark" aria-hidden>⚠</span> {alt.name}
             </p>
-            <p className="text-xs text-red-600 mt-1">{alt.priceRange}</p>
+            <p className="text-xs text-muted mt-1">{alt.priceRange}</p>
             <ul className="mt-2 space-y-1">
               {alt.cons.map((c) => (
                 <li key={c} className="text-xs text-muted flex gap-2">
-                  <span className="text-red-400">✕</span> {c}
+                  <span className="text-lilac-dark" aria-hidden>✕</span> {c}
                 </li>
               ))}
             </ul>
