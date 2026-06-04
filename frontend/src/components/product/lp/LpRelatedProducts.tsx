@@ -44,13 +44,13 @@ export function LpRelatedProducts({
                   اكتشفي
                 </span>
 
-                <div className="relative aspect-square overflow-hidden bg-clinical">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-clinical">
                   {img ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={encodePublicPath(img)}
                       alt={r.shortName}
-                      className="h-full w-full object-contain p-4 transition-transform duration-300 group-hover:scale-[1.02]"
+                      className="block h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                     />
                   ) : (
                     <div className="flex h-full items-center justify-center text-sm text-muted">
