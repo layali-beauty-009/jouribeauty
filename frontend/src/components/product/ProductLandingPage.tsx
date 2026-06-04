@@ -5,6 +5,7 @@ import type { ProductConfig } from "@/types/product";
 import { businessConfig } from "@/config/business";
 import { useCart } from "@/context/CartContext";
 import { displayText, formatNumber, formatPrice } from "@/lib/format";
+import { NumberedStepRow, StepBadge } from "@/components/ui/NumberedStep";
 import { trackEvent } from "@/lib/tracking";
 import { ProductSectionImage } from "@/components/product/ProductSectionImage";
 import { getProductImages } from "@/lib/getProductImages";
@@ -210,9 +211,7 @@ export function ProductLandingPage({ product, related }: Props) {
                 className="bg-white rounded-2xl border border-mist p-5 text-right shadow-sm"
               >
                 <div className="flex items-start gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy text-sm font-bold text-pearl">
-                    {i + 1}
-                  </div>
+                  <StepBadge n={i + 1} className="!h-10 !w-10 !rounded-xl" />
                   <div className="min-w-0 flex-1">
                     <p className="font-bold text-navy">{item.name}</p>
                     {"dosage" in item && item.dosage && (
@@ -316,9 +315,7 @@ export function ProductLandingPage({ product, related }: Props) {
             key={step.label}
             className="bg-white rounded-2xl border border-mist p-6 mb-4 text-center shadow-sm"
           >
-            <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-navy text-lg font-bold text-pearl ring-2 ring-gold/50">
-              {i + 1}
-            </span>
+            <StepBadge n={i + 1} className="!h-11 !w-11 !text-lg ring-2 ring-gold/50" />
             <h3 className="mt-3 font-bold text-navy">{displayText(step.label)}</h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">{displayText(step.text)}</p>
           </div>
@@ -346,12 +343,15 @@ export function ProductLandingPage({ product, related }: Props) {
             </div>
             <Stars n={tm.rating} />
             <p className="text-sm text-navy mt-3 leading-relaxed">{tm.text}</p>
-            <div className="mt-4 flex items-center justify-between gap-3 flex-row-reverse">
-              <div>
+            <div className="mt-4 flex items-center justify-end gap-3">
+              <div className="min-w-0 text-right">
                 <p className="font-semibold text-sm text-navy">{tm.name}</p>
                 <p className="text-xs text-muted mt-0.5">{displayText(tm.meta)}</p>
               </div>
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-navy text-sm font-bold text-pearl ring-2 ring-gold/40">
+              <span
+                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-bold text-pearl ring-2 ring-gold/40"
+                dir="ltr"
+              >
                 {tm.initial}
               </span>
             </div>
@@ -371,11 +371,11 @@ export function ProductLandingPage({ product, related }: Props) {
             <p className="text-xs text-muted mt-1">{alt.priceRange}</p>
             <ul className="mt-3 space-y-1.5">
               {alt.cons.map((c) => (
-                <li key={c} className="text-xs text-muted flex gap-2 flex-row-reverse">
-                  <span className="text-lilac-dark" aria-hidden>
+                <li key={c} className="flex gap-2 text-xs text-muted">
+                  <span className="shrink-0 text-lilac-dark" aria-hidden>
                     ✕
                   </span>
-                  {c}
+                  <span className="flex-1">{c}</span>
                 </li>
               ))}
             </ul>
@@ -444,20 +444,18 @@ export function ProductLandingPage({ product, related }: Props) {
         <section className="px-4 mt-10 max-w-lg mx-auto">
           <LpSectionHeader
             label="طريقة الاستخدام"
-            title={product.usage.headline}
+            title={displayText(product.usage.headline)}
             subtitle="روتين بسيط — تقدرين تستمرين عليه كل يوم."
             accentColor="#c4a574"
           />
           {product.usage.steps.map((step, i) => (
-            <div
+            <NumberedStepRow
               key={step}
-              className="bg-white rounded-2xl border border-mist p-4 mt-3 flex gap-4 flex-row-reverse text-right shadow-sm"
+              n={i + 1}
+              className="mt-3 rounded-2xl border border-mist bg-white p-4 text-muted shadow-sm"
             >
-              <span className="w-10 h-10 rounded-full flex items-center justify-center text-pearl font-bold flex-shrink-0 bg-navy">
-                {i + 1}
-              </span>
-              <p className="text-sm text-muted pt-2 leading-relaxed flex-1">{step}</p>
-            </div>
+              {displayText(step)}
+            </NumberedStepRow>
           ))}
         </section>
       )}
@@ -479,8 +477,9 @@ export function ProductLandingPage({ product, related }: Props) {
             key={s.t}
             className="bg-white rounded-2xl border-r-4 border-navy p-4 mt-3 shadow-sm"
           >
-            <p className="font-bold text-navy">
-              {i + 1}. {s.t}
+            <p className="flex items-center gap-2 font-bold text-navy">
+              <StepBadge n={i + 1} className="!h-8 !w-8 !text-xs" />
+              <span>{s.t}</span>
             </p>
             <p className="text-sm text-muted mt-1">{s.d}</p>
           </div>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getProductTheme } from "@/lib/productTheme";
+import { NumberedStepRow } from "@/components/ui/NumberedStep";
+import { displayText } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "روتين العناية",
@@ -65,21 +67,19 @@ export default function RoutinePage() {
               {block.items.map((item, i) => {
                 const theme = getProductTheme(item.slug);
                 return (
-                  <li key={item.slug} className="flex gap-4 flex-row-reverse text-right">
-                    <span
-                      className={`flex-shrink-0 w-8 h-8 rounded-full border ${theme.border} ${theme.accent} flex items-center justify-center text-sm font-medium`}
+                  <li key={item.slug}>
+                    <NumberedStepRow
+                      n={i + 1}
+                      className="rounded-xl border border-mist bg-cream/50 p-3"
                     >
-                      {i + 1}
-                    </span>
-                    <div className="flex-1">
                       <Link
                         href={`/products/${item.slug}`}
-                        className={`font-semibold text-ink ${theme.hoverAccent} transition-colors text-sm`}
+                        className={`block font-semibold text-ink ${theme.hoverAccent} transition-colors text-sm`}
                       >
                         {item.product}
                       </Link>
-                      <p className="mt-1 text-sm text-muted leading-relaxed">{item.note}</p>
-                    </div>
+                      <p className="mt-1 text-sm text-muted leading-relaxed">{displayText(item.note)}</p>
+                    </NumberedStepRow>
                   </li>
                 );
               })}
