@@ -18,7 +18,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-mist">
       <div className="mx-auto max-w-lg md:max-w-2xl lg:max-w-5xl px-4 py-3 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-          <BrandLogo variant="light" iconClassName="h-11 w-[2.65rem]" />
+          <BrandLogo variant="light" iconClassName="h-12 w-auto max-h-12" />
           <span className="text-right leading-tight">
             <span className="block text-sm font-bold text-navy tracking-tight">
               {businessConfig.brand.nameLocal}
