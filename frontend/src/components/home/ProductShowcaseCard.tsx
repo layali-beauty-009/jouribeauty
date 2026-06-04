@@ -28,15 +28,20 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
   const hasHomeImageSlot = Boolean(getHomeProductImage(product.slug));
   const lpImg = config ? getProductImages(config).heroProduct : null;
   const [usePlaceholder, setUsePlaceholder] = useState(!hasHomeImageSlot && !lpImg);
+  const productHref = `/products/${product.slug}`;
+  const cardTitle = displayText(config?.cardHeadline ?? meta?.cardHeadline ?? product.name);
 
   return (
     <article className="group relative flex flex-col overflow-hidden rounded-3xl border border-mist bg-white shadow-lg transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-xl">
-      <span className="absolute top-4 right-4 z-10 inline-flex items-center gap-1 rounded-full bg-gold px-2.5 py-1 text-[10px] font-extrabold text-navy ring-1 ring-navy/10">
-        <IconSparkles className="h-3 w-3 shrink-0" />
-        اكتشفي
-      </span>
-
-      <div className="relative aspect-[4/5] overflow-hidden bg-clinical">
+      <Link
+        href={productHref}
+        className="relative block aspect-[4/5] overflow-hidden bg-clinical focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+        aria-label={`عرض ${cardTitle}`}
+      >
+        <span className="pointer-events-none absolute top-4 right-4 z-10 inline-flex items-center gap-1 rounded-full bg-gold px-2.5 py-1 text-[10px] font-extrabold text-navy ring-1 ring-navy/10">
+          <IconSparkles className="h-3 w-3 shrink-0" aria-hidden />
+          اكتشفي
+        </span>
         {hasHomeImageSlot && !usePlaceholder ? (
           <HomeProductPhoto
             slug={product.slug}
@@ -48,7 +53,7 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
           <img
             src={encodePublicPath(lpImg)}
             alt={config?.shortName ?? product.name}
-            className="block h-full w-full object-cover"
+            className="block h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
             onError={() => setUsePlaceholder(true)}
           />
         ) : config ? (
@@ -56,14 +61,16 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
         ) : (
           <div className="h-full w-full bg-mist/30" />
         )}
-      </div>
+      </Link>
 
       <div className="flex flex-grow flex-col p-5 text-right">
         <p className="text-[10px] font-semibold text-royal">
           {meta?.routineLabel} · {meta?.badgeText}
         </p>
         <h3 className="mt-1 text-lg font-extrabold leading-snug text-navy">
-          {displayText(config?.cardHeadline ?? meta?.cardHeadline ?? product.name)}
+          <Link href={productHref} className="hover:text-royal transition-colors">
+            {cardTitle}
+          </Link>
         </h3>
         <p className="mt-2 line-clamp-4 flex-grow text-sm leading-relaxed text-muted">
           {displayText(meta?.cardSubheadline ?? product.description)}
@@ -85,7 +92,7 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
             </p>
           </div>
           <Link
-            href={`/products/${product.slug}`}
+            href={productHref}
             className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-clinical px-4 py-2 text-sm font-extrabold text-navy transition-colors group-hover:bg-navy group-hover:text-pearl"
           >
             اكتشفي
