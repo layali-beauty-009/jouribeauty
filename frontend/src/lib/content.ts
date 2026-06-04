@@ -24,7 +24,7 @@ export function getHomeContent(products: Product[]) {
       trustPills: [
         { icon: "flask" as const, title: "تركيز معلن", sub: "لكل سيروم" },
         { icon: "vegan" as const, title: "نظيف", sub: "فيجان · خالي قسوة" },
-        { icon: "cod" as const, title: "COD", sub: businessConfig.cod.paymentLabel },
+        { icon: "cod" as const, title: "دفع عند الاستلام", sub: "بدون تحويل مسبق" },
         { icon: "shield" as const, title: "٣٠ يوم", sub: businessConfig.cod.returnGuarantee },
       ],
     },

@@ -62,7 +62,7 @@ export function CartDrawer() {
                   <span className="font-semibold text-navy">{formatPrice(line.price)}</span>
                   <button
                     type="button"
-                    className="text-xs text-red-600"
+                    className="text-xs text-lilac-dark"
                     onClick={() => removeLine(line.sku, line.offerId)}
                   >
                     حذف

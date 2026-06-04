@@ -13,7 +13,7 @@ export function TrustBadgeRow() {
     { label: "صيدلية السيرومات", sub: businessConfig.brand.nameLocal },
     { label: "مكوّنات واضحة", sub: "مشكل + حل" },
     { label: "الإمارات", sub: "توصيل سريع" },
-    { label: "COD", sub: businessConfig.cod.paymentLabel },
+    { label: "دفع عند الاستلام", sub: "للإمارات" },
   ];
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-8">
