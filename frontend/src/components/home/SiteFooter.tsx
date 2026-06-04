@@ -17,7 +17,7 @@ export function SiteFooter() {
           <Link href="/" className="mb-5 flex flex-col items-center gap-3">
             <BrandLogo
               variant="dark"
-              iconClassName="h-16 w-auto max-w-[4.5rem] sm:h-[4.25rem] sm:max-w-[5rem]"
+              iconClassName="h-[4.5rem] w-[3.25rem] sm:h-[4.75rem] sm:w-[3.5rem]"
             />
             <span className="block text-base font-bold text-pearl">
               {businessConfig.brand.nameLocal}

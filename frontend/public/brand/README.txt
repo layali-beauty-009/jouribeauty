@@ -1,10 +1,11 @@
-Logo files for the site header, footer, and browser tab.
+Logo files for header, footer, and favicon.
 
-Active files:
-- jouri-logo.svg — header (light background)
-- jouri-logo-on-dark.svg — footer (dark background)
+Used on site (transparent, no white box):
+- BrandLogoMark.tsx — inline SVG (primary)
+- jouri-logo.svg — light backgrounds
+- jouri-logo-on-dark.svg — dark footer
 
-Optional (your exact ChatGPT export):
-- jouri-logo.png — transparent PNG; site tries this if SVG fails
+Optional upload (must be transparent PNG):
+- jouri-logo.png — not used by default; replace only if you need raster
 
-Upload path: frontend/public/brand/jouri-logo.png
+Do not use PNG with white background — it will show a white box in the header.

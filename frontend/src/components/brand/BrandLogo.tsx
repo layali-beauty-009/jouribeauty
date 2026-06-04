@@ -1,60 +1,21 @@
-"use client";
-
-import { useState } from "react";
-import { brandLogo } from "@/config/brandAssets";
-import { businessConfig } from "@/config/business";
-
-type Variant = "light" | "dark";
-type BrandLogoSrc = (typeof brandLogo)[keyof typeof brandLogo];
+import { BrandLogoMark } from "@/components/brand/BrandLogoMark";
 
 type Props = {
-  variant?: Variant;
+  variant?: "light" | "dark";
   className?: string;
   iconClassName?: string;
 };
 
+/** شعار جوري — SVG شفاف (الهيدر والفوتر) */
 export function BrandLogo({
   variant = "light",
   className = "",
   iconClassName = "h-11 w-auto",
 }: Props) {
-  const [src, setSrc] = useState<BrandLogoSrc>(
-    variant === "dark" ? brandLogo.onDark : brandLogo.png,
-  );
-  const [failed, setFailed] = useState(false);
-
-  if (failed) {
-    return (
-      <span
-        className={`inline-flex h-11 w-11 items-center justify-center rounded-full bg-navy text-pearl text-lg font-semibold shadow-sm ${className}`}
-        aria-hidden
-      >
-        {businessConfig.brand.monogram}
-      </span>
-    );
-  }
-
-  const darkFallback =
-    variant === "dark" ? "brightness-0 invert opacity-95" : "";
-
   return (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img
-      src={src}
-      alt={`${businessConfig.brand.nameLocal} — ${businessConfig.brand.nameEnglish}`}
-      className={`object-contain object-center ${darkFallback} ${iconClassName} ${className}`}
-      decoding="async"
-      onError={() => {
-        if (variant === "dark" && src === brandLogo.onDark) {
-          setSrc(brandLogo.png);
-          return;
-        }
-        if (variant === "light" && src === brandLogo.png) {
-          setSrc(brandLogo.default);
-          return;
-        }
-        setFailed(true);
-      }}
+    <BrandLogoMark
+      variant={variant}
+      className={`shrink-0 ${iconClassName} ${className}`.trim()}
     />
   );
 }
