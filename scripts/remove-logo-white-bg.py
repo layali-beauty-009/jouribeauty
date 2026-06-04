@@ -25,7 +25,7 @@ def remove_white(path: Path) -> None:
 
 
 def main() -> None:
-    for name in ("jouri-logo-mark.png", "ChatGPT Image Jun 4, 2026, 03_07_05 AM.png"):
+    for name in ("jouri-logo.png", "jouri-logo-mark.png", "ChatGPT Image Jun 4, 2026, 03_07_05 AM.png"):
         p = BRAND / name
         if p.exists():
             remove_white(p)

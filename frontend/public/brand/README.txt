@@ -1,5 +1,5 @@
-Brand logo (transparent PNG — white background removed):
-  jouri-logo-mark.png          ← used by site (header, footer, favicon)
+Official site logo (transparent PNG):
+  jouri-logo.png  → header, footer, favicon
 
-After uploading a new logo, run from repo root:
+After replacing the file, run from repo root:
   python3 scripts/remove-logo-white-bg.py

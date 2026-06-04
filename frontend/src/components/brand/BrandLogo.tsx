@@ -13,7 +13,7 @@ type Props = {
 
 const logoAlt = `${businessConfig.brand.nameLocal} — ${businessConfig.brand.nameEnglish}`;
 
-/** شعار جوري — PNG شفاف (jouri-logo-mark.png) */
+/** شعار جوري — PNG شفاف (public/brand/jouri-logo.png) */
 export function BrandLogo({
   variant = "light",
   className = "",
