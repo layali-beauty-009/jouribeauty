@@ -1,12 +1,11 @@
 صور الهوم (أصلية — بلا تعديل):
 
-1) أول ما يدخل الزائر (3 منتجات مجمّعين):
+1) بانر المجموعة (أول الشاشة):
    ChatGPT Image Jun 3, 2026, 10_42_42 PM.png
-   (أو home-collection-hero.png إذا بدّلتي الاسم)
 
-2) بطاقات المنتجات (واحد بواحد):
-   hero-eye-serum.webp
-   bakuchiol-anti-aging-serum.png
-   hero-barrier-repair.webp
+2) بطاقات المنتجات:
+   hero-eye-serum.webp — سيروم العين
+   ChatGPT Image Jun 4, 2026, 02_58_20 AM.png — باكوتشيول / مكافحة التجاعيد بلطف
+   hero-barrier-repair.webp — GHK-Cu
 
-Commit → Redeploy Easypanel
+ارفعي الملفات هنا ثم Commit → Redeploy Easypanel

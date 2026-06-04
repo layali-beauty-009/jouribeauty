@@ -1,3 +1,5 @@
+import { encodePublicPath } from "@/lib/getProductImages";
+
 /**
  * Homepage images — merchant files in /public/home/, served unchanged.
  */
@@ -17,8 +19,8 @@ export const homeProductImages: Record<
     alt: "سيروم جوري للهالات السوداء وانتفاخات العين",
   },
   "bakuchiol-anti-aging-serum": {
-    src: "/home/bakuchiol-anti-aging-serum.png",
-    alt: "سيروم جوري لمكافحة التجاعيد — باكوتشيول",
+    src: "/home/ChatGPT Image Jun 4, 2026, 02_58_20 AM.png",
+    alt: "مكافحة التجاعيد بلطف — سيروم باكوتشيول جوري",
   },
   "ghk-cu-barrier-repair-serum": {
     src: "/home/hero-barrier-repair.webp",
@@ -27,5 +29,7 @@ export const homeProductImages: Record<
 };
 
 export function getHomeProductImage(slug: string) {
-  return homeProductImages[slug];
+  const entry = homeProductImages[slug];
+  if (!entry) return undefined;
+  return { ...entry, src: encodePublicPath(entry.src) };
 }
