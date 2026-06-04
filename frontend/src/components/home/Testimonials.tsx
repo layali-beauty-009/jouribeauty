@@ -1,5 +1,6 @@
 import { IconCheck, IconQuote } from "@/components/ui/BrandIcons";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { displayText } from "@/lib/format";
 
 type Item = {
   name: string;
@@ -21,32 +22,34 @@ export function Testimonials({
   items: Item[];
 }) {
   return (
-    <section className="px-4 py-16 bg-white border-y border-mist/60">
-      <div className="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto">
+    <section className="border-y border-mist/60 bg-white px-4 py-14 sm:py-16">
+      <div className="mx-auto max-w-lg sm:max-w-2xl lg:max-w-4xl">
         <SectionHeader label={label} title={title} subtitle={subtitle} />
         <div className="space-y-4">
           {items.map((t) => (
             <article
               key={t.name}
-              className="bg-gradient-to-br from-pearl/80 to-white rounded-2xl border border-mist p-5 md:p-6 shadow-sm relative text-right"
+              className="relative rounded-2xl border border-mist bg-white p-5 text-right shadow-sm md:p-6"
             >
-              <div className="flex items-start justify-between gap-3 mb-3">
-                <IconQuote className="w-8 h-8 text-electric/40 flex-shrink-0" />
-                <span className="inline-flex items-center gap-1 text-[10px] font-medium text-royal bg-clinical px-2.5 py-1 rounded-full border border-mist">
-                  <IconCheck className="w-3.5 h-3.5" />
+              <div className="mb-3 flex items-start justify-between gap-3">
+                <IconQuote className="h-8 w-8 shrink-0 text-gold/40" />
+                <span className="inline-flex items-center gap-1 rounded-full border border-gold/25 bg-gold/10 px-2.5 py-1 text-[10px] font-medium text-gold-dark">
+                  <IconCheck className="h-3.5 w-3.5" />
                   مشترية مؤكدة
                 </span>
               </div>
-              <p className="text-electric text-sm mb-3" aria-label={`${t.rating} من 5`}>
+              <p className="mb-3 text-sm text-gold" aria-label={`${t.rating} من 5`}>
                 {"★".repeat(t.rating)}
               </p>
-              <p className="text-sm md:text-[0.9375rem] text-navy leading-relaxed">{t.text}</p>
-              <div className="mt-5 flex items-center justify-between gap-3 flex-row-reverse">
+              <p className="text-sm leading-relaxed text-navy md:text-[0.9375rem]">
+                {displayText(t.text)}
+              </p>
+              <div className="mt-5 flex items-center justify-between gap-3">
                 <div className="text-right">
-                  <p className="font-semibold text-navy text-sm">{t.name}</p>
-                  <p className="text-xs text-muted mt-0.5">{t.meta}</p>
+                  <p className="text-sm font-semibold text-navy">{t.name}</p>
+                  <p className="mt-0.5 text-xs text-muted">{displayText(t.meta)}</p>
                 </div>
-                <span className="w-11 h-11 rounded-full bg-navy text-pearl flex items-center justify-center text-sm font-semibold flex-shrink-0 ring-2 ring-electric/30">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy text-sm font-semibold text-pearl ring-2 ring-gold/40">
                   {t.initial}
                 </span>
               </div>

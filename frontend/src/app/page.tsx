@@ -4,6 +4,7 @@ import { getHomeContent } from "@/lib/content";
 import { AnnouncementBar } from "@/components/home/AnnouncementBar";
 import { HomeCollectionHero } from "@/components/home/HomeCollectionHero";
 import { HomeHero } from "@/components/home/HomeHero";
+import { HomeTrustBadges } from "@/components/home/HomeTrustBadges";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { WhyBrand } from "@/components/home/WhyBrand";
 import { Testimonials } from "@/components/home/Testimonials";
@@ -22,6 +23,7 @@ export default async function HomePage() {
       <AnnouncementBar text={content.announcement} />
       <HomeCollectionHero />
       <HomeHero content={content.hero} />
+      <HomeTrustBadges />
       <FeaturedProducts
         label={content.formulations.label}
         title={content.formulations.title}

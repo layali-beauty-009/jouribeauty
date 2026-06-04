@@ -19,7 +19,7 @@ export function FAQAccordion({
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="px-4 py-16 bg-cream" id="faq">
+    <section className="bg-white px-4 py-14 sm:py-16" id="faq">
       <div className="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto">
         <SectionHeader label={label} title={title} subtitle={subtitle} />
         <div className="divide-y divide-mist border border-mist rounded-2xl bg-white overflow-hidden shadow-sm">
@@ -35,8 +35,8 @@ export function FAQAccordion({
                   {item.q}
                 </span>
                 <span
-                  className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-lg font-light transition-colors ${
-                    open === i ? "bg-navy text-pearl" : "bg-clinical text-navy"
+                  className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-lg font-light transition-colors ${
+                    open === i ? "bg-navy text-pearl ring-2 ring-gold/40" : "bg-gold/10 text-navy"
                   }`}
                 >
                   {open === i ? "−" : "+"}

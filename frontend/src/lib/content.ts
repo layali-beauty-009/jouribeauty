@@ -9,34 +9,24 @@ export function getHomeContent(products: Product[]) {
     .join("، ");
 
   return {
-    announcement: `✦ سيرومات سريرية بتركيز معلن • ${businessConfig.cod.paymentLabel} • توصيل الإمارات`,
+    announcement: `سيرومات سريرية بتركيز معلن • ${businessConfig.cod.paymentLabel} • توصيل الإمارات`,
     hero: {
-      label: businessConfig.brand.positioningLine,
+      label: "صيدلية السيرومات · الإمارات",
       brandLine: businessConfig.brand.nameLocal,
-      title: "سيرومات سريرية لبشرة الخليج — جمال يبدأ من وضوح التركيبة",
-      subtitle: `ثلاث تركيبات مركّزة (${ingredients || "كافيين، باكوتشيول، GHK-Cu"}) — كل واحدة تسمّي همّك، تشرح المكوّن، وتعطيك روتيناً بسيطاً يناسب حرارة الخليج، التكييف، والسهر. بدون وعود طبية مبالغ فيها — فقط عناية بمعايير صيدلية.`,
+      title: "سيرومات سريرية — جمال يبدأ من وضوح التركيبة",
+      subtitle: `ثلاث تركيبات مركّزة (${ingredients || "كافيين، باكوتشيول، GHK-Cu"}) — كل واحدة تستهدف همّك الحقيقي: العين، التجاعيد والبهتان، أو إصلاح الحاجز. حلال حيث ينطبق، تركيز معلن، و${businessConfig.cod.paymentLabel.toLowerCase()}.`,
       cta: "اختاري سيرومك",
-      ctaSecondary: "لماذا تثقين بجوري؟",
-      proofCard: {
-        title: "لمن يقرأ المكوّنات قبل أن تشتري",
-        subtitle: "تركيز معلن • مشكل ← حل • فيجان حيث ينطبق • دفع عند الاستلام",
-      },
-      trustPills: [
-        { icon: "flask" as const, title: "تركيز معلن", sub: "لكل سيروم" },
-        { icon: "vegan" as const, title: "نظيف", sub: "فيجان · خالي قسوة" },
-        { icon: "cod" as const, title: "دفع عند الاستلام", sub: "بدون تحويل مسبق" },
-        { icon: "shield" as const, title: "30 يوم", sub: businessConfig.cod.returnGuarantee },
-      ],
+      ctaSecondary: "لماذا جوري؟",
     },
     formulations: {
-      label: "تركيبات جوري",
-      title: "ثلاث سيرومات. ثلاث مشاكل. حلّ واحد موثوق.",
+      label: "تركيباتنا",
+      title: "ثلاث سيرومات. ثلاث مشاكل. حلّ سريري واحد.",
       subtitle:
         "كل سيروم عالم مستقل — مكوّن نشط واضح، جرعة مفهومة، وصفحة تشرح لك لماذا يناسب بشرتك في الإمارات. اختاري همّك، أو كمّلي الروتين الثلاثي.",
     },
     whyBrand: {
-      label: "لماذا جوري للجمال؟",
-      title: "صيدلية سيرومات — مو متجر وعود فارغة",
+      label: "لماذا جوري؟",
+      title: "صيدلية، مو متجر تجميل",
       subtitle:
         "العميلة الواعية تشتري بعد ما تقرأ المكوّنات. جوري تختصر الرفوف إلى ثلاث سيرومات مركّزة لبشرة الخليج — صرامة صيدلية، روتين بسيط.",
       cards: [
@@ -63,8 +53,8 @@ export function getHomeContent(products: Product[]) {
       ],
     },
     testimonials: {
-      label: "تجارب حقيقية",
-      title: "عميلات قرأن التركيبة قبل ما يطلبن",
+      label: "تجارب مؤكدة",
+      title: "عميلات قرأن المكوّنات قبل ما يطلبن",
       subtitle: "جوري اختيار من يبحث عن المنطق قبل الجمال — وضوح، ثم شراء.",
       items: [
         {
@@ -91,8 +81,8 @@ export function getHomeContent(products: Product[]) {
       ],
     },
     howItWorks: {
-      label: "طريقة الطلب",
-      title: "من الاختيار إلى باب بيتك — بلا مخاطرة",
+      label: "كيف يعمل الطلب",
+      title: "من الطلب لباب بيتك في 3 خطوات",
       subtitle: `${businessConfig.cod.paymentLabel}. ${businessConfig.cod.confirmationPromise}.`,
       steps: [
         {
@@ -114,7 +104,7 @@ export function getHomeContent(products: Product[]) {
     },
     finalCta: {
       label: "ابدئي روتينك",
-      title: "بشرتك تستحق علم — مو وعود",
+      title: "جمالك يستحق علم، مو وعود",
       subtitle: `${businessConfig.brand.nameLocal}: تركيبات واضحة، ثقة الخليج، و${businessConfig.cod.paymentLabel.toLowerCase()}.`,
       cta: "ابدئي روتينك الآن",
       chips: [

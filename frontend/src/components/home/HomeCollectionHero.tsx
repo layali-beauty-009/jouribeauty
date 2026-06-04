@@ -7,7 +7,7 @@ import { encodePublicPath } from "@/lib/getProductImages";
 
 const EXTENSIONS = [".png", ".jpg", ".jpeg", ".webp"] as const;
 
-/** Full-width trio product visual — first thing on homepage (namabeauty-style). */
+/** بانر المجموعة — عرض كامل مثل ناما */
 export function HomeCollectionHero() {
   const [fallbackIndex, setFallbackIndex] = useState(-1);
   const [missing, setMissing] = useState(false);
@@ -19,23 +19,23 @@ export function HomeCollectionHero() {
 
   if (missing) {
     return (
-      <section className="bg-gradient-to-b from-clinical to-pearl px-4 py-16 text-center">
+      <section className="bg-clinical px-4 py-16 text-center">
         <p className="text-sm text-muted">
           صورة المجموعة — أضيفي ملفك فـ{" "}
-          <code className="text-navy text-xs">frontend/public/home/</code>
+          <code className="text-xs text-navy">frontend/public/home/</code>
         </p>
       </section>
     );
   }
 
   return (
-    <section className="bg-white w-full">
-      <div className="w-full max-w-2xl lg:max-w-4xl mx-auto">
+    <section className="w-full bg-white">
+      <div className="mx-auto w-full max-w-2xl lg:max-w-4xl">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src}
           alt="جوري للجمال — ثلاث سيرومات: العين، التجاعيد، وإصلاح البشرة"
-          className="w-full h-auto block"
+          className="block h-auto w-full"
           loading="eager"
           decoding="async"
           fetchPriority="high"
@@ -48,15 +48,13 @@ export function HomeCollectionHero() {
           }}
         />
       </div>
-      <div className="text-center py-4 border-b border-mist/80 bg-pearl/40">
+      <div className="border-b border-mist/80 bg-cream py-3 text-center">
         <Link
           href="#products"
-          className="inline-flex items-center gap-2 text-sm font-medium text-royal hover:text-navy transition-colors"
+          className="inline-flex items-center gap-2 text-sm font-bold text-gold transition-colors hover:text-navy"
         >
           اكتشفي كل سيروم على حدة
-          <span aria-hidden className="inline-block rotate-90">
-            ←
-          </span>
+          <span aria-hidden>←</span>
         </Link>
       </div>
     </section>

@@ -17,8 +17,8 @@ export function HowItWorks({
   steps: Step[];
 }) {
   return (
-    <section className="px-4 py-16 bg-gradient-to-b from-cream to-pearl/30" id="how-it-works">
-      <div className="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto">
+    <section className="bg-cream px-4 py-14 sm:py-16" id="how-it-works">
+      <div className="mx-auto max-w-lg sm:max-w-2xl lg:max-w-4xl">
         <SectionHeader label={label} title={title} subtitle={subtitle} />
         <div className="grid gap-4 md:grid-cols-3 md:gap-5">
           {steps.map((step, idx) => {
@@ -26,16 +26,16 @@ export function HowItWorks({
             return (
               <div
                 key={step.n}
-                className="bg-white rounded-3xl border border-mist/80 p-6 md:p-7 text-center shadow-sm hover:shadow-md hover:border-electric/30 transition-all relative"
+                className="relative rounded-3xl border border-mist bg-white p-6 text-center shadow-sm transition-all hover:border-gold/35 hover:shadow-md md:p-7"
               >
-                <span className="absolute top-4 left-4 text-[10px] font-bold tracking-widest text-gold">
+                <span className="absolute top-4 right-4 text-[10px] font-bold tracking-widest text-gold">
                   0{step.n}
                 </span>
-                <span className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10 text-navy ring-1 ring-gold/30">
-                  <StepIcon className="w-7 h-7" />
+                <span className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10 ring-1 ring-gold/35">
+                  <StepIcon className="h-7 w-7 text-gold" />
                 </span>
-                <h3 className="font-semibold text-lg text-navy">{step.title}</h3>
-                <p className="mt-2 text-sm text-muted leading-relaxed">{step.text}</p>
+                <h3 className="text-lg font-bold text-navy">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{step.text}</p>
               </div>
             );
           })}

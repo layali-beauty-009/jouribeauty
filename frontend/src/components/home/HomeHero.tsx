@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { TrustPills } from "./TrustPills";
-import type { BrandIconName } from "@/components/ui/BrandIcons";
 
 type HeroContent = {
   label: string;
@@ -9,55 +7,44 @@ type HeroContent = {
   subtitle: string;
   cta: string;
   ctaSecondary: string;
-  proofCard: { title: string; subtitle: string };
-  trustPills: { icon: BrandIconName; title: string; sub: string }[];
 };
 
-/** Emotional hero under collection banner — nama-level clarity, Jouri teal palette. */
+/** هيرو عاطفي — هيكل namabeauty.shop + ألوان جوري */
 export function HomeHero({ content }: { content: HeroContent }) {
   return (
-    <section className="relative px-4 pt-10 pb-14 bg-gradient-to-b from-pearl via-white to-cream overflow-hidden">
+    <section className="relative overflow-hidden bg-cream px-4 pb-10 pt-10 sm:pt-14">
       <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[28rem] h-[28rem] rounded-full bg-electric/8 blur-3xl pointer-events-none"
+        className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-gold/5 blur-3xl"
         aria-hidden
       />
-      <div className="relative max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto text-center">
-        <p className="text-[0.65rem] tracking-[0.35em] uppercase text-royal font-semibold mb-3">
-          {content.label}
-        </p>
-        <p className="font-brand text-3xl md:text-4xl text-navy mb-2 leading-tight">
-          {content.brandLine}
-        </p>
-        <h1 className="font-sans text-xl md:text-2xl lg:text-[1.75rem] font-bold text-navy leading-snug max-w-2xl mx-auto">
+      <div className="relative mx-auto max-w-lg text-center sm:max-w-2xl lg:max-w-4xl">
+        <p className="text-[11px] font-bold tracking-[0.25em] text-gold">{content.label}</p>
+        <p className="mt-2 font-brand text-2xl text-navy sm:text-3xl">{content.brandLine}</p>
+        <h1 className="mx-auto mt-4 max-w-3xl font-sans text-2xl font-extrabold leading-snug text-navy sm:text-3xl lg:text-[2.125rem]">
           {content.title}
         </h1>
-        <p className="mt-4 text-muted text-sm md:text-base leading-7 max-w-xl mx-auto">
+        <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-muted sm:text-base">
           {content.subtitle}
         </p>
 
-        <TrustPills items={content.trustPills} />
-
-        <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
           <Link
             href="#products"
-            className="inline-flex items-center justify-center gap-2 bg-navy text-pearl rounded-full py-3.5 px-8 text-sm font-semibold tracking-wide hover:bg-royal shadow-md shadow-navy/15 transition-all"
+            className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-2xl bg-navy px-8 text-sm font-bold text-pearl shadow-lg shadow-navy/20 ring-1 ring-gold/20 transition-all hover:bg-royal active:scale-[0.98]"
           >
             {content.cta}
             <span aria-hidden>←</span>
           </Link>
           <Link
             href="#why-jouri"
-            className="inline-flex items-center justify-center rounded-full py-3.5 px-8 text-sm font-medium text-navy border border-mist bg-white hover:border-electric hover:bg-clinical/50 transition-colors"
+            className="inline-flex min-h-[52px] items-center justify-center rounded-2xl border border-mist bg-white px-8 text-sm font-semibold text-navy transition-colors hover:border-gold/50 hover:bg-gold-soft/30"
           >
             {content.ctaSecondary}
           </Link>
-        </div>
-
-        <div className="mt-8 mx-auto max-w-md rounded-2xl border border-electric/25 bg-gradient-to-br from-white to-clinical/40 px-5 py-4 shadow-sm text-right">
-          <p className="text-sm font-semibold text-navy">{content.proofCard.title}</p>
-          <p className="text-xs text-muted mt-1.5 leading-relaxed">{content.proofCard.subtitle}</p>
         </div>
       </div>
     </section>
   );
 }
+
+// keep type export for content.ts trustPills if removed from hero - content still has trustPills, page won't pass them

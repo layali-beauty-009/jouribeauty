@@ -15,24 +15,24 @@ export function WhyBrand({
   cards: Card[];
 }) {
   return (
-    <section className="px-4 py-16 bg-pearl/40" id="why-jouri">
-      <div className="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto">
+    <section className="bg-cream px-4 py-14 sm:py-16" id="why-jouri">
+      <div className="mx-auto max-w-lg sm:max-w-2xl lg:max-w-4xl">
         <SectionHeader label={label} title={title} subtitle={subtitle} />
         <div className="grid gap-4 md:grid-cols-2">
           {cards.map((card) => (
             <div
               key={card.title}
-              className="bg-white rounded-2xl border border-mist/80 p-5 flex gap-4 shadow-sm hover:shadow-md hover:border-electric/25 transition-all text-right"
+              className="flex gap-4 rounded-2xl border border-mist bg-white p-5 text-right shadow-sm transition-all hover:border-gold/35 hover:shadow-md"
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-navy flex items-center justify-center">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gold/10 ring-1 ring-gold/40">
                 <BrandIcon
                   name={(card.icon as BrandIconName) || "shield"}
-                  className="w-6 h-6 text-electric"
+                  className="h-6 w-6 text-gold"
                 />
-              </div>
+              </span>
               <div className="min-w-0 flex-1">
-                <h3 className="font-semibold text-navy">{card.title}</h3>
-                <p className="mt-1.5 text-sm text-muted leading-relaxed">{card.text}</p>
+                <h3 className="font-bold text-navy">{card.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted">{card.text}</p>
               </div>
             </div>
           ))}
