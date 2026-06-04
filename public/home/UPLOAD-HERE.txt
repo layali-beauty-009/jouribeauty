@@ -1,0 +1,11 @@
+صور الهوم (أصلية — بلا تعديل):
+
+1) بانر المجموعة (أول الشاشة):
+   ChatGPT Image Jun 3, 2026, 10_42_42 PM.png
+
+2) بطاقات المنتجات:
+   hero-eye-serum.webp — سيروم العين
+   ChatGPT Image Jun 4, 2026, 02_58_20 AM.png — باكوتشيول / مكافحة التجاعيد بلطف
+   hero-barrier-repair.webp — GHK-Cu
+
+ارفعي الملفات هنا ثم Commit → Redeploy Easypanel

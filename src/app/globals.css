@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/*
+ * Jouri — unified clinical-luxury palette (single teal family)
+ * Product pages use tonal shifts only — no purple/royal-blue clash.
+ */
+@theme {
+  --color-cream: #f4f9f8;
+  --color-pearl: #eef6f4;
+  --color-mist: #d2e6e2;
+  --color-ink: #14282c;
+  --color-muted: #5a7176;
+
+  /* Brand core */
+  --color-navy: #0f5661;
+  --color-royal: #2a7a85;
+  --color-electric: #5ba89e;
+  --color-accent: #5ba89e;
+  --color-clinical: #e6f2f0;
+  --color-teal-dark: #0a3d45;
+
+  /* Gold accents (namabeauty-style details on teal base) */
+  --color-gold: #c4a574;
+  --color-gold-soft: #f0e6d3;
+  --color-gold-muted: #cdaea2;
+  --color-gold-dark: #8b7349;
+
+  /* Harmonized “product tint” tokens (sage-teal, not purple/blue) */
+  --color-lavender: #dcebe8;
+  --color-lilac: #e4efed;
+  --color-lilac-dark: #3d6e72;
+  --color-ice: #cfe8e4;
+  --color-ice-dark: #5ba89e;
+
+  --font-sans: var(--font-arabic), var(--font-latin), system-ui, sans-serif;
+  --font-serif: var(--font-display), cursive;
+  --font-display: var(--font-display), cursive;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.75;
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-variant-numeric: lining-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* أرقام غربية 0-9 بترتيب صحيح داخل واجهة عربية RTL */
+.num-isolate,
+html[dir="rtl"] .tabular-nums {
+  unicode-bidi: isolate;
+  direction: ltr;
+}
+
+.font-brand {
+  font-family: var(--font-display);
+}
+
+/* Subtle premium surface utilities */
+.surface-card {
+  background: linear-gradient(145deg, #ffffff 0%, #f4f9f8 100%);
+  border: 1px solid var(--color-mist);
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--color-navy), var(--color-royal));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Checkout / conversion — gold luxury surfaces */
+.checkout-surface {
+  background: linear-gradient(165deg, #fffdf8 0%, #f8f0e4 42%, #f0e6d3 100%);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 55%, transparent);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.9) inset,
+    0 8px 28px rgb(196 165 116 / 0.22);
+}
+
+.checkout-cta {
+  background: linear-gradient(135deg, #e8d4b4 0%, #c4a574 38%, #a8895a 100%);
+  color: var(--color-teal-dark);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.35) inset,
+    0 6px 20px rgb(168 137 90 / 0.45);
+}
+
+.checkout-cta:hover {
+  background: linear-gradient(135deg, #f0e0c8 0%, #d4b896 40%, #b89868 100%);
+}
+
+.checkout-trust-pill {
+  background: linear-gradient(180deg, #fffefb 0%, #f5ebe0 100%);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 40%, transparent);
+}

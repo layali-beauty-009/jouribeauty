@@ -1,0 +1,62 @@
+"use client";
+
+import { useState } from "react";
+import type { ProductThemeColors } from "@/types/product";
+import { PremiumImagePlaceholder } from "@/components/ui/PremiumImagePlaceholder";
+
+type Variant = "heroBeforeAfter" | "problem" | "productHero";
+
+type Props = {
+  src: string;
+  alt: string;
+  theme: ProductThemeColors;
+  variant: Variant;
+  label: string;
+  sublabel?: string;
+  /** داخل كارت موحّد مع شريط تحت الصورة */
+  embedded?: boolean;
+};
+
+export function ProductSectionImage({
+  src,
+  alt,
+  theme,
+  variant,
+  label,
+  sublabel,
+  embedded = false,
+}: Props) {
+  const [failed, setFailed] = useState(!src);
+
+  if (failed || !src) {
+    return (
+      <PremiumImagePlaceholder
+        label={label}
+        sublabel={sublabel}
+        theme={theme}
+        variant={variant === "heroBeforeAfter" ? "hero" : variant === "problem" ? "wide" : "square"}
+        showBeforeAfter={variant === "heroBeforeAfter"}
+      />
+    );
+  }
+
+  const img = (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src={src}
+      alt={alt}
+      className="block h-auto w-full max-w-full"
+      loading={variant === "heroBeforeAfter" ? "eager" : "lazy"}
+      decoding="async"
+      onError={() => setFailed(true)}
+    />
+  );
+
+  if (embedded) {
+    return <div className="w-full overflow-hidden bg-white">{img}</div>;
+  }
+
+  return (
+    <div className="w-full overflow-hidden rounded-2xl border border-mist bg-white">{img}</div>
+  );
+}

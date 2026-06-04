@@ -1,0 +1,109 @@
+"use client";
+
+import Link from "next/link";
+import { useState } from "react";
+import type { Product } from "@/lib/api";
+import { displayText, formatNumber, formatPriceParts } from "@/lib/format";
+import { getProductBySlug } from "@/config/products";
+import { productsMarketing } from "@/config/productsMarketing";
+import { getHomeProductImage } from "@/config/homeImages";
+import { HomeProductPhoto } from "./HomeProductPhoto";
+import { PremiumImagePlaceholder } from "@/components/ui/PremiumImagePlaceholder";
+import { getProductImages, encodePublicPath } from "@/lib/getProductImages";
+
+function Stars({ rating }: { rating: number }) {
+  return (
+    <span className="text-sm text-gold" aria-label={`${rating} من 5`}>
+      {"★".repeat(Math.round(rating))}
+    </span>
+  );
+}
+
+/** بطاقة منتج — عمودية مثل namabeauty.shop */
+export function ProductShowcaseCard({ product }: { product: Product }) {
+  const config = getProductBySlug(product.slug);
+  const meta = productsMarketing[product.slug];
+  const price = formatPriceParts(config?.offers[0]?.price ?? product.priceAed);
+  const hasHomeImageSlot = Boolean(getHomeProductImage(product.slug));
+  const lpImg = config ? getProductImages(config).heroProduct : null;
+  const [usePlaceholder, setUsePlaceholder] = useState(!hasHomeImageSlot && !lpImg);
+  const productHref = `/products/${product.slug}`;
+  const cardTitle = displayText(config?.cardHeadline ?? meta?.cardHeadline ?? product.name);
+
+  return (
+    <article className="group flex flex-col overflow-hidden rounded-3xl border border-mist bg-white shadow-md transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-lg">
+      <Link
+        href={productHref}
+        className="relative block aspect-[4/5] overflow-hidden bg-clinical focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
+        aria-label={`عرض ${cardTitle}`}
+      >
+        {hasHomeImageSlot && !usePlaceholder ? (
+          <HomeProductPhoto
+            slug={product.slug}
+            className="block h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+            onMissing={() => setUsePlaceholder(true)}
+          />
+        ) : lpImg && !usePlaceholder ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={encodePublicPath(lpImg)}
+            alt={config?.shortName ?? product.name}
+            className="block h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+            onError={() => setUsePlaceholder(true)}
+          />
+        ) : config ? (
+          <PremiumImagePlaceholder label={config.shortName} theme={config.theme} variant="square" />
+        ) : (
+          <div className="h-full w-full bg-mist/30" />
+        )}
+      </Link>
+
+      <div className="flex flex-grow flex-col p-5 text-right sm:p-6">
+        <p className="text-[10px] font-bold tracking-wide text-royal">
+          {meta?.routineLabel}
+          {meta?.badgeText ? (
+            <>
+              <span className="mx-1.5 text-mist" aria-hidden>
+                ·
+              </span>
+              {meta.badgeText}
+            </>
+          ) : null}
+        </p>
+        <h3 className="mt-2 text-lg font-extrabold leading-snug text-navy sm:text-xl">
+          <Link href={productHref} className="transition-colors hover:text-royal">
+            {cardTitle}
+          </Link>
+        </h3>
+        <p className="mt-2.5 line-clamp-4 flex-grow text-sm leading-relaxed text-muted">
+          {displayText(meta?.cardSubheadline ?? product.description)}
+        </p>
+        <div className="mt-3 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
+          {meta && <Stars rating={meta.rating} />}
+          {meta && (
+            <span className="text-xs text-muted">
+              ({formatNumber(meta.reviewsCount)} تقييم)
+            </span>
+          )}
+        </div>
+
+        <div className="mt-5 flex items-end justify-between gap-4 border-t border-mist/80 pt-4">
+          <Link
+            href={productHref}
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-navy px-5 py-2.5 text-sm font-bold text-pearl transition-colors hover:bg-royal"
+          >
+            اكتشفي
+            <span aria-hidden>←</span>
+          </Link>
+          <div className="text-right">
+            <p className="text-[11px] font-medium text-muted">يبدأ من</p>
+            <p className="text-xl font-extrabold leading-tight text-navy tabular-nums">
+              {price.amount}{" "}
+              <span className="text-sm font-semibold">{price.currency}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
