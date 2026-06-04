@@ -270,9 +270,12 @@ export const products: ProductConfig[] = [
       subtitle: "عرض لمرة واحدة بعد إتمام الطلب",
     },
     images: {
-      heroBeforeAfter: "",
-      heroProduct: "",
-      problemImage: "",
+      heroBeforeAfter:
+        "/products/bakuchiol-anti-aging-serum/ChatGPT Image Jun 4, 2026, 12_59_44 AM.png",
+      problemImage:
+        "/products/bakuchiol-anti-aging-serum/WhatsApp Image 2026-06-04 at 00.41.19.jpeg",
+      heroProduct:
+        "/products/bakuchiol-anti-aging-serum/ChatGPT Image Jun 4, 2026, 01_04_11 AM.png",
       ingredientImage: "",
       authorityImage: "",
       lifestyleImage: "",
