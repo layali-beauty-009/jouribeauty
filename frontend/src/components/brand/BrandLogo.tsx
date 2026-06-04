@@ -6,7 +6,6 @@ import { businessConfig } from "@/config/business";
 import { BrandLogoMark } from "@/components/brand/BrandLogoMark";
 
 type Props = {
-  /** light = هيدر · dark = فوتر (خلفية غامقة) */
   variant?: "light" | "dark";
   className?: string;
   iconClassName?: string;
@@ -14,18 +13,13 @@ type Props = {
 
 const logoAlt = `${businessConfig.brand.nameLocal} — ${businessConfig.brand.nameEnglish}`;
 
-/**
- * شعار جوري — PNG واحد لكل المواقع.
- * بدون invert: الصورة فيها خلفية بيضاء، والفلتر القديم كان يعطي مربع أبيض فالفوتر.
- * multiply / screen يدمج الخلفية البيضاء مع لون الصفحة.
- */
+/** شعار جوري — PNG شفاف (jouri-logo-mark.png) */
 export function BrandLogo({
   variant = "light",
   className = "",
   iconClassName = "h-11 w-auto",
 }: Props) {
   const [failed, setFailed] = useState(false);
-  const isDark = variant === "dark";
 
   if (failed) {
     return (
@@ -41,9 +35,7 @@ export function BrandLogo({
     <img
       src={getBrandLogoUrl()}
       alt={logoAlt}
-      className={`shrink-0 object-contain object-center ${iconClassName} ${className} ${
-        isDark ? "mix-blend-screen" : "mix-blend-multiply"
-      }`}
+      className={`shrink-0 object-contain object-center ${iconClassName} ${className}`}
       decoding="async"
       onError={() => setFailed(true)}
     />

@@ -1,5 +1,5 @@
-Brand logo files (same image):
+Brand logo (transparent PNG — white background removed):
   jouri-logo-mark.png          ← used by site (header, footer, favicon)
-  ChatGPT Image Jun 4, 2026, 03_07_05 AM.png  ← keep when uploading via GitHub
 
-Replace both with your new PNG to update everywhere.
+After uploading a new logo, run from repo root:
+  python3 scripts/remove-logo-white-bg.py
