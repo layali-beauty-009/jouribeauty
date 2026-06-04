@@ -9,7 +9,7 @@ type Props = {
 
 export function ImagePlaceholder({
   slug,
-  label = "Product image coming soon",
+  label = "صورة المنتج قريباً",
   className = "",
   aspect = "square",
 }: Props) {
@@ -49,7 +49,7 @@ export function ImagePlaceholder({
           </svg>
         </div>
         <p className="text-xs tracking-[0.2em] uppercase text-muted font-medium">
-          Image placeholder
+          صورة قريباً
         </p>
         <p className="text-sm text-navy/70 mt-1 max-w-[200px]">{label}</p>
       </div>

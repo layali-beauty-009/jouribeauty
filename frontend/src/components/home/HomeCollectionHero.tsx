@@ -21,8 +21,7 @@ export function HomeCollectionHero() {
     return (
       <section className="bg-clinical px-4 py-16 text-center">
         <p className="text-sm text-muted">
-          صورة المجموعة — أضيفي ملفك فـ{" "}
-          <code className="text-xs text-navy">frontend/public/home/</code>
+          صورة المجموعة — أضيفي ملف الصورة في مجلد الصور الرئيسية للموقع
         </p>
       </section>
     );

@@ -31,7 +31,7 @@ const steps = [
     heading: "text-navy",
     items: [
       {
-        product: "سيروم إصلاح الحاجز GHK-Cu",
+        product: "سيروم إصلاح الحاجز — ببتيد النحاس",
         slug: "ghk-cu-barrier-repair-serum",
         note: "ممتاز بعد الشمس أو السفر — يرطّب ويدعم الحاجز طوال الليل.",
       },

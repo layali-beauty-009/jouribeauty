@@ -24,7 +24,7 @@ export const homeProductImages: Record<
   },
   "ghk-cu-barrier-repair-serum": {
     src: "/home/hero-barrier-repair.webp",
-    alt: "سيروم جوري لإصلاح البشرة المرهقة — GHK-Cu",
+    alt: "سيروم جوري لإصلاح البشرة المرهقة — ببتيد النحاس",
   },
 };
 

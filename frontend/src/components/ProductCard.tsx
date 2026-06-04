@@ -27,7 +27,7 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="mt-4 flex items-center justify-between">
           <span className="font-medium text-navy">{formatPrice(product.priceAed)}</span>
           <span className={`text-xs tracking-[0.15em] uppercase ${theme.accent} group-hover:underline`}>
-            View →
+            اكتشفي ←
           </span>
         </div>
       </div>
