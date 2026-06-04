@@ -110,7 +110,7 @@ export type BrandIconName =
 const map: Record<BrandIconName, ComponentType<IconProps>> = {
   shield: IconShield,
   truck: IconTruck,
-  cod: IconPackage,
+  cod: IconCod,
   vegan: IconLeaf,
   flask: IconFlask,
   heart: IconHeart,
