@@ -34,14 +34,21 @@ export function BrandLogo({
     );
   }
 
+  const darkFallback =
+    variant === "dark" ? "brightness-0 invert opacity-95" : "";
+
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
       src={src}
       alt={`${businessConfig.brand.nameLocal} — ${businessConfig.brand.nameEnglish}`}
-      className={`object-contain object-center ${iconClassName} ${className}`}
+      className={`object-contain object-center ${darkFallback} ${iconClassName} ${className}`}
       decoding="async"
       onError={() => {
+        if (variant === "dark" && src === brandLogo.onDark) {
+          setSrc(brandLogo.png);
+          return;
+        }
         if (variant === "light" && src === brandLogo.png) {
           setSrc(brandLogo.default);
           return;

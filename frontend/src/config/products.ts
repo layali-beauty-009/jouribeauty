@@ -94,7 +94,7 @@ export const products: ProductConfig[] = [
       enabled: true,
       price: 199,
       label: "أضيفي علبة ثانية بنفس السعر الخاص",
-      subtitle: "عرض لمرة واحدة بعد الطلب — علبة إضافية 199 د.إ",
+      subtitle: "عرض لمرة واحدة بعد الطلب — علبة إضافية 199 درهم إماراتي",
     },
     images: {
       heroBeforeAfter:
@@ -185,7 +185,7 @@ export const products: ProductConfig[] = [
     failureAlternatives: [
       {
         name: "كريمات عين عامة",
-        priceRange: "200 – 500 د.إ",
+        priceRange: "200 – 500 درهم إماراتي",
         cons: [
           "تركيز منخفض على مكوّنات نشطة",
           "لا تستهدف الانتفاخ بشكل مباشر",
@@ -203,7 +203,7 @@ export const products: ProductConfig[] = [
       },
     ],
     comparisonRows: [
-      { label: "السعر", us: "من 199 د.إ", them: "أغلى بكثير" },
+      { label: "السعر", us: "من 199 درهم إماراتي", them: "أغلى بكثير" },
       { label: "الدفع", us: "عند الاستلام", them: "دفع أونلاين" },
       { label: "التركيز", us: "5٪ كافيين", them: "غير محدد" },
       { label: "الضمان", us: "30 يوم", them: "غير واضح" },
@@ -234,7 +234,7 @@ export const products: ProductConfig[] = [
     faq: [
       {
         q: "كم السعر والعروض؟",
-        a: "علبة واحدة 199 د.إ، علبتين 249 د.إ، ثلاث علب 349 د.إ. الدفع عند الاستلام.",
+        a: "علبة واحدة 199 درهم إماراتي، علبتين 249 درهم إماراتي، ثلاث علب 349 درهم إماراتي. الدفع عند الاستلام.",
       },
       {
         q: "هل أستخدمه على كل الوجه؟",
@@ -289,7 +289,7 @@ export const products: ProductConfig[] = [
     upsell: {
       enabled: true,
       price: 199,
-      label: "أضيفي علبة ثانية — 199 د.إ فقط",
+      label: "أضيفي علبة ثانية — 199 درهم إماراتي فقط",
       subtitle: "عرض لمرة واحدة بعد إتمام الطلب",
     },
     images: {
@@ -363,7 +363,7 @@ export const products: ProductConfig[] = [
     },
     delivery: { cities: uaeCities, carriers: ["شركاء توصيل محليين"] },
     relatedSlugs: ["caffeine-under-eye-serum", "ghk-cu-barrier-repair-serum"],
-    scarcityLine: "كمية محدودة هذا الأسبوع — شحن مجاني للطلبات فوق 200 د.إ",
+    scarcityLine: "كمية محدودة هذا الأسبوع — شحن مجاني للطلبات فوق 200 درهم إماراتي",
     insightStat: {
       value: "3×",
       text: "الباكوتشيول يُعرف كبديل نباتي للريتينول بلطف على البشرة",
@@ -385,7 +385,7 @@ export const products: ProductConfig[] = [
     failureAlternatives: [
       {
         name: "كريمات أنتي إيج فاخرة",
-        priceRange: "300 – 800 د.إ",
+        priceRange: "300 – 800 درهم إماراتي",
         cons: [
           "تلمس السطح فقط",
           "تركيز منخفض",
@@ -400,7 +400,7 @@ export const products: ProductConfig[] = [
     ],
     comparisonRows: [
       { label: "اللطف على البشرة", us: "باكوتشيول", them: "ريتينول قاسٍ" },
-      { label: "السعر", us: "من 199 د.إ", them: "أغلى" },
+      { label: "السعر", us: "من 199 درهم إماراتي", them: "أغلى" },
       { label: "الدفع", us: "عند الاستلام", them: "غالباً أونلاين" },
       { label: "الشفافية", us: "مكوّنات واضحة", them: "غامض" },
     ],
@@ -434,7 +434,7 @@ export const products: ProductConfig[] = [
       },
       {
         q: "كم العروض؟",
-        a: "1 علبة 199، 2 علبة 249، 3 علب 349 د.إ.",
+        a: "1 علبة 199، 2 علبة 249، 3 علب 349 درهم إماراتي.",
       },
       {
         q: "متى النتيجة؟",
@@ -481,7 +481,7 @@ export const products: ProductConfig[] = [
     upsell: {
       enabled: true,
       price: 199,
-      label: "علبة إضافية 199 د.إ",
+      label: "علبة إضافية 199 درهم إماراتي",
       subtitle: "عرض خاص بعد الطلب",
     },
     images: {
@@ -572,7 +572,7 @@ export const products: ProductConfig[] = [
     failureAlternatives: [
       {
         name: "مرطبات سطحية فقط",
-        priceRange: "100 – 300 د.إ",
+        priceRange: "100 – 300 درهم إماراتي",
         cons: ["ترطيب مؤقت", "لا يصلّح الحاجز", "الجفاف يرجع"],
       },
       {
@@ -585,7 +585,7 @@ export const products: ProductConfig[] = [
       { label: "الهدف", us: "إصلاح الحاجز", them: "ترطيب سطحي" },
       { label: "المكوّن", us: "ببتيد نحاس + إكتوين", them: "عام" },
       { label: "الدفع", us: "عند الاستلام", them: "غير متوفر أحياناً" },
-      { label: "السعر", us: "من 199 د.إ", them: "أعلى" },
+      { label: "السعر", us: "من 199 درهم إماراتي", them: "أعلى" },
     ],
     testimonials: [
       {
@@ -617,7 +617,7 @@ export const products: ProductConfig[] = [
       },
       {
         q: "العروض؟",
-        a: "199 / 249 / 349 د.إ حسب عدد العلب.",
+        a: "199 / 249 / 349 درهم إماراتي حسب عدد العلب.",
       },
       {
         q: "مع سيرومات أخرى؟",

@@ -40,10 +40,4 @@ export async function getProduct(slug: string): Promise<Product | null> {
   return res.json();
 }
 
-export function formatPrice(aed: number): string {
-  return new Intl.NumberFormat("en-AE", {
-    style: "currency",
-    currency: "AED",
-    minimumFractionDigits: 0,
-  }).format(aed);
-}
+export { formatPrice } from "@/lib/format";

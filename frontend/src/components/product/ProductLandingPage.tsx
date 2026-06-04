@@ -98,7 +98,7 @@ export function ProductLandingPage({ product, related }: Props) {
     ];
 
   return (
-    <div className="pb-28 bg-cream" style={{ ["--product-primary" as string]: t.primary }}>
+    <div className="bg-cream pb-32" style={{ ["--product-primary" as string]: t.primary }}>
       <div className="text-center text-xs py-2.5 text-pearl font-medium bg-teal-dark">
         {businessConfig.cod.paymentLabel} • {businessConfig.cod.deliveryPromise}
       </div>
@@ -538,7 +538,7 @@ export function ProductLandingPage({ product, related }: Props) {
         </div>
       </section>
 
-      <LpRelatedProducts related={related} accentColor="#c4a574" />
+      <LpRelatedProducts related={related} />
 
       {showStickyCta && (
         <div className="fixed bottom-0 inset-x-0 z-50 border-t border-mist bg-cream/95 p-3 backdrop-blur-md">

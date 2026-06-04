@@ -1,12 +1,12 @@
 import { businessConfig } from "@/config/business";
 
-const EASTERN_DIGITS = "0123456789";
+const EASTERN_DIGITS = "٠١٢٣٤٥٦٧٨٩";
 const WESTERN_DIGITS = "0123456789";
 
-/** أرقام غربية 0123456789 — مثل namabeauty.shop */
+/** أرقام غربية 0123456789 */
 export function toWesternDigits(value: string | number): string {
   const s = String(value);
-  return s.replace(/[0-9]/g, (d) => {
+  return s.replace(/[٠-٩]/g, (d) => {
     const i = EASTERN_DIGITS.indexOf(d);
     return i >= 0 ? WESTERN_DIGITS[i]! : d;
   });
@@ -17,11 +17,19 @@ export function formatNumber(n: number): string {
 }
 
 export function formatPrice(amount: number): string {
-  const sym = businessConfig.market.currencySymbol;
-  return toWesternDigits(`${amount} ${sym}`);
+  const label = businessConfig.market.currencyLabel;
+  return toWesternDigits(`${amount} ${label}`);
 }
 
-/** نص عربي مع أرقام غربية في العرض */
+/** للبطاقات: مبلغ كبير + عملة أصغر */
+export function formatPriceParts(amount: number) {
+  return {
+    amount: toWesternDigits(String(amount)),
+    currency: businessConfig.market.currencyLabel,
+  };
+}
+
+/** نص عربي مع أرقام غربية + عملة موحّدة */
 export function displayText(text: string): string {
-  return toWesternDigits(text);
+  return toWesternDigits(text.replace(/د\.إ/g, businessConfig.market.currencyLabel));
 }
