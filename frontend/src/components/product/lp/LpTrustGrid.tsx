@@ -8,12 +8,9 @@ const items: { icon: BrandIconName; title: string; sub: string }[] = [
   { icon: "shield", title: "ضمان ٣٠ يوم", sub: "استرجاع كامل" },
 ];
 
-export function LpTrustGrid({ dark }: { dark?: string }) {
+export function LpTrustGrid() {
   return (
-    <section
-      className="mx-4 mt-8 rounded-2xl p-4 md:p-5 grid grid-cols-2 gap-3 text-center text-xs text-pearl"
-      style={{ backgroundColor: dark ?? "#0a3d45" }}
-    >
+    <section className="mx-4 mt-8 rounded-2xl p-4 md:p-5 grid grid-cols-2 gap-3 text-center text-xs text-pearl bg-teal-dark">
       {items.map((item) => (
         <div key={item.title} className="flex flex-col items-center gap-1.5 py-1">
           <BrandIcon name={item.icon} className="w-5 h-5 text-electric" />

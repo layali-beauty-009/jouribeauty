@@ -13,8 +13,8 @@ const sharedOffers = (volumeLabel: string) => [
   {
     id: "two",
     quantity: 2,
-    label: "علبتين • ثبّتي النتيجة",
-    subtitle: "وفّري ١٤٩ د.إ",
+    label: "علبتين · ثبّتي النتيجة",
+    subtitle: "شهر النتيجة + شهر التثبيت",
     price: 249,
     compareAtPrice: 398,
     badge: "الأكثر اختياراً",
@@ -23,8 +23,8 @@ const sharedOffers = (volumeLabel: string) => [
   {
     id: "three",
     quantity: 3,
-    label: "ثلاث علب • الروتين الكامل",
-    subtitle: "وفّري ٢٤٨ د.إ",
+    label: "ثلاث علب · الروتين الكامل",
+    subtitle: "نتيجة + تثبيت + توفير أقصى",
     price: 349,
     compareAtPrice: 597,
     badge: "الأكثر توفيراً",

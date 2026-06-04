@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import type { ProductConfig } from "@/types/product";
+import { businessConfig } from "@/config/business";
 import { formatPrice } from "@/lib/format";
 import { trackEvent } from "@/lib/tracking";
 
@@ -21,18 +22,18 @@ export function UpsellModal({ product, onAccept, onSkip }: Props) {
   return (
     <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-black/50">
       <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-xl">
-        <p className="text-xs text-royal font-semibold tracking-widest uppercase">عرض خاص</p>
+        <p className="text-[0.65rem] text-royal font-semibold tracking-[0.2em]">عرض لمرة واحدة</p>
         <h3 className="font-sans text-base font-bold text-navy mt-2">{product.upsell.label}</h3>
-        <p className="text-sm text-muted mt-2">{product.upsell.subtitle}</p>
+        <p className="text-sm text-muted mt-2 leading-relaxed">{product.upsell.subtitle}</p>
         <p className="text-2xl font-bold text-navy mt-4">{formatPrice(product.upsell.price)}</p>
+        <p className="text-xs text-muted mt-1">{businessConfig.cod.paymentLabel}</p>
         <button
           type="button"
           onClick={() => {
             trackEvent("UpsellAccepted", { value: product.upsell.price });
             onAccept();
           }}
-          className="w-full mt-6 rounded-full py-3 text-pearl font-medium"
-          style={{ backgroundColor: product.theme.primary }}
+          className="w-full mt-5 rounded-2xl py-3.5 bg-navy text-pearl font-semibold hover:bg-royal transition-colors"
         >
           نعم، أضيفي العرض
         </button>
