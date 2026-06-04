@@ -209,11 +209,11 @@ export function ProductLandingPage({ product, related }: Props) {
                 key={i}
                 className="bg-white rounded-2xl border border-mist p-5 text-right shadow-sm"
               >
-                <div className="flex gap-3 flex-row-reverse items-start">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center text-pearl text-sm font-bold flex-shrink-0 bg-navy">
+                <div className="flex items-start gap-3">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-navy text-sm font-bold text-pearl">
                     {i + 1}
                   </div>
-                  <div className="flex-1 min-w-0">
+                  <div className="min-w-0 flex-1">
                     <p className="font-bold text-navy">{item.name}</p>
                     {"dosage" in item && item.dosage && (
                       <p className="text-xs text-royal mt-0.5 font-medium">{item.dosage}</p>
