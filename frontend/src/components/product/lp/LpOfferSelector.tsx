@@ -2,7 +2,7 @@
 
 import type { ProductOffer } from "@/types/product";
 import { businessConfig } from "@/config/business";
-import { formatPrice } from "@/lib/format";
+import { displayText, formatPrice } from "@/lib/format";
 import { IconSparkles } from "@/components/ui/BrandIcons";
 
 type Props = {
@@ -38,7 +38,7 @@ function IconFlame({ className }: { className?: string }) {
   );
 }
 
-/** مطابق لـ namabeauty.shop — هيكل العروض والشارات */
+/** عروض + لمسات ذهبية — هيكل namabeauty.shop */
 export function LpOfferSelector({
   offers,
   offerId,
@@ -56,7 +56,7 @@ export function LpOfferSelector({
           <div className="flex justify-center">
             <p className="inline-flex items-center gap-2 rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-[11px] font-extrabold text-red-700 sm:text-xs">
               <IconFlame className="h-3.5 w-3.5 shrink-0 animate-pulse" />
-              {scarcityLine}
+              {displayText(scarcityLine)}
             </p>
           </div>
         )}
@@ -65,9 +65,9 @@ export function LpOfferSelector({
           <div className="flex items-center justify-between gap-2">
             <p className="text-sm font-bold text-navy">اختاري العرض:</p>
             {firstInlineBadge && (
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-800">
-                <IconSparkles className="h-3 w-3 shrink-0" />
-                {firstInlineBadge}
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/30 bg-gold/10 px-2.5 py-1 text-[11px] font-bold text-gold-dark">
+                <IconSparkles className="h-3 w-3 shrink-0 text-gold" />
+                {displayText(firstInlineBadge)}
               </span>
             )}
           </div>
@@ -87,18 +87,18 @@ export function LpOfferSelector({
                   onClick={() => onSelect(o.id)}
                   className={`relative flex w-full items-center justify-between gap-3 rounded-2xl border-2 p-4 text-right transition-all duration-200 ${
                     active
-                      ? "border-navy bg-navy/5 shadow-md"
-                      : "border-mist bg-white hover:border-royal/40 hover:bg-clinical/40"
+                      ? "border-navy bg-navy/5 shadow-md ring-1 ring-gold/25"
+                      : "border-mist bg-white hover:border-gold/50 hover:bg-gold-soft/30"
                   }`}
                 >
                   {kind === "popular" && (
-                    <span className="absolute -top-3 right-4 z-10 rounded-full bg-navy px-3 py-1 text-[10px] font-extrabold tracking-wide text-pearl shadow-sm">
-                      {o.badge}
+                    <span className="absolute -top-3 right-4 z-10 rounded-full bg-gold px-3 py-1 text-[10px] font-extrabold tracking-wide text-navy shadow-sm">
+                      {displayText(o.badge!)}
                     </span>
                   )}
                   {kind === "value" && (
-                    <span className="absolute -top-3 right-4 z-10 rounded-full border border-mist bg-[#f0e6d3] px-3 py-1 text-[10px] font-extrabold tracking-wide text-navy shadow-sm">
-                      {o.badge}
+                    <span className="absolute -top-3 right-4 z-10 rounded-full border border-gold-muted/60 bg-gold-soft px-3 py-1 text-[10px] font-extrabold tracking-wide text-navy shadow-sm">
+                      {displayText(o.badge!)}
                     </span>
                   )}
 
@@ -109,7 +109,7 @@ export function LpOfferSelector({
                       }`}
                       aria-hidden
                     >
-                      {active && <span className="h-2 w-2 rounded-full bg-electric" />}
+                      {active && <span className="h-2 w-2 rounded-full bg-gold" />}
                     </span>
 
                     <div className="min-w-0">
@@ -118,9 +118,11 @@ export function LpOfferSelector({
                           active ? "text-navy" : "text-ink"
                         }`}
                       >
-                        {o.label}
+                        {displayText(o.label)}
                       </p>
-                      <p className="mt-0.5 text-xs leading-relaxed text-muted">{o.subtitle}</p>
+                      <p className="mt-0.5 text-xs leading-relaxed text-muted">
+                        {displayText(o.subtitle)}
+                      </p>
                     </div>
                   </div>
 
@@ -148,9 +150,9 @@ export function LpOfferSelector({
           id="lp-offer-cta"
           type="button"
           onClick={onCta}
-          className="flex min-h-[56px] w-full items-center justify-center gap-2 rounded-2xl bg-navy py-4 text-base font-bold text-pearl shadow-lg shadow-navy/20 transition-all hover:bg-royal active:scale-[0.98]"
+          className="flex min-h-[56px] w-full items-center justify-center gap-2 rounded-2xl bg-navy py-4 text-base font-bold text-pearl shadow-lg shadow-navy/20 ring-1 ring-gold/20 transition-all hover:bg-royal active:scale-[0.98]"
         >
-          {ctaLabel}
+          {displayText(ctaLabel)}
         </button>
 
         <p className="-mt-2 text-center text-xs text-muted">

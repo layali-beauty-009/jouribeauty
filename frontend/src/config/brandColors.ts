@@ -9,4 +9,8 @@ export const brandColors = {
   clinical: "#e6f2f0",
   mist: "#d2e6e2",
   ink: "#14282c",
+  gold: "#c4a574",
+  goldSoft: "#f0e6d3",
+  goldMuted: "#cdaea2",
+  goldDark: "#8b7349",
 } as const;

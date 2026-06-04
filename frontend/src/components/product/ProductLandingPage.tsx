@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { ProductConfig } from "@/types/product";
 import { businessConfig } from "@/config/business";
 import { useCart } from "@/context/CartContext";
-import { formatPrice } from "@/lib/format";
+import { displayText, formatNumber, formatPrice } from "@/lib/format";
 import { trackEvent } from "@/lib/tracking";
 import { ProductSectionImage } from "@/components/product/ProductSectionImage";
 import { getProductImages } from "@/lib/getProductImages";
@@ -22,11 +22,7 @@ function defaultOfferId(product: ProductConfig) {
 }
 
 function Stars({ n }: { n: number }) {
-  return <span className="text-electric text-sm">{"★".repeat(Math.round(n))}</span>;
-}
-
-function formatReviews(n: number) {
-  return n.toLocaleString("ar-EG");
+  return <span className="text-sm text-gold">{"★".repeat(Math.round(n))}</span>;
 }
 
 type Props = {
@@ -87,14 +83,14 @@ export function ProductLandingPage({ product, related }: Props) {
     product.testimonials ?? [
       {
         name: "سارة م.",
-        meta: "٣٢ • دبي • مشترية مؤكدة",
+        meta: "32 • دبي • مشترية مؤكدة",
         initial: "س",
         text: `«لاحظت فرق على ${product.problem} خلال أسبوعين — والأهم إن التركيبة واضحة من أول القراءة.»`,
         rating: 5,
       },
       {
         name: "نورة ك.",
-        meta: "٣٨ • أبوظبي • مشترية مؤكدة",
+        meta: "38 • أبوظبي • مشترية مؤكدة",
         initial: "ن",
         text: `«${product.mainIngredient} كان بالضبط اللي كنت أدور عليه — مو إعلان فاضي.»`,
         rating: 5,
@@ -132,7 +128,7 @@ export function ProductLandingPage({ product, related }: Props) {
         <div className="mt-4 flex items-center justify-center gap-2 flex-wrap">
           <Stars n={product.rating} />
           <span className="text-sm text-muted">
-            {product.rating} ({formatReviews(product.reviewsCount)} تقييم · مؤكدة)
+            {product.rating} ({formatNumber(product.reviewsCount)} تقييم · مؤكدة)
           </span>
         </div>
         <p className="mt-3 text-lg font-bold text-navy">
@@ -154,10 +150,10 @@ export function ProductLandingPage({ product, related }: Props) {
       {product.insightStat && (
         <section className="px-4 mt-8 max-w-lg mx-auto">
           <div className="rounded-2xl p-5 text-pearl text-center border border-white/10 bg-navy">
-            <span className="text-4xl font-bold block">{product.insightStat.value}</span>
-            <p className="text-sm mt-2 leading-relaxed opacity-95">{product.insightStat.text}</p>
+            <span className="text-4xl font-bold block text-gold">{displayText(product.insightStat.value)}</span>
+            <p className="text-sm mt-2 leading-relaxed opacity-95">{displayText(product.insightStat.text)}</p>
             {product.insightStat.source && (
-              <p className="text-[10px] mt-2 opacity-70">{product.insightStat.source}</p>
+              <p className="text-[10px] mt-2 opacity-70">{displayText(product.insightStat.source)}</p>
             )}
           </div>
         </section>
@@ -179,7 +175,7 @@ export function ProductLandingPage({ product, related }: Props) {
           label="مشاكل تعرفينها"
           title="هل تعانين من هذه؟"
           subtitle="مو نخفّف الأعراض بس — نستهدف السبب بمكوّن واضح لكل همّ."
-          accentColor="#2a7a85"
+          accentColor="#c4a574"
         />
         <div className="space-y-4">
           {(product.problemAgitation ?? []).map((item, i) => (
@@ -204,7 +200,7 @@ export function ProductLandingPage({ product, related }: Props) {
           label="المكوّنات الفعّالة"
           title="السرّ في التركيز، مو في القائمة"
           subtitle="كل مكوّن له دور واضح — بجرعة مفهومة، بلا خلطات غامضة."
-          accentColor="#2a7a85"
+          accentColor="#c4a574"
         />
         <div className="space-y-3">
           {product.ingredientStack.map((ing, i) => {
@@ -249,7 +245,7 @@ export function ProductLandingPage({ product, related }: Props) {
       )}
 
       <section className="px-4 mt-12 max-w-lg mx-auto">
-        <LpSectionHeader label="التركيبة" title="سيرومك من جوري للجمال" accentColor="#2a7a85" />
+        <LpSectionHeader label="التركيبة" title="سيرومك من جوري للجمال" accentColor="#c4a574" />
         <ProductSectionImage
           src={lpImages.heroProduct}
           alt={product.imageAlts.heroProduct}
@@ -268,7 +264,7 @@ export function ProductLandingPage({ product, related }: Props) {
           label="آلية العمل"
           title={`كيف يساعدك ${product.mainIngredient}؟`}
           subtitle={product.mechanism}
-          accentColor="#2a7a85"
+          accentColor="#c4a574"
         />
       </section>
 
@@ -277,7 +273,7 @@ export function ProductLandingPage({ product, related }: Props) {
           <LpSectionHeader
             label="الأمان والمصداقية"
             title="تركيبة سريرية، مو وعود فاضية"
-            accentColor="#2a7a85"
+            accentColor="#c4a574"
           />
           <div className="grid grid-cols-2 gap-2 mb-4">
             {product.authority.certifications.map((c) => (
@@ -290,7 +286,7 @@ export function ProductLandingPage({ product, related }: Props) {
             ))}
           </div>
           <div className="rounded-2xl p-6 text-pearl text-right bg-teal-dark">
-            <p className="text-xs text-electric mb-2 font-semibold">{product.authority.expertTitle}</p>
+            <p className="text-xs text-gold mb-2 font-semibold">{displayText(product.authority.expertTitle)}</p>
             <p className="text-sm leading-relaxed">&ldquo;{product.authority.expertQuote}&rdquo;</p>
           </div>
           {product.authority.stats && (
@@ -300,10 +296,8 @@ export function ProductLandingPage({ product, related }: Props) {
                   key={s.label}
                   className="bg-white rounded-xl border border-mist p-3 text-center"
                 >
-                  <p className="text-xl font-bold text-navy">
-                    {s.value}
-                  </p>
-                  <p className="text-[10px] text-muted mt-1">{s.label}</p>
+                  <p className="text-xl font-bold text-gold">{displayText(s.value)}</p>
+                  <p className="text-[10px] text-muted mt-1">{displayText(s.label)}</p>
                 </div>
               ))}
             </div>
@@ -316,18 +310,18 @@ export function ProductLandingPage({ product, related }: Props) {
           label="النتيجة المتوقعة"
           title="وش راح تلاحظين مع الاستمرار؟"
           subtitle="النتائج تختلف — هذي توقعات واقعية، مو وعود طبية."
-          accentColor="#2a7a85"
+          accentColor="#c4a574"
         />
         {(product.timeline ?? []).map((step, i) => (
           <div
             key={step.label}
             className="bg-white rounded-2xl border border-mist p-6 mb-4 text-center shadow-sm"
           >
-            <span className="inline-flex w-11 h-11 rounded-full text-pearl items-center justify-center font-bold text-lg bg-navy">
+            <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-navy text-lg font-bold text-pearl ring-2 ring-gold/50">
               {i + 1}
             </span>
-            <h3 className="font-bold text-navy mt-3">{step.label}</h3>
-            <p className="text-sm text-muted mt-2 leading-relaxed">{step.text}</p>
+            <h3 className="mt-3 font-bold text-navy">{displayText(step.label)}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted">{displayText(step.text)}</p>
           </div>
         ))}
       </section>
@@ -335,9 +329,9 @@ export function ProductLandingPage({ product, related }: Props) {
       <section className="px-4 mt-12 max-w-lg mx-auto">
         <LpSectionHeader
           label="تجارب حقيقية"
-          title={`ما تقوله ${formatReviews(product.reviewsCount)}+ عميلة`}
+          title={`ما تقوله ${formatNumber(product.reviewsCount)}+ عميلة`}
           subtitle="مشتريات مؤكدة من الإمارات — مو تعليقات مفبركة."
-          accentColor="#2a7a85"
+          accentColor="#c4a574"
         />
         {testimonials.map((tm) => (
           <article
@@ -346,7 +340,7 @@ export function ProductLandingPage({ product, related }: Props) {
           >
             <div className="flex items-start justify-between gap-2 mb-2">
               <IconQuote className="w-7 h-7 text-electric/40 flex-shrink-0" />
-              <span className="inline-flex items-center gap-1 text-[10px] font-medium text-royal bg-clinical px-2 py-0.5 rounded-full">
+              <span className="inline-flex items-center gap-1 rounded-full border border-gold/25 bg-gold/10 px-2 py-0.5 text-[10px] font-medium text-gold-dark">
                 <IconCheck className="w-3 h-3" />
                 مؤكدة
               </span>
@@ -356,9 +350,9 @@ export function ProductLandingPage({ product, related }: Props) {
             <div className="mt-4 flex items-center justify-between gap-3 flex-row-reverse">
               <div>
                 <p className="font-semibold text-sm text-navy">{tm.name}</p>
-                <p className="text-xs text-muted mt-0.5">{tm.meta}</p>
+                <p className="text-xs text-muted mt-0.5">{displayText(tm.meta)}</p>
               </div>
-              <span className="w-11 h-11 rounded-full text-pearl flex items-center justify-center font-bold text-sm ring-2 ring-electric/30 bg-navy">
+              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-navy text-sm font-bold text-pearl ring-2 ring-gold/40">
                 {tm.initial}
               </span>
             </div>
@@ -370,7 +364,7 @@ export function ProductLandingPage({ product, related }: Props) {
         <LpSectionHeader
           label="ليش جوري تختلف؟"
           title="قارني — وقرّري بنفسك"
-          accentColor="#2a7a85"
+          accentColor="#c4a574"
         />
         {(product.failureAlternatives ?? []).map((alt) => (
           <div key={alt.name} className="bg-white rounded-2xl border border-mist p-4 mb-3 text-right">
@@ -388,7 +382,7 @@ export function ProductLandingPage({ product, related }: Props) {
             </ul>
           </div>
         ))}
-        <div className="rounded-2xl p-5 text-pearl text-right border-2 border-electric/30 bg-navy">
+        <div className="rounded-2xl border-2 border-gold/35 bg-navy p-5 text-right text-pearl">
           <p className="font-bold text-lg">{product.shortName}</p>
           <p className="text-2xl font-bold mt-1">{formatPrice(product.offers[0]?.price ?? 199)}</p>
           <ul className="text-xs mt-3 space-y-1 opacity-95">
@@ -453,7 +447,7 @@ export function ProductLandingPage({ product, related }: Props) {
             label="طريقة الاستخدام"
             title={product.usage.headline}
             subtitle="روتين بسيط — تقدرين تستمرين عليه كل يوم."
-            accentColor="#2a7a85"
+            accentColor="#c4a574"
           />
           {product.usage.steps.map((step, i) => (
             <div
@@ -475,7 +469,7 @@ export function ProductLandingPage({ product, related }: Props) {
           title="كيف يوصلك طلبك؟"
           subtitle={businessConfig.cod.confirmationPromise}
           align="right"
-          accentColor="#2a7a85"
+          accentColor="#c4a574"
         />
         {[
           { t: "اطلبي الحين", d: "اختاري العرض واكتبي اسمك ورقمك — بدون دفع أونلاين." },
@@ -514,7 +508,7 @@ export function ProductLandingPage({ product, related }: Props) {
         <LpSectionHeader
           label="أسئلة شائعة"
           title="قبل ما تطلبين"
-          accentColor="#2a7a85"
+          accentColor="#c4a574"
         />
         <div className="divide-y divide-mist border border-mist rounded-2xl bg-white overflow-hidden shadow-sm">
           {faq.map((item, i) => (
@@ -544,7 +538,7 @@ export function ProductLandingPage({ product, related }: Props) {
         </div>
       </section>
 
-      <LpRelatedProducts related={related} accentColor="#2a7a85" />
+      <LpRelatedProducts related={related} accentColor="#c4a574" />
 
       {showStickyCta && (
         <div className="fixed bottom-0 inset-x-0 z-50 border-t border-mist bg-cream/95 p-3 backdrop-blur-md">

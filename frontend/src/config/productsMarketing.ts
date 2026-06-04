@@ -17,22 +17,22 @@ export const productsMarketing: Record<
     badgeText: "جوري للعين",
     cardHeadline: "سيروم الكافيين — هالات، انتفاخ، وخطوط دقيقة",
     cardSubheadline:
-      "٥٪ كافيين + ريتينول + هيالورونيك — يستهدف مظهر التعب تحت العين من حرارة الخليج والسهر.",
+      "5٪ كافيين + ريتينول + هيالورونيك — يستهدف مظهر التعب تحت العين من حرارة الخليج والسهر.",
     rating: 4.9,
     reviewsCount: 284,
     problem: "هالات، انتفاخ، وخطوط تحت العين",
-    mainIngredient: "٥٪ كافيين",
+    mainIngredient: "5٪ كافيين",
   },
   "bakuchiol-anti-aging-serum": {
     routineLabel: "روتين الشباب",
     badgeText: "جوري للإشراق",
     cardHeadline: "سيروم الباكوتشيول — تجاعيد بلطف بلا حرقان",
     cardSubheadline:
-      "باكوتشيول ١.٣٪ + فيتامين سي + جلوتاثيون — إشراقة وتماسك لبشرة باهتة من الشمس والمكيف.",
+      "باكوتشيول 1.3٪ + فيتامين سي + جلوتاثيون — إشراقة وتماسك لبشرة باهتة من الشمس والمكيف.",
     rating: 4.8,
     reviewsCount: 312,
     problem: "تجاعيد، بهتان، وفقدان تماسك",
-    mainIngredient: "باكوتشيول ١.٣٪",
+    mainIngredient: "باكوتشيول 1.3٪",
   },
   "ghk-cu-barrier-repair-serum": {
     routineLabel: "روتين الإصلاح",

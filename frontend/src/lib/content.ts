@@ -25,7 +25,7 @@ export function getHomeContent(products: Product[]) {
         { icon: "flask" as const, title: "تركيز معلن", sub: "لكل سيروم" },
         { icon: "vegan" as const, title: "نظيف", sub: "فيجان · خالي قسوة" },
         { icon: "cod" as const, title: "دفع عند الاستلام", sub: "بدون تحويل مسبق" },
-        { icon: "shield" as const, title: "٣٠ يوم", sub: businessConfig.cod.returnGuarantee },
+        { icon: "shield" as const, title: "30 يوم", sub: businessConfig.cod.returnGuarantee },
       ],
     },
     formulations: {
@@ -69,21 +69,21 @@ export function getHomeContent(products: Product[]) {
       items: [
         {
           name: "سارة المكتوم",
-          meta: "٣٢ • دبي • مشترية مؤكدة",
+          meta: "32 • دبي • مشترية مؤكدة",
           initial: "س",
-          text: "«أنا أقرأ كل ingredient label. جوري أول براند إماراتي يشرح ليش ٥٪ كافيين للعين — مو مجرد كلمة “سيروم عين”. هذا وحده خلّاني أطلب بثقة.»",
+          text: "«أنا أقرأ كل ingredient label. جوري أول براند إماراتي يشرح ليش 5٪ كافيين للعين — مو مجرد كلمة “سيروم عين”. هذا وحده خلّاني أطلب بثقة.»",
           rating: 5,
         },
         {
           name: "نورة الكعبي",
-          meta: "٣٨ • أبوظبي • مشترية مؤكدة",
+          meta: "38 • أبوظبي • مشترية مؤكدة",
           initial: "ن",
           text: "«بشرتي حساسة والريتينول يحرقني. الباكوتشيول هنا منطقي — بعد أسبوعين إحساس أنعم وإشراقة أوضح، خصوصاً مع المكيف.»",
           rating: 5,
         },
         {
           name: "فاطمة الراشدي",
-          meta: "٤١ • الشارقة • مشترية مؤكدة",
+          meta: "41 • الشارقة • مشترية مؤكدة",
           initial: "ف",
           text: "«سفر + شمس + تكييف = بشرتي كانت “مكسورة”. سيروم GHK-Cu رجّع راحة للحاجز — أقل احمرار وأقل شدّ بعد الاستمرار.»",
           rating: 5,
@@ -121,7 +121,7 @@ export function getHomeContent(products: Product[]) {
         { icon: "flask" as const, text: "تركيز معلن" },
         { icon: "cod" as const, text: businessConfig.cod.paymentLabel },
         { icon: "truck" as const, text: "توصيل الإمارات" },
-        { icon: "shield" as const, text: "ضمان ٣٠ يوم" },
+        { icon: "shield" as const, text: "ضمان 30 يوم" },
       ],
     },
     faq: {
@@ -143,7 +143,7 @@ export function getHomeContent(products: Product[]) {
         },
         {
           q: "متى ألاحظ فرقاً؟",
-          a: "مع الاستمرار ٢–٤ أسابيع حسب الهمّ. النتائج تختلف — نتحدث عن مظهر وإحساس البشرة، ليس علاجاً.",
+          a: "مع الاستمرار 2–4 أسابيع حسب الهمّ. النتائج تختلف — نتحدث عن مظهر وإحساس البشرة، ليس علاجاً.",
         },
         {
           q: "ما ضمان الاسترجاع؟",
@@ -154,7 +154,7 @@ export function getHomeContent(products: Product[]) {
     trustStrip: [
       { icon: "shield", title: "وضوح المكوّنات", text: "تركيز معلن لكل سيروم" },
       { icon: "cod", title: businessConfig.cod.paymentLabel, text: "ادفعي عند الاستلام" },
-      { icon: "truck", title: "توصيل الإمارات", text: "٢–٥ أيام عمل" },
+      { icon: "truck", title: "توصيل الإمارات", text: "2–5 أيام عمل" },
       { icon: "vegan", title: "نظيف وواعي", text: "فيجان · خالي من القسوة" },
     ],
   };

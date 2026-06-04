@@ -28,10 +28,10 @@ export function HowItWorks({
                 key={step.n}
                 className="bg-white rounded-3xl border border-mist/80 p-6 md:p-7 text-center shadow-sm hover:shadow-md hover:border-electric/30 transition-all relative"
               >
-                <span className="absolute top-4 left-4 text-[10px] font-bold text-electric/80 tracking-widest">
-                  ٠{step.n}
+                <span className="absolute top-4 left-4 text-[10px] font-bold tracking-widest text-gold">
+                  0{step.n}
                 </span>
-                <span className="inline-flex w-14 h-14 items-center justify-center rounded-2xl bg-clinical text-navy mb-4">
+                <span className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10 text-navy ring-1 ring-gold/30">
                   <StepIcon className="w-7 h-7" />
                 </span>
                 <h3 className="font-semibold text-lg text-navy">{step.title}</h3>

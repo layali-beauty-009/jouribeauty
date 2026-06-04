@@ -19,6 +19,12 @@
   --color-clinical: #e6f2f0;
   --color-teal-dark: #0a3d45;
 
+  /* Gold accents (namabeauty-style details on teal base) */
+  --color-gold: #c4a574;
+  --color-gold-soft: #f0e6d3;
+  --color-gold-muted: #cdaea2;
+  --color-gold-dark: #8b7349;
+
   /* Harmonized “product tint” tokens (sage-teal, not purple/blue) */
   --color-lavender: #dcebe8;
   --color-lilac: #e4efed;
@@ -42,6 +48,7 @@ body {
   line-height: 1.75;
   background-color: var(--color-cream);
   color: var(--color-ink);
+  font-variant-numeric: lining-nums;
   -webkit-font-smoothing: antialiased;
 }
 
