@@ -23,7 +23,7 @@ export const businessConfig = {
   cod: {
     enabled: true,
     paymentLabel: "الدفع عند الاستلام",
-    deliveryPromise: "توصيل خلال 2–5 أيام عمل لكل الإمارات",
+    deliveryPromise: "توصيل خلال 1–3 أيام عمل لكل الإمارات",
     confirmationPromise: "نتصل لتأكيد طلبك قبل الشحن",
     returnGuarantee: "ضمان رضا 30 يوماً",
   },

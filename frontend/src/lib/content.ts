@@ -151,7 +151,7 @@ export function getHomeContent(products: Product[]) {
     trustStrip: [
       { icon: "shield", title: "وضوح المكوّنات", text: "تركيز معلن لكل سيروم" },
       { icon: "cod", title: businessConfig.cod.paymentLabel, text: "ادفعي عند الاستلام" },
-      { icon: "truck", title: "توصيل الإمارات", text: "2–5 أيام عمل" },
+      { icon: "truck", title: "توصيل الإمارات", text: "1–3 أيام عمل" },
       { icon: "vegan", title: "نظيف وواعي", text: "فيجان · خالي من القسوة" },
     ],
   };

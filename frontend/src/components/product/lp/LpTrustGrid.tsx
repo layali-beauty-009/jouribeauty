@@ -4,7 +4,7 @@ import { displayText } from "@/lib/format";
 
 const items: { icon: BrandIconName; title: string; sub: string }[] = [
   { icon: "cod", title: businessConfig.cod.paymentLabel, sub: "بدون دفع أونلاين" },
-  { icon: "truck", title: "توصيل 2–5 أيام", sub: "كل إمارات الدولة" },
+  { icon: "truck", title: "توصيل 1–3 أيام", sub: "كل إمارات الدولة" },
   { icon: "shield", title: "ضمان 30 يوم", sub: "استرجاع كامل" },
   { icon: "vegan", title: "فيجان", sub: "خالي من القسوة" },
 ];
