@@ -29,7 +29,7 @@ export function formatPriceParts(amount: number) {
   };
 }
 
-/** نص عربي مع أرقام غربية + عملة موحّدة */
+/** نص عربي مع أرقام غربية */
 export function displayText(text: string): string {
-  return toWesternDigits(text.replace(/د\.إ/g, businessConfig.market.currencyLabel));
+  return toWesternDigits(text.replace(/درهم إماراتي/g, businessConfig.market.currencyLabel));
 }

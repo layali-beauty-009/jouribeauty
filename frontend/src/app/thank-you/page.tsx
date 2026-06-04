@@ -17,7 +17,7 @@ export default async function ThankYouPage({ searchParams }: Props) {
         {total && (
           <>
             <br />
-            <span className="font-semibold text-navy">المجموع: {total} درهم إماراتي</span>
+            <span className="font-semibold text-navy">المجموع: {total} د.إ</span>
           </>
         )}
       </p>
