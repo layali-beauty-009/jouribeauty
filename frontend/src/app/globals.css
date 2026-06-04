@@ -75,3 +75,29 @@ html[dir="rtl"] .tabular-nums {
   background-clip: text;
   color: transparent;
 }
+
+/* Checkout / conversion — gold luxury surfaces */
+.checkout-surface {
+  background: linear-gradient(165deg, #fffdf8 0%, #f8f0e4 42%, #f0e6d3 100%);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 55%, transparent);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.9) inset,
+    0 8px 28px rgb(196 165 116 / 0.22);
+}
+
+.checkout-cta {
+  background: linear-gradient(135deg, #e8d4b4 0%, #c4a574 38%, #a8895a 100%);
+  color: var(--color-teal-dark);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.35) inset,
+    0 6px 20px rgb(168 137 90 / 0.45);
+}
+
+.checkout-cta:hover {
+  background: linear-gradient(135deg, #f0e0c8 0%, #d4b896 40%, #b89868 100%);
+}
+
+.checkout-trust-pill {
+  background: linear-gradient(180deg, #fffefb 0%, #f5ebe0 100%);
+  border: 1px solid color-mix(in srgb, var(--color-gold) 40%, transparent);
+}

@@ -129,11 +129,27 @@ export function CartDrawer() {
         aria-modal="true"
         aria-label={view === "cart" ? "سلة التسوق" : "إتمام الطلب"}
       >
-        <header className="flex shrink-0 items-center justify-between border-b border-mist px-4 py-4">
+        <header
+          className={`flex shrink-0 items-center justify-between px-4 py-4 ${
+            view === "checkout"
+              ? "border-b-2 border-gold/35 bg-gradient-to-l from-gold-soft/60 via-white to-cream"
+              : "border-b border-mist"
+          }`}
+        >
           <div className="flex items-center gap-2">
-            <h2 className="text-base font-bold text-navy">
-              {view === "cart" ? "سلة التسوق" : "إتمام الطلب"}
-            </h2>
+            {view === "checkout" && (
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gold/15 ring-1 ring-gold/40">
+                <IconShoppingBag className="h-4 w-4 text-gold-dark" aria-hidden />
+              </span>
+            )}
+            <div>
+              <h2 className="text-base font-extrabold text-navy">
+                {view === "cart" ? "سلة التسوق" : "إتمام الطلب"}
+              </h2>
+              {view === "checkout" && (
+                <p className="text-[10px] font-semibold text-gold-dark">خطوة أخيرة قبل التوصيل</p>
+              )}
+            </div>
             {view === "cart" && <IconShoppingBag className="h-5 w-5 text-navy" aria-hidden />}
           </div>
 
@@ -145,7 +161,7 @@ export function CartDrawer() {
                   setErrors({});
                   setView("cart");
                 }}
-                className="text-sm font-semibold text-royal"
+                className="rounded-lg px-2 py-1 text-sm font-semibold text-royal ring-1 ring-gold/25 hover:bg-gold-soft/50"
               >
                 ← رجوع
               </button>
@@ -183,14 +199,14 @@ export function CartDrawer() {
             </div>
 
             {lines.length > 0 && (
-              <footer className="shrink-0 border-t border-mist bg-gold-soft/40 px-4 py-4">
-                <div className="mb-1 flex items-center justify-between">
-                  <span className="text-lg font-extrabold tabular-nums text-navy">
+              <footer className="shrink-0 border-t-2 border-gold/25 bg-gradient-to-t from-gold-soft/70 to-cream px-4 py-4">
+                <div className="mb-1 flex items-center justify-between rounded-xl bg-white/60 px-3 py-2 ring-1 ring-gold/20">
+                  <span className="text-xl font-extrabold tabular-nums text-gold-dark">
                     {formatPrice(total)}
                   </span>
                   <span className="text-sm font-bold text-navy">الإجمالي:</span>
                 </div>
-                <p className="mb-4 text-center text-[11px] text-muted">
+                <p className="mb-4 mt-2 text-center text-[11px] font-medium text-gold-dark">
                   {businessConfig.cod.paymentLabel} · بدون دفع أونلاين
                 </p>
                 <button
@@ -199,7 +215,7 @@ export function CartDrawer() {
                     setErrors({});
                     setView("checkout");
                   }}
-                  className="w-full rounded-2xl bg-navy py-4 text-sm font-bold text-pearl transition-colors hover:bg-royal"
+                  className="checkout-cta w-full rounded-2xl py-4 text-sm font-extrabold transition-all active:scale-[0.99]"
                 >
                   إتمام الطلب
                 </button>

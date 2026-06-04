@@ -19,8 +19,8 @@ export function CartLineItem({ line, onRemove }: Props) {
     : displayText(`${line.quantity} قطعة`);
 
   return (
-    <div className="flex gap-3 rounded-2xl bg-gold-soft/50 p-3 ring-1 ring-gold/15">
-      <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-white">
+    <div className="checkout-surface flex gap-3 rounded-2xl p-3">
+      <div className="h-20 w-20 shrink-0 overflow-hidden rounded-xl bg-white ring-2 ring-gold/30 shadow-sm">
         {img ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -41,7 +41,7 @@ export function CartLineItem({ line, onRemove }: Props) {
       </div>
 
       <div className="flex shrink-0 flex-col items-end justify-between py-0.5">
-        <span className="text-sm font-extrabold tabular-nums text-navy">
+        <span className="rounded-lg bg-gold/10 px-2 py-0.5 text-sm font-extrabold tabular-nums text-gold-dark ring-1 ring-gold/25">
           {formatPrice(line.price)}
         </span>
         <button
