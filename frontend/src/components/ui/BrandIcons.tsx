@@ -21,8 +21,14 @@ export function IconShield({ className = "w-6 h-6", ...props }: IconProps) {
 
 export function IconTruck({ className = "w-6 h-6", ...props }: IconProps) {
   return (
-    <svg className={className} {...base} {...props}>
-      <path d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10m10 0h4m-4 0a2 2 0 104 0m6 0a2 2 0 104 0M3 16h10" />
+    <svg className={className} {...base} strokeWidth={1.75} {...props}>
+      <path d="M10 17h4" />
+      <path d="M3 17h2" />
+      <path d="M19 17h2" />
+      <path d="M5 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z" />
+      <path d="M15 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z" />
+      <path d="M3 13V6a2 2 0 0 1 2-2h7v9H3Z" />
+      <path d="M12 13h2.5l3 4H21V9.2a1 1 0 0 0-.38-.78l-3.24-2.7A1 1 0 0 0 17.24 6H12v7Z" />
     </svg>
   );
 }
@@ -30,21 +36,19 @@ export function IconTruck({ className = "w-6 h-6", ...props }: IconProps) {
 export function IconPackage({ className = "w-6 h-6", ...props }: IconProps) {
   return (
     <svg className={className} {...base} strokeWidth={1.75} {...props}>
-      <path d="M12 22s7-4.5 7-11V6l-7-4-7 4v5c0 6.5 7 11 7 11Z" />
-      <path d="m9 12 2 2 4-4" />
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+      <path d="m3.3 7 8.7 5 8.7-5" />
+      <path d="M12 22V12" />
     </svg>
   );
 }
 
-/** دفع عند الاستلام — علبة + درهم */
+/** دفع عند الاستلام — رمز درهم */
 export function IconCod({ className = "w-6 h-6", ...props }: IconProps) {
   return (
     <svg className={className} {...base} strokeWidth={1.75} {...props}>
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
-      <path d="m3.3 7 8.7 5 8.7-5" />
-      <path d="M12 22V12" />
-      <path d="M7 14.5h4" />
-      <path d="M8 17h2" />
+      <path d="M12 2v20" />
+      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
     </svg>
   );
 }
