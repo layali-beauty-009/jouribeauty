@@ -95,6 +95,23 @@ export function IconCheck({ className = "w-6 h-6", ...props }: IconProps) {
   );
 }
 
+export function IconShoppingBag({ className = "w-6 h-6", ...props }: IconProps) {
+  return (
+    <svg className={className} {...base} strokeWidth={1.75} {...props}>
+      <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l-1 12H6L5 9Z" />
+    </svg>
+  );
+}
+
+export function IconPhone({ className = "w-6 h-6", ...props }: IconProps) {
+  return (
+    <svg className={className} {...base} strokeWidth={1.75} {...props}>
+      <path d="M8.25 3h7.5a1.5 1.5 0 011.5 1.5v15a1.5 1.5 0 01-1.5 1.5h-7.5a1.5 1.5 0 01-1.5-1.5v-15A1.5 1.5 0 018.25 3Z" />
+      <path d="M12 17.25h.01" />
+    </svg>
+  );
+}
+
 export function IconSparkles({ className = "w-6 h-6", ...props }: IconProps) {
   return (
     <svg className={className} {...base} {...props}>
