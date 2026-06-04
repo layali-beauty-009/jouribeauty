@@ -1,13 +1,15 @@
 import { encodePublicPath } from "@/lib/getProductImages";
 
-/** Brand logo — PNG شفاف في /public/brand/ */
+/**
+ * شعار جوري الوحيد — يُستخدم في:
+ * 1) SiteHeader  2) SiteFooter  3) favicon (app/icon.png + metadata)
+ */
+export const BRAND_LOGO_PATH = "/brand/ChatGPT Image Jun 4, 2026, 03_07_05 AM.png";
+
 export const brandLogo = {
-  default: "/brand/jouri-logo.svg",
-  onDark: "/brand/jouri-logo-on-dark.svg",
-  /** شعار جوري الرسمي (شفاف) */
-  png: "/brand/ChatGPT Image Jun 4, 2026, 03_07_05 AM.png",
+  png: BRAND_LOGO_PATH,
 } as const;
 
 export function getBrandLogoUrl(): string {
-  return encodePublicPath(brandLogo.png);
+  return encodePublicPath(BRAND_LOGO_PATH);
 }

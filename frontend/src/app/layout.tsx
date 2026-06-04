@@ -10,6 +10,7 @@ import { AnalyticsPixels } from "@/components/AnalyticsPixels";
 import { CartProvider } from "@/context/CartContext";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { businessConfig } from "@/config/business";
+import { getBrandLogoUrl } from "@/config/brandAssets";
 import "./globals.css";
 
 const arabic = IBM_Plex_Sans_Arabic({
@@ -39,6 +40,10 @@ export const metadata: Metadata = {
     template: `%s | ${businessConfig.brand.nameLocal}`,
   },
   description: businessConfig.brand.description,
+  icons: {
+    icon: [{ url: getBrandLogoUrl(), type: "image/png" }],
+    apple: [{ url: getBrandLogoUrl(), type: "image/png" }],
+  },
 };
 
 export default function RootLayout({
