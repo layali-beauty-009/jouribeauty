@@ -7,7 +7,7 @@ import { encodePublicPath } from "@/lib/getProductImages";
 
 const EXTENSIONS = [".png", ".jpg", ".jpeg", ".webp"] as const;
 
-/** بانر المجموعة — عرض كامل مثل ناما */
+/** بانر المجموعة — عرض كامل مثل namabeauty.shop */
 export function HomeCollectionHero() {
   const [fallbackIndex, setFallbackIndex] = useState(-1);
   const [missing, setMissing] = useState(false);
@@ -28,25 +28,23 @@ export function HomeCollectionHero() {
   }
 
   return (
-    <section className="w-full bg-white">
-      <div className="mx-auto w-full max-w-2xl lg:max-w-4xl">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt="جوري للجمال — ثلاث سيرومات: العين، التجاعيد، وإصلاح البشرة"
-          className="block h-auto w-full"
-          loading="eager"
-          decoding="async"
-          fetchPriority="high"
-          onError={() => {
-            if (fallbackIndex < EXTENSIONS.length - 1) {
-              setFallbackIndex((i) => i + 1);
-              return;
-            }
-            setMissing(true);
-          }}
-        />
-      </div>
+    <section className="w-full border-b border-mist/60 bg-white">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={src}
+        alt="جوري للجمال — ثلاث سيرومات: العين، التجاعيد، وإصلاح البشرة"
+        className="block h-auto w-full max-h-[min(72vh,520px)] object-cover object-center"
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+        onError={() => {
+          if (fallbackIndex < EXTENSIONS.length - 1) {
+            setFallbackIndex((i) => i + 1);
+            return;
+          }
+          setMissing(true);
+        }}
+      />
       <div className="border-b border-mist/80 bg-cream py-3 text-center">
         <Link
           href="#products"

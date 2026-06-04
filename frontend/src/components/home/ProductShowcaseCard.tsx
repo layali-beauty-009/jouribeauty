@@ -9,7 +9,6 @@ import { productsMarketing } from "@/config/productsMarketing";
 import { getHomeProductImage } from "@/config/homeImages";
 import { HomeProductPhoto } from "./HomeProductPhoto";
 import { PremiumImagePlaceholder } from "@/components/ui/PremiumImagePlaceholder";
-import { IconSparkles } from "@/components/ui/BrandIcons";
 import { getProductImages, encodePublicPath } from "@/lib/getProductImages";
 
 function Stars({ rating }: { rating: number }) {
@@ -32,16 +31,12 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
   const cardTitle = displayText(config?.cardHeadline ?? meta?.cardHeadline ?? product.name);
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-3xl border border-mist bg-white shadow-lg transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-xl">
+    <article className="group flex flex-col overflow-hidden rounded-3xl border border-mist bg-white shadow-md transition-all hover:-translate-y-0.5 hover:border-gold/40 hover:shadow-lg">
       <Link
         href={productHref}
         className="relative block aspect-[4/5] overflow-hidden bg-clinical focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold"
         aria-label={`عرض ${cardTitle}`}
       >
-        <span className="pointer-events-none absolute top-4 right-4 z-10 inline-flex items-center gap-1 rounded-full bg-gold px-2.5 py-1 text-[10px] font-extrabold text-navy ring-1 ring-navy/10">
-          <IconSparkles className="h-3 w-3 shrink-0" aria-hidden />
-          اكتشفي
-        </span>
         {hasHomeImageSlot && !usePlaceholder ? (
           <HomeProductPhoto
             slug={product.slug}
@@ -63,19 +58,27 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
         )}
       </Link>
 
-      <div className="flex flex-grow flex-col p-5 text-right">
-        <p className="text-[10px] font-semibold text-royal">
-          {meta?.routineLabel} · {meta?.badgeText}
+      <div className="flex flex-grow flex-col p-5 text-right sm:p-6">
+        <p className="text-[10px] font-bold tracking-wide text-royal">
+          {meta?.routineLabel}
+          {meta?.badgeText ? (
+            <>
+              <span className="mx-1.5 text-mist" aria-hidden>
+                ·
+              </span>
+              {meta.badgeText}
+            </>
+          ) : null}
         </p>
-        <h3 className="mt-1 text-lg font-extrabold leading-snug text-navy">
-          <Link href={productHref} className="hover:text-royal transition-colors">
+        <h3 className="mt-2 text-lg font-extrabold leading-snug text-navy sm:text-xl">
+          <Link href={productHref} className="transition-colors hover:text-royal">
             {cardTitle}
           </Link>
         </h3>
-        <p className="mt-2 line-clamp-4 flex-grow text-sm leading-relaxed text-muted">
+        <p className="mt-2.5 line-clamp-4 flex-grow text-sm leading-relaxed text-muted">
           {displayText(meta?.cardSubheadline ?? product.description)}
         </p>
-        <div className="mt-3 flex items-center gap-2">
+        <div className="mt-3 flex flex-wrap items-center justify-end gap-x-2 gap-y-1">
           {meta && <Stars rating={meta.rating} />}
           {meta && (
             <span className="text-xs text-muted">
@@ -84,20 +87,21 @@ export function ProductShowcaseCard({ product }: { product: Product }) {
           )}
         </div>
 
-        <div className="mt-5 flex items-center justify-between gap-3 border-t border-mist pt-4">
-          <div className="text-right">
-            <p className="text-[11px] text-muted">يبدأ من</p>
-            <p className="text-lg font-extrabold leading-tight text-navy tabular-nums sm:text-xl">
-              {price.amount} <span className="text-sm font-semibold">{price.currency}</span>
-            </p>
-          </div>
+        <div className="mt-5 flex items-end justify-between gap-4 border-t border-mist/80 pt-4">
           <Link
             href={productHref}
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-clinical px-4 py-2 text-sm font-extrabold text-navy transition-colors group-hover:bg-navy group-hover:text-pearl"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-navy px-5 py-2.5 text-sm font-bold text-pearl transition-colors hover:bg-royal"
           >
             اكتشفي
             <span aria-hidden>←</span>
           </Link>
+          <div className="text-right">
+            <p className="text-[11px] font-medium text-muted">يبدأ من</p>
+            <p className="text-xl font-extrabold leading-tight text-navy tabular-nums">
+              {price.amount}{" "}
+              <span className="text-sm font-semibold">{price.currency}</span>
+            </p>
+          </div>
         </div>
       </div>
     </article>

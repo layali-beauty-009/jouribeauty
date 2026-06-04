@@ -1,6 +1,6 @@
 import { IconPackage, IconSparkles, IconTruck } from "@/components/ui/BrandIcons";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { Num } from "@/components/ui/NumberedStep";
+import { toArabicIndicDigits } from "@/lib/format";
 
 type Step = { n: number; title: string; text: string };
 
@@ -29,8 +29,11 @@ export function HowItWorks({
                 key={step.n}
                 className="relative rounded-3xl border border-mist bg-white p-6 text-center shadow-sm transition-all hover:border-gold/35 hover:shadow-md md:p-7"
               >
-                <span className="absolute top-4 right-4 text-[10px] font-bold tracking-widest text-gold">
-                  <Num>{`0${step.n}`}</Num>
+                <span
+                  className="absolute top-4 right-4 font-sans text-2xl font-extrabold leading-none text-gold/90"
+                  aria-hidden
+                >
+                  {toArabicIndicDigits(step.n)}
                 </span>
                 <span className="mb-4 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gold/10 ring-1 ring-gold/35">
                   <StepIcon className="h-7 w-7 text-gold" />

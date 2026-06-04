@@ -12,6 +12,11 @@ export function toWesternDigits(value: string | number): string {
   });
 }
 
+/** أرقام عربية شرقية — لمراحل «كيف يعمل» مثل namabeauty.shop */
+export function toArabicIndicDigits(value: string | number): string {
+  return String(value).replace(/\d/g, (d) => EASTERN_DIGITS[parseInt(d, 10)]!);
+}
+
 export function formatNumber(n: number): string {
   return toWesternDigits(n.toLocaleString("en-US"));
 }

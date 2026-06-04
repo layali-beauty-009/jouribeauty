@@ -12,11 +12,18 @@ export function getHomeContent(products: Product[]) {
     announcement: `سيرومات سريرية بتركيز معلن • ${businessConfig.cod.paymentLabel} • توصيل الإمارات`,
     hero: {
       label: "صيدلية السيرومات · الإمارات",
-      brandLine: businessConfig.brand.nameLocal,
       title: "سيرومات سريرية — جمال يبدأ من وضوح التركيبة",
       subtitle: `ثلاث تركيبات مركّزة (${ingredients || "كافيين، باكوتشيول، ببتيد النحاس"}) — كل واحدة تستهدف همّك الحقيقي: العين، التجاعيد والبهتان، أو إصلاح الحاجز. حلال حيث ينطبق، تركيز معلن، و${businessConfig.cod.paymentLabel.toLowerCase()}.`,
       cta: "اختاري سيرومك",
       ctaSecondary: "لماذا جوري؟",
+      trustPills: [
+        { icon: "flask" as const, title: "تركيز معلن", sub: "لكل سيروم" },
+        { icon: "vegan" as const, title: "حلال", sub: "حيث ينطبق" },
+        { icon: "shield" as const, title: "GMP", sub: "معايير تصنيع" },
+        { icon: "heart" as const, title: "30 يوم", sub: "ضمان استرجاع" },
+      ],
+      trustSubline: `${businessConfig.cod.returnGuarantee} · ${businessConfig.cod.paymentLabel}`,
+      trustTagline: "تركيز معلن · توصيل الإمارات",
     },
     formulations: {
       label: "تركيباتنا",
@@ -117,7 +124,7 @@ export function getHomeContent(products: Product[]) {
     faq: {
       label: "أسئلة شائعة",
       title: "كل ما تحتاجين معرفته قبل الطلب",
-      subtitle: "إجابات مباشرة — كما في الصيدلية.",
+      subtitle: "كل شيء تحتاجين معرفته قبل الدفع عند الاستلام.",
       items: [
         {
           q: "هل جوري علامة صيدلية حقيقية؟",
