@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { businessConfig } from "@/config/business";
 
 const trustChips = [
@@ -14,9 +15,7 @@ export function SiteFooter() {
       <div className="max-w-lg md:max-w-2xl mx-auto">
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center gap-2.5 mb-4">
-            <span className="w-10 h-10 rounded-full bg-navy border border-electric/40 flex items-center justify-center text-pearl font-semibold">
-              {businessConfig.brand.monogram}
-            </span>
+            <BrandLogo variant="dark" iconClassName="h-10 w-auto max-w-[2.75rem]" />
             <div className="text-right leading-tight">
               <p className="text-sm font-bold">{businessConfig.brand.nameLocal}</p>
               <p className="text-[0.65rem] tracking-[0.2em] text-electric/90 uppercase">

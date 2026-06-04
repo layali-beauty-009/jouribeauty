@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { BrandLogo } from "@/components/brand/BrandLogo";
 import { businessConfig } from "@/config/business";
 import { useCart } from "@/context/CartContext";
 
@@ -17,12 +18,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 bg-cream/95 backdrop-blur-md border-b border-mist">
       <div className="mx-auto max-w-lg md:max-w-2xl lg:max-w-4xl px-4 py-3 flex items-center justify-between gap-4">
         <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
-          <span
-            className="w-11 h-11 rounded-full bg-navy flex items-center justify-center text-pearl text-lg font-semibold shadow-sm"
-            aria-hidden
-          >
-            {businessConfig.brand.monogram}
-          </span>
+          <BrandLogo variant="light" iconClassName="h-11 w-auto max-w-[3.25rem]" />
           <span className="text-right leading-tight">
             <span className="block text-sm font-bold text-navy tracking-tight">
               {businessConfig.brand.nameLocal}
