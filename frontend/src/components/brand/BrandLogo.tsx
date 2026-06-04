@@ -5,6 +5,7 @@ import { brandLogo } from "@/config/brandAssets";
 import { businessConfig } from "@/config/business";
 
 type Variant = "light" | "dark";
+type BrandLogoSrc = (typeof brandLogo)[keyof typeof brandLogo];
 
 type Props = {
   variant?: Variant;
@@ -17,7 +18,7 @@ export function BrandLogo({
   className = "",
   iconClassName = "h-11 w-auto",
 }: Props) {
-  const [src, setSrc] = useState(
+  const [src, setSrc] = useState<BrandLogoSrc>(
     variant === "dark" ? brandLogo.onDark : brandLogo.png,
   );
   const [failed, setFailed] = useState(false);
