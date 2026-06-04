@@ -43,12 +43,14 @@ export function IconPackage({ className = "w-6 h-6", ...props }: IconProps) {
   );
 }
 
-/** دفع عند الاستلام — رمز درهم */
+/** دفع عند الاستلام — ورقة نقد + تأكيد (مو رمز $) */
 export function IconCod({ className = "w-6 h-6", ...props }: IconProps) {
   return (
     <svg className={className} {...base} strokeWidth={1.75} {...props}>
-      <path d="M12 2v20" />
-      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      <rect x="2" y="5" width="20" height="13" rx="2" />
+      <circle cx="12" cy="11.5" r="2.25" />
+      <path d="M6 11.5h.01M18 11.5h.01" />
+      <path d="M8.5 19.5 11 22l5.5-6.5" />
     </svg>
   );
 }
