@@ -29,8 +29,22 @@ export function IconTruck({ className = "w-6 h-6", ...props }: IconProps) {
 
 export function IconPackage({ className = "w-6 h-6", ...props }: IconProps) {
   return (
-    <svg className={className} {...base} {...props}>
-      <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+    <svg className={className} {...base} strokeWidth={1.75} {...props}>
+      <path d="M12 22s7-4.5 7-11V6l-7-4-7 4v5c0 6.5 7 11 7 11Z" />
+      <path d="m9 12 2 2 4-4" />
+    </svg>
+  );
+}
+
+/** دفع عند الاستلام — علبة + درهم */
+export function IconCod({ className = "w-6 h-6", ...props }: IconProps) {
+  return (
+    <svg className={className} {...base} strokeWidth={1.75} {...props}>
+      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+      <path d="m3.3 7 8.7 5 8.7-5" />
+      <path d="M12 22V12" />
+      <path d="M7 14.5h4" />
+      <path d="M8 17h2" />
     </svg>
   );
 }

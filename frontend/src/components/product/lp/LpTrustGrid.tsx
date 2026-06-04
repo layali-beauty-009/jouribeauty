@@ -16,8 +16,8 @@ export function LpTrustGrid() {
       <div className="mx-auto grid max-w-lg grid-cols-2 gap-3 px-4 py-5 sm:gap-5">
         {items.map((item) => (
           <div key={item.title} className="flex min-w-0 items-center gap-3 sm:gap-4">
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gold/15 ring-1 ring-gold/40 sm:h-12 sm:w-12">
-              <BrandIcon name={item.icon} className="h-5 w-5 text-gold" />
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-gold/15 ring-1 ring-gold/40 sm:h-12 sm:w-12">
+              <BrandIcon name={item.icon} className="h-6 w-6 text-gold" />
             </span>
             <div className="min-w-0 text-right">
               <p className="text-[11px] font-bold leading-tight sm:text-xs">{displayText(item.title)}</p>
