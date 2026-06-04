@@ -20,10 +20,17 @@ export function UpsellModal({ product, onAccept, onSkip }: Props) {
   }, [onSkip, product.name]);
 
   return (
-    <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-black/50">
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="upsell-title"
+    >
       <div className="bg-white rounded-3xl p-6 max-w-sm w-full shadow-xl">
         <p className="text-[0.65rem] text-royal font-semibold tracking-[0.2em]">عرض لمرة واحدة</p>
-        <h3 className="font-sans text-base font-bold text-navy mt-2">{product.upsell.label}</h3>
+        <h3 id="upsell-title" className="font-sans text-base font-bold text-navy mt-2">
+          {product.upsell.label}
+        </h3>
         <p className="text-sm text-muted mt-2 leading-relaxed">{product.upsell.subtitle}</p>
         <p className="text-2xl font-bold text-navy mt-4">{formatPrice(product.upsell.price)}</p>
         <p className="text-xs text-muted mt-1">{businessConfig.cod.paymentLabel}</p>
