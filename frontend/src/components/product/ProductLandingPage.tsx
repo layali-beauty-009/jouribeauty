@@ -40,6 +40,18 @@ export function ProductLandingPage({ product, related }: Props) {
   const selected = product.offers.find((o) => o.id === offerId) ?? product.offers[0];
   const t = product.theme;
   const [faqOpen, setFaqOpen] = useState<number | null>(0);
+  const [showStickyCta, setShowStickyCta] = useState(false);
+
+  useEffect(() => {
+    const anchor = document.getElementById("lp-offer-cta");
+    if (!anchor) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setShowStickyCta(!entry.isIntersecting),
+      { threshold: 0, rootMargin: "0px 0px -40px 0px" },
+    );
+    observer.observe(anchor);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     trackEvent("ViewContent", {
@@ -54,6 +66,7 @@ export function ProductLandingPage({ product, related }: Props) {
     () => `ابدئي ${product.routineNameLocal} الآن · ${formatPrice(selected.price)}`,
     [product.routineNameLocal, selected.price],
   );
+  const stickyCtaLabel = ctaLabel;
 
   const onCta = () => addOffer(product, offerId);
 
@@ -533,15 +546,17 @@ export function ProductLandingPage({ product, related }: Props) {
 
       <LpRelatedProducts related={related} accentColor="#2a7a85" />
 
-      <div className="fixed bottom-0 inset-x-0 z-50 p-3 bg-cream/95 backdrop-blur-md border-t border-mist">
-        <button
-          type="button"
-          onClick={onCta}
-          className="w-full max-w-lg mx-auto block rounded-2xl py-4 bg-navy text-pearl font-bold text-sm shadow-lg hover:bg-royal transition-colors"
-        >
-          {ctaLabel}
-        </button>
-      </div>
+      {showStickyCta && (
+        <div className="fixed bottom-0 inset-x-0 z-50 border-t border-mist bg-cream/95 p-3 backdrop-blur-md">
+          <button
+            type="button"
+            onClick={onCta}
+            className="mx-auto block min-h-[52px] w-full max-w-lg rounded-2xl bg-navy py-4 text-sm font-bold text-pearl shadow-lg transition-all hover:bg-royal active:scale-[0.98]"
+          >
+            {stickyCtaLabel}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
