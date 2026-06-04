@@ -439,9 +439,12 @@ export const products: ProductConfig[] = [
       subtitle: "عرض خاص بعد الطلب",
     },
     images: {
-      heroBeforeAfter: "",
-      heroProduct: "",
-      problemImage: "",
+      heroBeforeAfter:
+        "/products/ghk-cu-barrier-repair-serum/ChatGPT Image Jun 4, 2026, 01_20_17 AM.png",
+      problemImage:
+        "/products/ghk-cu-barrier-repair-serum/WhatsApp Image 2026-06-04 at 01.15.52.jpeg",
+      heroProduct:
+        "/products/ghk-cu-barrier-repair-serum/ChatGPT Image Jun 4, 2026, 01_20_25 AM.png",
       ingredientImage: "",
       authorityImage: "",
       lifestyleImage: "",
